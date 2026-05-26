@@ -1,0 +1,4 @@
+interface:
+  display_name: "Figma 组件自动命名"
+  short_description: "按 Naming_Rules 字段规则和 Naming_Component_Notes 执行口径命名节点；中文侧用 =、machine side 用 # 表达变体；跳过 COMPONENT_SET 重命名"
+  default_prompt: "使用 $figma-name-components 审核并修正 Figma 节点命名。先读取 Naming_Rules.md 与 Naming_Component_Notes.md；把 Naming_Rules 当 4 个字段与基础命名语法来源，把 Naming_Component_Notes 当本项目全部执行说明与 Figma 写回口径来源。不要重命名 COMPONENT_SET，它只作为变体结构容器读取；真正命名对象是子 COMPONENT 和其他符合规则的业务节点。变体命名规则为：无变体时使用 display_name｜component_id；有变体时使用 display_name=中文变体｜component_id#variant_id；Figma 变体子组件直接写回 属性名=中文变体｜component_id#variant_id，不要动左侧 属性名= 字段。对用户展示组件名、当前名称、建议标准名称、修正结果和冲突标题时，始终使用完整名称。只有在视觉完全一致且 display_name 不同时，才输出一份纵向追加的 HTML 冲突报告；display_name 相同但 component_id 或 variant_id 不同，直接自动修正，不进入报告。最终回复必须包含：自动修正清单、跳过清单、待确认冲突组清单、HTML 报告路径；如果没有冲突，也要明确写无待确认冲突。"
