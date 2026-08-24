@@ -114,6 +114,8 @@ li::before { content: ""; position: absolute; left: 0px; top: 0.78em; width: 5px
 
 .merchant-proof-text { flex: 1 1 auto; color: var(--body); font-size: 14px; line-height: 1.78; }
 
+.merchant-proof-list li.merchant-proof-note { display: block; margin: 12px 0 12px; padding-left: 50px; color: var(--ink); font-size: 18px; line-height: 1.6; font-weight: 650; }
+
 .behavior-dimensions-intro { margin: 0 0 18px; color: var(--body); font-size: 14px; line-height: 1.78; }
 
 .behavior-dimensions { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
@@ -150,6 +152,7 @@ li::before { content: ""; position: absolute; left: 0px; top: 0.78em; width: 5px
   .behavior-dimension + .behavior-dimension { border-left: 0; border-top: 1px solid var(--line); }
   .merchant-proof-list li { align-items: flex-start; gap: 14px; min-height: 0; }
   .merchant-proof-icon { width: 30px; }
+  .merchant-proof-list li.merchant-proof-note { padding-left: 44px; }
 }
 </style>
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -230,23 +233,24 @@ li::before { content: ""; position: absolute; left: 0px; top: 0.78em; width: 5px
         <ul class="merchant-proof-list">
           <li>
             <img class="merchant-proof-icon" src="https://gw.alicdn.com/imgextra/i1/O1CN01aejdeeYcnAF0RZG5_!!6000000001356-2-tps-219-174.png" alt="" aria-hidden="true" />
-            <span class="merchant-proof-text">这只狗曾经咬坏房间设施：平台可以要求押金、保险，或让酒店人工确认后再接单。</span>
+            <span class="merchant-proof-text">该狗狗曾经咬坏房间设施2次：平台已关闭该用户免押金服务。</span>
           </li>
           <li>
             <img class="merchant-proof-icon" src="https://gw.alicdn.com/imgextra/i1/O1CN01aejdeeYcnAF0RZG5_!!6000000001356-2-tps-219-174.png" alt="" aria-hidden="true" />
-            <span class="merchant-proof-text">这只狗容易叫：但没有破坏行为，酒店可以安排偏远客房，减少其他住客投诉；或者限制单独留房</span>
+            <span class="merchant-proof-text">该狗狗容易叫，曾遭到1次投诉：平台建议为该用户安排偏远客房，减少其他住客投诉；或者限制单独留房。</span>
           </li>
           <li>
             <img class="merchant-proof-icon" src="https://gw.alicdn.com/imgextra/i1/O1CN01aejdeeYcnAF0RZG5_!!6000000001356-2-tps-219-174.png" alt="" aria-hidden="true" />
-            <span class="merchant-proof-text">这只狗适应笼具：酒店可以接受短时单独留房，但要求放入航空箱或宠物笼。</span>
+            <span class="merchant-proof-text">该狗狗乱尿污染酒店设施：平台建议提前配置宠物尿垫、清洁包。</span>
+          </li>
+          <li class="merchant-proof-note"><span class="highlight">好信用=好权益</span>（针对不可留房酒店，因为好信用可以享受留房）</li>
+          <li>
+            <img class="merchant-proof-icon" src="https://gw.alicdn.com/imgextra/i1/O1CN01aejdeeYcnAF0RZG5_!!6000000001356-2-tps-219-174.png" alt="" aria-hidden="true" />
+            <span class="merchant-proof-text">该狗狗适应笼具，且不爱叫：平台建议接受狗狗短时单独留房，可要求放入航空箱。</span>
           </li>
           <li>
             <img class="merchant-proof-icon" src="https://gw.alicdn.com/imgextra/i1/O1CN01aejdeeYcnAF0RZG5_!!6000000001356-2-tps-219-174.png" alt="" aria-hidden="true" />
-            <span class="merchant-proof-text">这只宠物乱尿污染酒店设施：下次可提前配置宠物尿垫、清洁包，严重者收取清洁费。</span>
-          </li>
-          <li>
-            <img class="merchant-proof-icon" src="https://gw.alicdn.com/imgextra/i1/O1CN01aejdeeYcnAF0RZG5_!!6000000001356-2-tps-219-174.png" alt="" aria-hidden="true" />
-            <span class="merchant-proof-text">这只宠物多次无异常入住：可以免宠物押金，或提高免押额度。</span>
+            <span class="merchant-proof-text">该狗狗历史12次入住均无异常：平台可以提高免押额度。</span>
           </li>
         </ul>
       </div>
@@ -256,17 +260,17 @@ li::before { content: ""; position: absolute; left: 0px; top: 0.78em; width: 5px
         <div class="grid three">
           <div class="card">
             <span class="label">对用户</span>
-            <span class="card-title">更少解释，更少翻车</span>
-            <p>不用每次重复解释宠物情况；高质量携宠记录可以换来免押、低押和更多可订酒店；到店沟通成本降低，也更少遇到临时拒宠、临时加价和临时改规则。</p>
+            <span class="card-title">更少解释，更多特权</span>
+            <p>不用每次重复解释宠物情况；到店沟通成本降低，也更少遇到到店被拒。高质量携宠记录可以换来免押等权益。</p>
           </div>
           <div class="card">
             <span class="label">对酒店</span>
-            <span class="card-title">不再盲接宠物</span>
-            <p>酒店可以提前知道宠物风险，按风险安排房间和押金，减少其他住客投诉；出现损坏时有证据、有平台、有赔付路径，也能把接待经验沉淀成规则。</p>
+            <span class="card-title">分层运营</span>
+            <p>酒店可以提前知道宠物风险，并采取针对性方案，减少其他住客投诉；出现损坏时有证据、有平台、有赔付路径。</p>
           </div>
           <div class="card">
             <span class="label">对平台</span>
-            <span class="card-title">沉淀真实入住行为</span>
+            <span class="card-title">沉淀宠物行为数据资产</span>
             <p>飞猪不是只沉淀酒店政策，而是沉淀真实宠物入住行为。数据越多，匹配越准；匹配越准，酒店越敢开放供给；供给越多，用户越愿意把宠物档案留在飞猪。</p>
           </div>
         </div>
