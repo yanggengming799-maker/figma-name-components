@@ -41,6 +41,8 @@ p + p { margin-top: var(--space-para); }
 
 .intro { margin-top: 24px; max-width: none; }
 
+.research-banner { display: block; width: 100%; height: auto; margin-top: 20px; }
+
 .section-banner { margin-bottom: 46px; }
 
 .section-title-xl { margin: 0 0 14px; color: var(--ink); font-size: 32px; line-height: 1.28; font-weight: 700; letter-spacing: 0; }
@@ -168,6 +170,10 @@ li::before { content: ""; position: absolute; left: 0px; top: 0.78em; width: 5px
 
 .hotel-standard ul { margin-top: 18px; }
 
+.hotel-standard li { display: flex; justify-content: space-between; gap: 16px; }
+
+.hotel-standard li .requirement-label { flex: 0 0 auto; margin-left: auto; text-align: right; color: var(--body); }
+
 .ecosystem-row { display: grid; grid-template-columns: 150px 1fr 230px; gap: 24px; padding: 26px 0px; border-bottom: 1px solid var(--line); }
 
 .ecosystem-row:first-child { border-top: 1px solid var(--line); }
@@ -211,6 +217,7 @@ li::before { content: ""; position: absolute; left: 0px; top: 0.78em; width: 5px
       <p class="meta">前置调研</p>
       <h1>政府官方背书|打造宠物行业权威数字化基础设施</h1>
       <p class="lead">给每只宠物建立一个唯一、可查询、可追溯、带官方背书的数字身份，用来解决宠物行业长期存在的身份混乱、溯源困难、权责不清问题。郑州二七区率先落地常态化办理，中国宠信网同步开放官方查询功能，目标是形成“一宠一码、唯一备案、全国通认”的宠物数字身份基础设施。</p>
+      <img class="research-banner" src="https://gw.alicdn.com/imgextra/i3/O1CN01BqZplxWrICF5BktU_!!6000000002757-2-tps-2556-996.png" alt="宠物数字身份基础设施示意图" loading="eager" decoding="async" />
     </header>
 
     <section id="profile">
@@ -335,30 +342,30 @@ li::before { content: ""; position: absolute; left: 0px; top: 0.78em; width: 5px
             <h3 class="hotel-standard-title">准入标准：</h3>
             <p class="hotel-standard-summary">证明“这只宠物是谁、资料是否符合酒店规则”。</p>
             <ul>
-              <li>宠物唯一身份：通过「鼻纹+扫脸」技术证明宠物身份。</li>
-              <li>基础信息完整：类型、品种、体重、疫苗证明。</li>
-              <li>酒店规则匹配：类型限制、品种限制、体重限制、数量限制、疫苗证明。</li>
+              <li><span>宠物唯一身份：通过「鼻纹+扫脸」技术证明宠物身份。</span><span class="requirement-label">（强要求）</span></li>
+              <li><span>基础信息完整：类型、品种、体重、疫苗证明。</span><span class="requirement-label">（强要求）</span></li>
+              <li><span>酒店规则匹配：类型限制、品种限制、体重限制、数量限制、疫苗证明。</span><span class="requirement-label">（强要求）</span></li>
             </ul>
           </div>
           <div class="hotel-standard">
             <h3 class="hotel-standard-title">接待标准：</h3>
             <p class="hotel-standard-summary">定义“宠物友好酒店应该具备的服务能力”。</p>
             <ul>
-              <li>全部房型/部分房型可携宠入住。</li>
-              <li>有可进入/不可进入区域说明。</li>
-              <li>提供宠物早餐</li>
-              <li>提供基本宠物用品包</li>
-              <li>可单独留宠物在房间</li>
-              <li>有宠物房间清洁 SOP</li>
+              <li><span>全部房型/部分房型可携宠入住。</span><span class="requirement-label">（强要求）</span></li>
+              <li><span>有可进入/不可进入区域说明。</span><span class="requirement-label">（强要求）</span></li>
+              <li><span>提供宠物早餐</span><span class="requirement-label">（强要求）</span></li>
+              <li><span>提供基本宠物用品包</span><span class="requirement-label">（强要求）</span></li>
+              <li><span>可单独留宠物在房间</span><span class="requirement-label">（弱要求）</span></li>
+              <li><span>有宠物房间清洁 SOP</span><span class="requirement-label">（弱要求）</span></li>
             </ul>
           </div>
           <div class="hotel-standard">
             <h3 class="hotel-standard-title">权益标准：</h3>
             <p class="hotel-standard-summary">定义“什么样的用户和宠物，可以享受什么样的酒店权益”</p>
             <ul>
-              <li>88VIP 免清洁费</li>
-              <li>88VIP 享宠物早餐</li>
-              <li>高分（优质入住记录）宠物免押金</li>
+              <li><span>88VIP 免清洁费</span><span class="requirement-label">（强要求）</span></li>
+              <li><span>88VIP 享宠物早餐</span><span class="requirement-label">（强要求）</span></li>
+              <li><span>高分（优质入住记录）宠物免押金</span><span class="requirement-label">（强要求）</span></li>
             </ul>
           </div>
         </div>
