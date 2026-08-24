@@ -15,6 +15,8 @@ section { padding: var(--space-section) 0; border-bottom: 1px solid var(--line);
 
 section:last-child { border-bottom: 0px; padding-bottom: 0px; }
 
+#profile { border-bottom: 0; }
+
 h1, h2, h3, p { margin: 0px; }
 
 h1, h2 { color: var(--ink); font-size: 24px; line-height: 1.28; font-weight: 700; letter-spacing: 0px; }
@@ -95,6 +97,10 @@ p + p { margin-top: var(--space-para); }
 
 .value-grid .card + .card { border-left: 1px solid var(--line); }
 
+.value-grid .card:first-child { padding-left: 0; }
+
+.value-grid .card:last-child { padding-right: 0; }
+
 .card { padding: 26px 28px; border: 0px; border-radius: 14px; background: var(--soft); color: var(--body); backdrop-filter: blur(14px); }
 
 .card-title { display: block; margin-bottom: 8px; color: var(--ink); }
@@ -135,6 +141,10 @@ li::before { content: ""; position: absolute; left: 0px; top: 0.78em; width: 5px
 .behavior-dimension { min-width: 0; padding: 28px 24px 34px; }
 
 .behavior-dimension + .behavior-dimension { border-left: 1px solid var(--line); }
+
+.behavior-dimension:first-child { padding-left: 0; }
+
+.behavior-dimension:last-child { padding-right: 0; }
 
 .behavior-dimension-title { margin: 0 0 20px; color: var(--ink); font-size: 16px; line-height: 1.48; font-weight: 700; }
 
@@ -185,13 +195,13 @@ li::before { content: ""; position: absolute; left: 0px; top: 0.78em; width: 5px
 
     <section id="profile">
       <div class="section-banner">
-        <p class="meta">Part 1（正文）</p>
-        <h2 class="section-title-xl">飞猪携宠入住标准体系：让酒店有“据”可接，用户享受更好的携宠权益。</h2>
+        <p class="meta">Part 1</p>
+        <h2 class="section-title-xl">飞猪携宠入住标准：让酒店有“据”可接，用户享受更好的携宠权益。</h2>
         <p class="section-summary">根据酒店、陆运当前携宠入住要求定义宠物档案字段，再基于宠物档案衍生“行业准入标准”和“权益标准”。</p>
       </div>
 
-      <p class="meta">Part 1</p>
-      <h2>宠物档案系统：让用户更顺利入住，让酒店更放心接待</h2>
+      <p class="meta">01</p>
+      <h2>宠物档案体系，</h2>
       <p class="lead">档案系统包含两层：用户自填的<span class="highlight">宠物基础信息</span>，以及酒店反向补全的<span class="highlight">宠物真实入住行为信息</span>，沉淀宠物在真实酒店场景里的入住表现。</p>
 
       <div class="layer-grid">
@@ -292,7 +302,7 @@ li::before { content: ""; position: absolute; left: 0px; top: 0.78em; width: 5px
           <div class="card">
             <span class="label">对平台</span>
             <span class="card-title">沉淀宠物行为数据资产</span>
-            <p>飞猪不是只沉淀酒店政策，而是沉淀真实宠物入住行为。数据越多，匹配越准；匹配越准，酒店越敢开放供给；供给越多，用户越愿意把宠物档案留在飞猪。</p>
+            <p>飞猪不是只沉淀酒店政策，而是沉淀真实宠物入住行为。数据越多，匹配越准；携程可以复制“宠物友好标签”，也可以引导用户填写宠物档案，但很难复制“每只宠物真实住过之后形成的入住行为档案”。</p>
           </div>
         </div>
       </div>
@@ -301,6 +311,7 @@ li::before { content: ""; position: absolute; left: 0px; top: 0.78em; width: 5px
         最终壁垒不是宠物友好标签，而是真实入住后的宠物行为数据。
         <span>携程可以复制“宠物友好标签”，也可以引导用户填写宠物档案，但很难复制“每只宠物真实住过之后形成的入住行为档案”。</span>
       </div>
+
     </section>
 
     <section id="ecosystem">
