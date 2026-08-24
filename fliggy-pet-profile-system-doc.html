@@ -1,0 +1,378 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><style>
+@charset "utf-8";
+
+:root { --bg: #ffffff; --ink: #0F131A; --body: #919499; --muted: #919499; --accent: #6666FF; --line: rgba(17, 17, 17, 0.12); --soft: rgba(255, 255, 255, 0.9); --max: 1180px; --space-section: 76px; --space-block: 64px; --space-card: 34px; --space-para: 16px; }
+
+* { box-sizing: border-box; }
+
+html, body { margin: 0px; background-color: var(--bg); background-image: url("https://gw.alicdn.com/imgextra/i4/O1CN019rnY3FtbkuH7nOHV_!!6000000001611-2-tps-3840-1925.png"); background-repeat: no-repeat; background-position: center top; background-size: cover; background-attachment: fixed; color: var(--body); font-family: "PingFang SC", -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", Arial, sans-serif; font-size: 14px; line-height: 1.78; letter-spacing: 0px; -webkit-font-smoothing: antialiased; text-rendering: optimizelegibility; }
+
+main { width: min(var(--max), calc(100vw - 48px)); margin: 0px auto; padding: 56px 0px 88px; }
+
+header { padding: 0px 0px 56px; border-bottom: 1px solid var(--line); }
+
+section { padding: var(--space-section) 0; border-bottom: 1px solid var(--line); }
+
+section:last-child { border-bottom: 0px; padding-bottom: 0px; }
+
+h1, h2, h3, p { margin: 0px; }
+
+h1, h2 { color: var(--ink); font-size: 24px; line-height: 1.28; font-weight: 700; letter-spacing: 0px; }
+
+h1 { font-size: 24px; }
+
+h3, .statement, .card-title, .layer-title, .ecosystem-row strong, .journey-row strong { color: var(--ink); font-size: 18px; line-height: 1.48; font-weight: 650; letter-spacing: 0px; }
+
+h3 { margin: 0px 0px 18px; }
+
+p + p { margin-top: var(--space-para); }
+
+.meta, .label, .note, li, td, th, .lead, .intro, .output, .small-note, .layer-item p, .card p, .ecosystem-row p, .journey-row p { color: var(--body); font-size: 14px; line-height: 1.78; font-weight: 400; }
+
+.meta { font-weight: 400; margin-bottom: 12px; }
+
+.doc-kicker { font-weight: 400; }
+
+.highlight { color: var(--accent); }
+
+.lead { margin-top: 20px; max-width: none; }
+
+.intro { margin-top: 24px; max-width: none; }
+
+.statement { margin-top: 36px; padding: 28px 32px; border: 0px; border-radius: 14px; background: var(--soft); color: var(--ink); backdrop-filter: blur(14px); }
+
+.statement span { display: block; margin-top: 14px; color: var(--body); font-size: 14px; font-weight: 400; }
+
+.block { margin-top: var(--space-block); }
+
+.statement + .block { margin-top: 56px; }
+
+.block + .block { margin-top: var(--space-block); }
+
+.layer-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); margin-top: 36px; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+
+.layer-item { min-width: 0; padding: 28px 28px 34px 0; }
+
+.layer-item + .layer-item { padding-left: 28px; border-left: 1px solid var(--line); }
+
+.layer-kicker { margin: 0 0 28px; color: var(--muted); font-size: 14px; line-height: 1.4; font-weight: 400; }
+
+.layer-title { margin: 0 0 24px; color: var(--ink); font-size: 18px; line-height: 1.48; font-weight: 650; }
+
+.layer-item p { color: var(--body); font-size: 14px; line-height: 1.78; }
+
+.layer-item p + p { margin-top: 22px; }
+
+.after-grid-note { margin: 28px 0 34px; color: var(--body); font-size: 14px; line-height: 1.78; }
+
+.bridge-title { margin: 26px 0 10px; max-width: none; width: 100%; color: var(--ink); font-size: 18px; line-height: 1.6; font-weight: 650; }
+
+.layer-banner { display: block; width: 100%; height: auto; margin: 0 0 34px; }
+
+.layer-solution { margin-top: 28px; }
+
+.layer-solution-label { margin: 0 0 8px; color: var(--body); font-size: 14px; line-height: 1.78; font-weight: 400; }
+
+.layer-solution-title { margin: 0; color: var(--ink); font-size: 18px; line-height: 1.48; font-weight: 650; }
+
+.layer-item p.layer-solution-title { margin: 0; color: var(--ink); font-size: 18px; line-height: 1.48; font-weight: 650; }
+
+.layer-item p.layer-solution-label { margin: 0 0 8px; color: var(--body); font-size: 14px; line-height: 1.78; font-weight: 400; }
+
+.grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; margin-top: var(--space-card); }
+
+.grid.three { grid-template-columns: repeat(3, 1fr); }
+
+.card { padding: 26px 28px; border: 0px; border-radius: 14px; background: var(--soft); color: var(--body); backdrop-filter: blur(14px); }
+
+.card-title { display: block; margin-bottom: 8px; color: var(--ink); }
+
+.label { display: block; margin-bottom: 8px; color: var(--body); font-weight: 400; }
+
+ul { margin: 20px 0px 0px; padding: 0px; list-style: none; }
+
+li { position: relative; padding-left: 17px; color: var(--body); }
+
+li + li { margin-top: 12px; }
+
+li::before { content: ""; position: absolute; left: 0px; top: 0.78em; width: 5px; height: 5px; border-radius: 50%; background: var(--ink); }
+
+.merchant-proof-list { margin-top: 26px; }
+
+.merchant-proof-list li {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding-left: 0;
+  min-height: 84px;
+}
+
+.merchant-proof-list li + li { margin-top: 18px; }
+
+.merchant-proof-list li::before { display: none; }
+
+.merchant-proof-icon { display: block; width: 104px; height: auto; flex: 0 0 auto; }
+
+.merchant-proof-text { flex: 1 1 auto; color: var(--body); font-size: 14px; line-height: 1.78; }
+
+.behavior-dimensions-intro { margin: 0 0 18px; color: var(--body); font-size: 14px; line-height: 1.78; }
+
+.behavior-dimensions { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+
+.behavior-dimension { min-width: 0; padding: 28px 24px 34px; }
+
+.behavior-dimension + .behavior-dimension { border-left: 1px solid var(--line); }
+
+.behavior-dimension-title { margin: 0 0 20px; color: var(--ink); font-size: 16px; line-height: 1.48; font-weight: 700; }
+
+.behavior-dimension p { color: var(--body); font-size: 14px; line-height: 1.78; }
+
+.ecosystem-row { display: grid; grid-template-columns: 150px 1fr 230px; gap: 24px; padding: 26px 0px; border-bottom: 1px solid var(--line); }
+
+.ecosystem-row:first-child { border-top: 1px solid var(--line); }
+
+.ecosystem-row strong { color: var(--ink); font-size: 18px; line-height: 1.48; }
+
+.output { color: var(--body); font-weight: 400; }
+
+.journey { margin-top: var(--space-card); border-top: 1px solid var(--line); }
+
+.journey-row { display: grid; grid-template-columns: 110px 150px 1fr; gap: 22px; padding: 24px 0px; border-bottom: 1px solid var(--line); }
+
+.journey-row strong { color: var(--ink); font-weight: 650; }
+
+@media (max-width: 820px) {
+  main { width: calc(-32px + 100vw); padding-top: 40px; }
+  .grid, .grid.three, .ecosystem-row, .journey-row, .layer-grid { grid-template-columns: 1fr; gap: 8px; }
+  .layer-item { padding: 24px 0 28px; }
+  .layer-item + .layer-item { border-left: 0; border-top: 1px solid var(--line); padding-left: 0; }
+  .behavior-dimensions { grid-template-columns: 1fr; }
+  .behavior-dimension { padding: 24px 0 28px; }
+  .behavior-dimension + .behavior-dimension { border-left: 0; border-top: 1px solid var(--line); }
+  .merchant-proof-list li { align-items: flex-start; gap: 14px; min-height: 0; }
+  .merchant-proof-icon { width: 76px; }
+}
+</style>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>飞猪宠物档案体系</title>
+  
+</head>
+<body>
+  <main>
+    <header>
+      <p class="meta doc-kicker">狗狗GO｜酒店方向文档</p>
+      <h1>飞猪宠物档案体系</h1>
+      <p class="lead">我们要做的不是“宠物友好酒店”，而是用<span class="highlight">阿里生态给宠物建立一个可核验、可授信、可保障的电子档案体系</span>，让酒店敢接、用户敢订、平台敢保。</p>
+      <p class="intro">这套体系分成两个最大的部分：第一部分是宠物电子化档案，解决“这只宠物是谁、真实入住表现如何”；第二部分是阿里生态，解决“怎么核验、怎么免押、怎么赔付、怎么延展到整趟旅行”。</p>
+    </header>
+
+    <section id="profile">
+      <p class="meta">Part 1</p>
+      <h2>宠物档案系统：让用户更顺利入住，让酒店更放心接待</h2>
+      <p class="lead">档案系统包含两层：用户自填的<span class="highlight">宠物基础信息</span>，以及酒店反向补全的<span class="highlight">宠物真实入住行为信息</span>，沉淀宠物在真实酒店场景里的入住表现。</p>
+
+      <div class="layer-grid">
+        <div class="layer-item">
+          <p class="layer-kicker">第一层</p>
+          <h3 class="layer-title">宠物基础信息</h3>
+          <p>用户在飞猪创建宠物档案，录入宠物类型、品种、体重、年龄、照片、疫苗证明、养宠许可证（飞猪的档案体系具备犬证的公信力）。</p>
+          <p>价值：让用户不用每次重新解释“我带的是一只什么样的宠物，有没有打疫苗，是否合规”。之后每一次携宠预订，都可以直接基于档案匹配酒店规则。</p>
+          <div class="layer-solution">
+            <p class="layer-solution-label">解决：</p>
+            <p class="layer-solution-title"><span class="highlight">是谁（这只宠物能不能住）</span></p>
+          </div>
+        </div>
+
+        <div class="layer-item">
+          <p class="layer-kicker">第二层（商家反馈，不直接对C端展示）</p>
+          <h3 class="layer-title">真实入住行为信息</h3>
+          <p>酒店可对携宠订单做轻量反馈，记录宠物本次入住“是否安静、是否造成破坏、是否需要深度清洁、是否有攻击性行为、主人是否配合处理”，沉淀到宠物档案系统中。</p>
+          <p>价值：平台告知酒店接待风险信号：判断“这个主人带这只宠物入住酒店，历史是不是一个低风险组合”，并服务于下一次押金、房型安排、保险和酒店接待建议。</p>
+          <div class="layer-solution">
+            <p class="layer-solution-label">解决：</p>
+            <p class="layer-solution-title"><span class="highlight">这只宠物怎么住</span></p>
+          </div>
+        </div>
+      </div>
+
+      <p class="bridge-title">通过宠物档案和入住行为反馈，飞猪把携宠入住从“<span class="highlight">一刀切门槛</span>”变成“<span class="highlight">分层管理</span>”。让酒店识别风险、更好接待，不因一只“坏狗狗”，影响其他“好狗狗”的入住体验。</p>
+
+      <p class="after-grid-note">平台真正判断的是：这只宠物在真实酒店场景下是否安静、是否破坏、是否适合单独留房，以及主人是否配合处理相关问题。</p>
+
+      <img class="layer-banner" src="https://gw.alicdn.com/imgextra/i1/O1CN01JxLnAPNMT2KAXa10_!!6000000000243-2-tps-5192-1438.png" alt="宠物档案示意图" loading="eager" decoding="async" />
+
+      <p class="behavior-dimensions-intro">酒店可轻量反馈的入住行为维度：</p>
+      <div class="behavior-dimensions">
+        <div class="behavior-dimension">
+          <h3 class="behavior-dimension-title">扰客风险</h3>
+          <p>短时吠叫提醒后改善算轻微问题；持续吠叫严重影响其他住客。</p>
+        </div>
+        <div class="behavior-dimension">
+          <h3 class="behavior-dimension-title">财损风险</h3>
+          <p>抓坏沙发、咬坏家具这类物理破坏，需要赔偿或维修。酒店可上传照片、损坏项目和处理费用。</p>
+        </div>
+        <div class="behavior-dimension">
+          <h3 class="behavior-dimension-title">清洁风险</h3>
+          <p>污染地毯、乱尿、需要深度清洁，本质上是房间卫生恢复成本。</p>
+        </div>
+        <div class="behavior-dimension">
+          <h3 class="behavior-dimension-title">安全风险</h3>
+          <p>攻击其他宠物或客人、挣脱牵引、闯入禁止区域，这是安全风险，严重程度最高。</p>
+        </div>
+        <div class="behavior-dimension">
+          <h3 class="behavior-dimension-title">履约风险</h3>
+          <p>不认可赔偿、不配合处理、延迟支付是履约纠纷，归根结底都是住客端的态度和配合度。违规单独留宠物在房间，也是管理配合问题。</p>
+        </div>
+      </div>
+
+      <div class="grid">
+        <div class="card">
+          <span class="label">基础身份</span>
+          <span class="card-title">这只宠物是谁</span>
+          <p>宠物类型、品种、体重、年龄、照片、疫苗证明</p>
+        </div>
+        <div class="card">
+          <span class="label">行为信息</span>
+          <span class="card-title">这只宠物怎么住</span>
+          <p>吵闹情况、损坏情况、卫生情况、攻击性情况、主人配合度</p>
+        </div>
+      </div>
+
+      <div class="block">
+        <h3>档案如何真正服务商家</h3>
+        <p>平台不是把这些信息堆给酒店看，而是把它转成下一次接待策略。酒店需要看到的是：可不可以接、安排什么房、押金怎么收、是否要保险、是否需要人工确认。</p>
+        <ul class="merchant-proof-list">
+          <li>
+            <img class="merchant-proof-icon" src="https://gw.alicdn.com/imgextra/i1/O1CN01aejdeeYcnAF0RZG5_!!6000000001356-2-tps-219-174.png" alt="" aria-hidden="true" />
+            <span class="merchant-proof-text">这只狗曾经咬坏房间设施：平台可以要求押金、保险，或让酒店人工确认后再接单。</span>
+          </li>
+          <li>
+            <img class="merchant-proof-icon" src="https://gw.alicdn.com/imgextra/i1/O1CN01aejdeeYcnAF0RZG5_!!6000000001356-2-tps-219-174.png" alt="" aria-hidden="true" />
+            <span class="merchant-proof-text">这只狗容易叫：但没有破坏行为，酒店可以安排偏远客房，减少其他住客投诉；或者限制单独留房</span>
+          </li>
+          <li>
+            <img class="merchant-proof-icon" src="https://gw.alicdn.com/imgextra/i1/O1CN01aejdeeYcnAF0RZG5_!!6000000001356-2-tps-219-174.png" alt="" aria-hidden="true" />
+            <span class="merchant-proof-text">这只狗适应笼具：酒店可以接受短时单独留房，但要求放入航空箱或宠物笼。</span>
+          </li>
+          <li>
+            <img class="merchant-proof-icon" src="https://gw.alicdn.com/imgextra/i1/O1CN01aejdeeYcnAF0RZG5_!!6000000001356-2-tps-219-174.png" alt="" aria-hidden="true" />
+            <span class="merchant-proof-text">这只宠物乱尿污染酒店设施：下次可提前配置宠物尿垫、清洁包，严重者收取清洁费。</span>
+          </li>
+          <li>
+            <img class="merchant-proof-icon" src="https://gw.alicdn.com/imgextra/i1/O1CN01aejdeeYcnAF0RZG5_!!6000000001356-2-tps-219-174.png" alt="" aria-hidden="true" />
+            <span class="merchant-proof-text">这只宠物多次无异常入住：可以免宠物押金，或提高免押额度。</span>
+          </li>
+        </ul>
+      </div>
+
+      <div class="block">
+        <h3>三方价值：<span class="highlight">用户提供基础信息，酒店补充真实行为信息，平台把信息转化成下一次入住的接待策略。</span></h3>
+        <div class="grid three">
+          <div class="card">
+            <span class="label">对用户</span>
+            <span class="card-title">更少解释，更少翻车</span>
+            <p>不用每次重复解释宠物情况；高质量携宠记录可以换来免押、低押和更多可订酒店；到店沟通成本降低，也更少遇到临时拒宠、临时加价和临时改规则。</p>
+          </div>
+          <div class="card">
+            <span class="label">对酒店</span>
+            <span class="card-title">不再盲接宠物</span>
+            <p>酒店可以提前知道宠物风险，按风险安排房间和押金，减少其他住客投诉；出现损坏时有证据、有平台、有赔付路径，也能把接待经验沉淀成规则。</p>
+          </div>
+          <div class="card">
+            <span class="label">对平台</span>
+            <span class="card-title">沉淀真实入住行为</span>
+            <p>飞猪不是只沉淀酒店政策，而是沉淀真实宠物入住行为。数据越多，匹配越准；匹配越准，酒店越敢开放供给；供给越多，用户越愿意把宠物档案留在飞猪。</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="statement">
+        最终壁垒不是宠物友好标签，而是真实入住后的宠物行为数据。
+        <span>携程可以复制“宠物友好标签”，也可以引导用户填写宠物档案，但很难复制“每只宠物真实住过之后形成的入住行为档案”。</span>
+      </div>
+    </section>
+
+    <section id="ecosystem">
+      <p class="meta">Part 2</p>
+      <h2>阿里生态：把身份、信用、支付和保险串成携宠出行壁垒</h2>
+      <p class="lead">宠物档案本身只是基础。真正让飞猪和携程拉开差距的，是阿里生态可以把这份档案接入信用、支付、保险、入住和地图服务。</p>
+
+      <div class="statement">
+        宠物电子档案解决“这是谁、历史表现如何”；阿里生态解决“怎么授信、怎么免押、怎么核验、怎么赔付、怎么延展到整趟旅行”。
+      </div>
+
+      <div class="block">
+        <h3>每个生态业务承担一个明确角色</h3>
+        <div class="ecosystem-row">
+          <strong>飞猪</strong>
+          <p>飞猪是主入口和交易场。它负责创建宠物旅客档案、绑定酒店订单、匹配宠物准入规则、展示携宠可订酒店、给商家提供宠物接待决策台，并沉淀每次入住结果。飞猪的核心作用，是把宠物从“备注信息”变成“订单参与方”。</p>
+          <p class="output">产出：定义携宠订单的新结构。</p>
+        </div>
+        <div class="ecosystem-row">
+          <strong>芝麻信用</strong>
+          <p>芝麻信用不是给宠物打分，而是判断主人履约能力。它结合主人信用、飞猪宠物档案体系和酒店风险规则，给酒店一个判断：这个主人是否值得被信任为低押或免押用户。</p>
+          <p class="output">产出：主人信用 + 宠物历史表现 + 酒店风险规则 = 押金/保障方案。</p>
+        </div>
+        <div class="ecosystem-row">
+          <strong>支付宝</strong>
+          <p>支付宝把宠物档案变成到店可执行凭证。用户在线上填了档案，酒店到店时需要核验；押金、预授权、离店扣款、退款和争议费用处理，也需要支付宝完成履约动作。</p>
+          <p class="output">产出：线上资料变成前台可核验、可执行、可结算的入住凭证。</p>
+        </div>
+        <div class="ecosystem-row">
+          <strong>蚂蚁保</strong>
+          <p>蚂蚁保回答酒店最关心的问题：如果真出事，谁赔？宠物医疗险可以作为用户侧权益，但更关键的是共创宠物入住责任保障，覆盖财物损坏、深度清洁、扰民客诉、第三方伤害或纠纷。</p>
+          <p class="output">产出：高风险订单不只靠提高押金，也可以用保险覆盖部分风险。</p>
+        </div>
+        <div class="ecosystem-row">
+          <strong>高德</strong>
+          <p>高德负责把酒店扩展成出行网络，展示酒店周边可遛狗路线、宠物医院、宠物店、宠物托管点、宠物友好餐厅、商场和公园。后续可以做“带宠可通行路线”。</p>
+          <p class="output">产出：让宠物档案从住酒店延展到整趟出行。</p>
+        </div>
+        <div class="ecosystem-row">
+          <strong>淘宝/天猫</strong>
+          <p>淘宝和天猫负责宠物用品与服务补给。用户下单前可购买航空箱、尿垫、拾便袋、牵引绳等旅行用品；酒店侧可采购标准宠物入住包、清洁包和宠物床。</p>
+          <p class="output">产出：把携宠需求变成周边消费和供给标准化。</p>
+        </div>
+      </div>
+
+      <div class="block">
+        <h3>完整闭环：按一趟旅程讲</h3>
+        <div class="journey">
+          <div class="journey-row">
+            <span class="label">出发前</span>
+            <strong>用户建档</strong>
+            <p>用户在飞猪创建宠物旅客档案，上传疫苗、犬证、体重和行为习惯；支付宝完成实名和授权，芝麻信用提供主人履约能力参考。</p>
+          </div>
+          <div class="journey-row">
+            <span class="label">预订时</span>
+            <strong>平台判断</strong>
+            <p>飞猪根据档案匹配酒店规则，告诉用户哪些酒店可直接订、哪些需要确认；系统根据主人信用、宠物历史表现和酒店规则，给出免押、低押或保险替押方案。</p>
+          </div>
+          <div class="journey-row">
+            <span class="label">到店时</span>
+            <strong>商家核验</strong>
+            <p>用户通过支付宝碰一下或扫码出示宠物旅客证。酒店看到宠物身份、可接待结论、押金方案、房间安排建议和注意事项。</p>
+          </div>
+          <div class="journey-row">
+            <span class="label">入住中</span>
+            <strong>商家服务</strong>
+            <p>酒店根据档案安排合适房间。宠物爱叫，安排偏远房；不能独处，提醒不可单独留房；有清洁风险，提前配置宠物垫。</p>
+          </div>
+          <div class="journey-row">
+            <span class="label">退房后</span>
+            <strong>履约沉淀</strong>
+            <p>酒店记录本次入住是否正常。无异常则提升这只宠物的入住可信度；有损坏则通过押金、预授权或保险处理，记录回流飞猪。</p>
+          </div>
+          <div class="journey-row">
+            <span class="label">旅行中</span>
+            <strong>生态延展</strong>
+            <p>高德推荐可遛狗路线、宠物医院、宠物友好餐厅；蚂蚁保承接保障；淘宝天猫承接用品和服务补给。这份档案不只服务一次酒店订单，而是服务整趟旅行。</p>
+          </div>
+        </div>
+      </div>
+
+    </section>
+  </main>
+
+
+</body></html>
