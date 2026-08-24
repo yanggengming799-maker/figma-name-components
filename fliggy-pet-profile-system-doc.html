@@ -21,7 +21,7 @@ h1, h2, h3, p { margin: 0px; }
 
 h1, h2 { color: var(--ink); font-size: 24px; line-height: 1.28; font-weight: 700; letter-spacing: 0px; }
 
-h1 { font-size: 24px; }
+h1 { font-size: 32px; }
 
 h3, .statement, .card-title, .layer-title, .ecosystem-row strong, .journey-row strong { color: var(--ink); font-size: 18px; line-height: 1.48; font-weight: 650; letter-spacing: 0px; }
 
@@ -73,7 +73,7 @@ p + p { margin-top: var(--space-para); }
 
 .after-grid-note { margin: 28px 0 34px; color: var(--body); font-size: 14px; line-height: 1.78; }
 
-.bridge-title { margin: 26px 0 10px; max-width: none; width: 100%; color: var(--ink); font-size: 18px; line-height: 1.6; font-weight: 650; }
+.bridge-title { margin: var(--space-block) 0 10px; max-width: none; width: 100%; color: var(--ink); font-size: 18px; line-height: 1.6; font-weight: 650; }
 
 .layer-banner { display: block; width: 100%; height: auto; margin: 0 0 34px; }
 
@@ -150,6 +150,24 @@ li::before { content: ""; position: absolute; left: 0px; top: 0.78em; width: 5px
 
 .behavior-dimension p { color: var(--body); font-size: 14px; line-height: 1.78; }
 
+.hotel-standards { margin-top: var(--space-block); }
+
+.hotel-standard-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); margin-top: 34px; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+
+.hotel-standard { min-width: 0; padding: 28px 28px 34px; }
+
+.hotel-standard + .hotel-standard { border-left: 1px solid var(--line); }
+
+.hotel-standard:first-child { padding-left: 0; }
+
+.hotel-standard:last-child { padding-right: 0; }
+
+.hotel-standard-title { margin: 0 0 14px; color: var(--ink); font-size: 18px; line-height: 1.48; font-weight: 650; }
+
+.hotel-standard-summary { color: var(--body); font-size: 14px; line-height: 1.78; font-weight: 400; }
+
+.hotel-standard ul { margin-top: 18px; }
+
 .ecosystem-row { display: grid; grid-template-columns: 150px 1fr 230px; gap: 24px; padding: 26px 0px; border-bottom: 1px solid var(--line); }
 
 .ecosystem-row:first-child { border-top: 1px solid var(--line); }
@@ -166,10 +184,12 @@ li::before { content: ""; position: absolute; left: 0px; top: 0.78em; width: 5px
 
 @media (max-width: 820px) {
   main { width: calc(-32px + 100vw); padding-top: 40px; }
-  .grid, .grid.three, .ecosystem-row, .journey-row, .layer-grid { grid-template-columns: 1fr; gap: 8px; }
+  .grid, .grid.three, .ecosystem-row, .journey-row, .layer-grid, .hotel-standard-grid { grid-template-columns: 1fr; gap: 8px; }
   .value-grid { gap: 0; }
   .value-grid .card { padding: 24px 0 28px; }
   .value-grid .card + .card { border-left: 0; border-top: 1px solid var(--line); }
+  .hotel-standard { padding: 24px 0 28px; }
+  .hotel-standard + .hotel-standard { border-left: 0; border-top: 1px solid var(--line); }
   .layer-item { padding: 24px 0 28px; }
   .layer-item + .layer-item { border-left: 0; border-top: 1px solid var(--line); padding-left: 0; }
   .behavior-dimensions { grid-template-columns: 1fr; }
@@ -188,9 +208,9 @@ li::before { content: ""; position: absolute; left: 0px; top: 0.78em; width: 5px
   <main>
     <header>
       <p class="meta doc-kicker">狗狗GO｜酒店方向文档</p>
-      <h1>飞猪宠物档案体系</h1>
-      <p class="lead">我们要做的不是“宠物友好酒店”，而是用<span class="highlight">阿里生态给宠物建立一个可核验、可授信、可保障的电子档案体系</span>，让酒店敢接、用户敢订、平台敢保。</p>
-      <p class="intro">这套体系分成两个最大的部分：第一部分是宠物电子化档案，解决“这只宠物是谁、真实入住表现如何”；第二部分是阿里生态，解决“怎么核验、怎么免押、怎么赔付、怎么延展到整趟旅行”。</p>
+      <p class="meta">前置调研</p>
+      <h1>政府官方背书|打造宠物行业权威数字化基础设施</h1>
+      <p class="lead">给每只宠物建立一个唯一、可查询、可追溯、带官方背书的数字身份，用来解决宠物行业长期存在的身份混乱、溯源困难、权责不清问题。郑州二七区率先落地常态化办理，中国宠信网同步开放官方查询功能，目标是形成“一宠一码、唯一备案、全国通认”的宠物数字身份基础设施。</p>
     </header>
 
     <section id="profile">
@@ -307,9 +327,41 @@ li::before { content: ""; position: absolute; left: 0px; top: 0.78em; width: 5px
         </div>
       </div>
 
-      <div class="statement">
-        最终壁垒不是宠物友好标签，而是真实入住后的宠物行为数据。
-        <span>携程可以复制“宠物友好标签”，也可以引导用户填写宠物档案，但很难复制“每只宠物真实住过之后形成的入住行为档案”。</span>
+      <div class="hotel-standards">
+        <p class="meta">02</p>
+        <h2>酒店标准</h2>
+        <div class="hotel-standard-grid">
+          <div class="hotel-standard">
+            <h3 class="hotel-standard-title">准入标准：</h3>
+            <p class="hotel-standard-summary">证明“这只宠物是谁、资料是否符合酒店规则”。</p>
+            <ul>
+              <li>宠物唯一身份：通过「鼻纹+扫脸」技术证明宠物身份。</li>
+              <li>基础信息完整：类型、品种、体重、疫苗证明。</li>
+              <li>酒店规则匹配：类型限制、品种限制、体重限制、数量限制、疫苗证明。</li>
+            </ul>
+          </div>
+          <div class="hotel-standard">
+            <h3 class="hotel-standard-title">接待标准：</h3>
+            <p class="hotel-standard-summary">定义“宠物友好酒店应该具备的服务能力”。</p>
+            <ul>
+              <li>全部房型/部分房型可携宠入住。</li>
+              <li>有可进入/不可进入区域说明。</li>
+              <li>提供宠物早餐</li>
+              <li>提供基本宠物用品包</li>
+              <li>可单独留宠物在房间</li>
+              <li>有宠物房间清洁 SOP</li>
+            </ul>
+          </div>
+          <div class="hotel-standard">
+            <h3 class="hotel-standard-title">权益标准：</h3>
+            <p class="hotel-standard-summary">定义“什么样的用户和宠物，可以享受什么样的酒店权益”</p>
+            <ul>
+              <li>88VIP 免清洁费</li>
+              <li>88VIP 享宠物早餐</li>
+              <li>高分（优质入住记录）宠物免押金</li>
+            </ul>
+          </div>
+        </div>
       </div>
 
     </section>
