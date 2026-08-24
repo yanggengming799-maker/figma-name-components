@@ -9,7 +9,7 @@ html, body { margin: 0px; background-color: var(--bg); background-image: url("ht
 
 main { width: min(var(--max), calc(100vw - 48px)); margin: 0px auto; padding: 56px 0px 88px; }
 
-header { padding: 0px 0px 56px; border-bottom: 1px solid var(--line); }
+header { padding: 0px 0px 56px; }
 
 section { padding: var(--space-section) 0; border-bottom: 1px solid var(--line); }
 
@@ -22,6 +22,8 @@ h1, h2, h3, p { margin: 0px; }
 h1, h2 { color: var(--ink); font-size: 24px; line-height: 1.28; font-weight: 700; letter-spacing: 0px; }
 
 h1 { font-size: 32px; }
+
+#ecosystem h2 { font-size: 32px; }
 
 h3, .statement, .card-title, .layer-title, .ecosystem-row strong, .journey-row strong { color: var(--ink); font-size: 18px; line-height: 1.48; font-weight: 650; letter-spacing: 0px; }
 
@@ -39,11 +41,137 @@ p + p { margin-top: var(--space-para); }
 
 .lead { margin-top: 20px; max-width: none; }
 
+.major-section-rule { margin-top: 16px; border-top: 2px solid var(--ink); }
+
 .intro { margin-top: 24px; max-width: none; }
 
 .research-image-label { margin: 20px 0 0; color: var(--body); font-size: 14px; line-height: 1.78; font-weight: 400; }
 
-.research-banner { display: block; width: 100%; height: auto; margin-top: 20px; }
+.research-image-label a { color: #1677FF; text-decoration: none; }
+
+.research-banner { display: block; width: 100%; height: auto; margin-top: 20px; border: 1px solid var(--line); }
+
+.research-image-grid { display: grid; grid-template-columns: minmax(0, 6.45fr) minmax(0, 1fr); gap: 24px; margin-top: 28px; align-items: start; }
+
+.research-image-card-label { margin: 0 0 12px; color: var(--body); font-size: 14px; line-height: 1.78; font-weight: 400; }
+
+.research-image-card img { display: block; width: 100%; height: auto; border: 1px solid var(--line); }
+
+.zoomable-image { cursor: zoom-in; }
+
+.media-lightbox {
+  width: calc(100vw - 176px);
+  max-width: none;
+  max-height: calc(100vh - 32px);
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: #fff;
+}
+
+.media-lightbox::backdrop { background: rgba(8,11,15,.92); }
+
+.media-lightbox-frame { position: relative; height: calc(100vh - 32px); overflow: hidden; }
+
+.media-lightbox-viewport {
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  scrollbar-width: none;
+  overscroll-behavior: contain;
+}
+
+.media-lightbox-viewport::-webkit-scrollbar { display: none; }
+
+.media-lightbox-canvas {
+  display: grid;
+  place-items: center;
+  width: 100%;
+  height: 100%;
+  min-width: 100%;
+  min-height: 100%;
+}
+
+.media-lightbox img {
+  display: block;
+  max-width: none;
+  max-height: none;
+  object-fit: contain;
+}
+
+.media-lightbox .media-lightbox-image { cursor: zoom-in; }
+
+.media-lightbox-viewport.is-pannable { cursor: grab; touch-action: none; user-select: none; }
+
+.media-lightbox-viewport.is-pannable .media-lightbox-image { cursor: grab; }
+
+.media-lightbox-viewport.is-dragging,
+.media-lightbox-viewport.is-dragging .media-lightbox-image { cursor: grabbing; }
+
+.media-lightbox-close,
+.media-lightbox-nav {
+  position: fixed;
+  z-index: 3;
+  border: 1px solid rgba(255,255,255,.42);
+  color: #fff;
+  background: rgba(0,0,0,.34);
+  font: inherit;
+  cursor: pointer;
+}
+
+.media-lightbox-close { top: 22px; right: 24px; width: 44px; height: 44px; border-radius: 50%; font-size: 23px; }
+
+.media-lightbox-nav { top: 50%; width: 48px; height: 64px; transform: translateY(-50%); border-radius: 4px; font-size: 32px; }
+
+.media-lightbox-prev { left: 22px; }
+
+.media-lightbox-next { right: 22px; }
+
+.media-lightbox-count {
+  position: fixed;
+  z-index: 3;
+  left: 50%;
+  bottom: 18px;
+  transform: translateX(-50%);
+  padding: 6px 10px;
+  border-radius: 3px;
+  color: rgba(255,255,255,.84);
+  background: rgba(0,0,0,.38);
+  font-size: 13px;
+  font-variant-numeric: tabular-nums;
+}
+
+.media-lightbox-zoom-controls {
+  position: fixed;
+  z-index: 3;
+  right: 24px;
+  bottom: 18px;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,.4);
+  border-radius: 4px;
+  background: rgba(0,0,0,.42);
+}
+
+.media-lightbox-zoom-controls button {
+  min-width: 42px;
+  height: 38px;
+  padding: 0 10px;
+  border: 0;
+  border-right: 1px solid rgba(255,255,255,.22);
+  color: #fff;
+  background: transparent;
+  font: inherit;
+  font-size: 17px;
+  cursor: pointer;
+}
+
+.media-lightbox-zoom-controls button:last-child { border-right: 0; }
+
+.media-lightbox-zoom-controls .media-zoom-reset { min-width: 62px; font-size: 12px; font-variant-numeric: tabular-nums; }
+
+.media-lightbox-zoom-controls button:disabled { color: rgba(255,255,255,.34); cursor: default; }
 
 .section-banner { margin-bottom: 46px; }
 
@@ -61,7 +189,7 @@ p + p { margin-top: var(--space-para); }
 
 .block + .block { margin-top: var(--space-block); }
 
-.layer-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); margin-top: 36px; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.layer-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); margin-top: 36px; border-bottom: 1px solid var(--line); }
 
 .layer-item { min-width: 0; padding: 28px 28px 34px 0; }
 
@@ -95,7 +223,7 @@ p + p { margin-top: var(--space-para); }
 
 .grid.three { grid-template-columns: repeat(3, 1fr); }
 
-.value-grid { gap: 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.value-grid { gap: 0; border-bottom: 1px solid var(--line); }
 
 .value-grid .card { min-width: 0; padding: 28px 28px 34px; border: 0; border-radius: 0; background: transparent; backdrop-filter: none; }
 
@@ -124,7 +252,7 @@ li::before { content: ""; position: absolute; left: 0px; top: 0.78em; width: 5px
 .merchant-proof-list li {
   display: flex;
   align-items: center;
-  gap: 20px;
+  gap: 12px;
   padding-left: 0;
 }
 
@@ -140,7 +268,7 @@ li::before { content: ""; position: absolute; left: 0px; top: 0.78em; width: 5px
 
 .behavior-dimensions-intro { margin: 0 0 18px; color: var(--body); font-size: 14px; line-height: 1.78; }
 
-.behavior-dimensions { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.behavior-dimensions { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); border-bottom: 1px solid var(--line); }
 
 .behavior-dimension { min-width: 0; padding: 28px 24px 34px; }
 
@@ -156,7 +284,7 @@ li::before { content: ""; position: absolute; left: 0px; top: 0.78em; width: 5px
 
 .hotel-standards { margin-top: var(--space-block); }
 
-.hotel-standard-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); margin-top: 34px; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.hotel-standard-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); margin-top: 34px; border-bottom: 1px solid var(--line); }
 
 .hotel-standard { min-width: 0; padding: 28px 28px 34px; }
 
@@ -168,7 +296,7 @@ li::before { content: ""; position: absolute; left: 0px; top: 0.78em; width: 5px
 
 .hotel-standard-title { margin: 0 0 14px; color: var(--ink); font-size: 18px; line-height: 1.48; font-weight: 650; }
 
-.hotel-standard-summary { color: var(--body); font-size: 14px; line-height: 1.78; font-weight: 400; }
+.hotel-standard-summary { color: #0F131A; font-size: 14px; line-height: 1.78; font-weight: 400; }
 
 .hotel-standard ul { margin-top: 18px; }
 
@@ -176,13 +304,19 @@ li::before { content: ""; position: absolute; left: 0px; top: 0.78em; width: 5px
 
 .hotel-standard li .requirement-label { flex: 0 0 auto; margin-left: auto; text-align: right; color: var(--body); }
 
-.ecosystem-row { display: grid; grid-template-columns: 150px 1fr 230px; gap: 24px; padding: 26px 0px; border-bottom: 1px solid var(--line); }
+.ecosystem-row { display: grid; grid-template-columns: 96px minmax(0, 1fr) 300px; column-gap: 48px; align-items: start; padding: 26px 0px; border-bottom: 1px solid var(--line); }
+
+.ecosystem-row > * { align-self: start; }
 
 .ecosystem-row:first-child { border-top: 1px solid var(--line); }
 
-.ecosystem-row strong { color: var(--ink); font-size: 18px; line-height: 1.48; }
+.ecosystem-row strong { justify-self: end; color: var(--ink); font-size: 18px; line-height: 1.48; }
 
-.output { color: var(--body); font-weight: 400; }
+.output { align-self: start; margin-top: 0; color: var(--body); font-weight: 400; }
+
+.output span { display: block; }
+
+.output-title { color: var(--ink); font-weight: 650; }
 
 .journey { margin-top: var(--space-card); border-top: 1px solid var(--line); }
 
@@ -192,18 +326,27 @@ li::before { content: ""; position: absolute; left: 0px; top: 0.78em; width: 5px
 
 @media (max-width: 820px) {
   main { width: calc(-32px + 100vw); padding-top: 40px; }
+  .media-lightbox { width: calc(100vw - 104px); }
+  .media-lightbox-nav { width: 40px; height: 56px; }
+  .media-lightbox-prev { left: 8px; }
+  .media-lightbox-next { right: 8px; }
+  .media-lightbox-close { top: 10px; right: 10px; }
+  .media-lightbox-zoom-controls { right: 10px; bottom: 10px; }
+  .media-lightbox-count { bottom: 10px; }
   .grid, .grid.three, .ecosystem-row, .journey-row, .layer-grid, .hotel-standard-grid { grid-template-columns: 1fr; gap: 8px; }
+  .ecosystem-row strong { justify-self: start; }
   .value-grid { gap: 0; }
   .value-grid .card { padding: 24px 0 28px; }
   .value-grid .card + .card { border-left: 0; border-top: 1px solid var(--line); }
   .hotel-standard { padding: 24px 0 28px; }
   .hotel-standard + .hotel-standard { border-left: 0; border-top: 1px solid var(--line); }
+  .research-image-grid { grid-template-columns: 1fr; gap: 20px; }
   .layer-item { padding: 24px 0 28px; }
   .layer-item + .layer-item { border-left: 0; border-top: 1px solid var(--line); padding-left: 0; }
   .behavior-dimensions { grid-template-columns: 1fr; }
   .behavior-dimension { padding: 24px 0 28px; }
   .behavior-dimension + .behavior-dimension { border-left: 0; border-top: 1px solid var(--line); }
-  .merchant-proof-list li { align-items: flex-start; gap: 14px; min-height: 0; }
+  .merchant-proof-list li { align-items: flex-start; gap: 12px; min-height: 0; }
   .merchant-proof-icon { width: 30px; }
   .merchant-proof-list li.merchant-proof-note { padding-left: 0; }
 }
@@ -217,10 +360,21 @@ li::before { content: ""; position: absolute; left: 0px; top: 0.78em; width: 5px
     <header>
       <p class="meta doc-kicker">狗狗GO｜酒店方向文档</p>
       <p class="meta">前置调研</p>
-      <h1>政府官方背书|打造宠物行业权威数字化基础设施</h1>
+      <h1>政府官方背书：打造宠物行业权威数字化基础设施</h1>
       <p class="lead">给每只宠物建立一个唯一、可查询、可追溯、带官方背书的数字身份，用来解决宠物行业长期存在的身份混乱、溯源困难、权责不清问题。郑州二七区率先落地常态化办理，中国宠信网同步开放官方查询功能，目标是形成“一宠一码、唯一备案、全国通认”的宠物数字身份基础设施。</p>
-      <p class="research-image-label">官网图片</p>
+      <div class="major-section-rule" aria-hidden="true"></div>
+      <p class="research-image-label">官网地址：<a href="https://www.12316.pet/" target="_blank" rel="noopener noreferrer">https://www.12316.pet/</a></p>
       <img class="research-banner" src="https://gw.alicdn.com/imgextra/i3/O1CN01BqZplxWrICF5BktU_!!6000000002757-2-tps-2556-996.png" alt="宠物数字身份基础设施示意图" loading="eager" decoding="async" />
+      <div class="research-image-grid">
+        <div class="research-image-card">
+          <p class="research-image-card-label">申请流程</p>
+          <img src="https://gw.alicdn.com/imgextra/i4/O1CN01g7w3L0Jn1CCCIqOl_!!6000000004938-2-tps-6060-1299.png" alt="宠物数字身份申请流程" loading="eager" decoding="async" />
+        </div>
+        <div class="research-image-card">
+          <p class="research-image-card-label">数字身份证</p>
+          <img src="https://gw.alicdn.com/imgextra/i4/O1CN016ZLaPLKmbuF2XjeT_!!6000000001915-2-tps-1253-1732.png" alt="宠物数字身份证" loading="eager" decoding="async" />
+        </div>
+      </div>
     </header>
 
     <section id="profile">
@@ -228,6 +382,7 @@ li::before { content: ""; position: absolute; left: 0px; top: 0.78em; width: 5px
         <p class="meta">Part 1</p>
         <h2 class="section-title-xl">飞猪携宠入住标准：让酒店有“据”可接，用户享受更好的携宠权益。</h2>
         <p class="section-summary">根据酒店、陆运当前携宠入住要求定义宠物档案字段，再基于宠物档案衍生“行业准入标准”和“权益标准”。</p>
+        <div class="major-section-rule" aria-hidden="true"></div>
       </div>
 
       <p class="meta">01</p>
@@ -317,7 +472,7 @@ li::before { content: ""; position: absolute; left: 0px; top: 0.78em; width: 5px
       </div>
 
       <div class="block">
-        <h3>三方价值：<span class="highlight">用户提供基础信息，酒店补充真实行为信息，平台把信息转化成下一次入住的接待策略。</span></h3>
+        <h3>三方价值：<span>用户提供基础信息，酒店补充真实行为信息，平台把信息转化成下一次入住的接待策略。</span></h3>
         <div class="grid three value-grid">
           <div class="card">
             <span class="label">对用户</span>
@@ -345,9 +500,9 @@ li::before { content: ""; position: absolute; left: 0px; top: 0.78em; width: 5px
             <h3 class="hotel-standard-title">准入标准：</h3>
             <p class="hotel-standard-summary">证明“这只宠物是谁、资料是否符合酒店规则”。</p>
             <ul>
-              <li><span>宠物唯一身份：通过「鼻纹+扫脸」技术证明宠物身份。</span><span class="requirement-label">（强要求）</span></li>
-              <li><span>基础信息完整：类型、品种、体重、疫苗证明。</span><span class="requirement-label">（强要求）</span></li>
-              <li><span>酒店规则匹配：类型限制、品种限制、体重限制、数量限制、疫苗证明。</span><span class="requirement-label">（强要求）</span></li>
+              <li><span>宠物唯一身份：通过「鼻纹+扫脸」技术证明宠物身份。</span></li>
+              <li><span>基础信息完整：类型、品种、体重、疫苗证明。</span></li>
+              <li><span>酒店规则匹配：类型限制、品种限制、体重限制、数量限制、疫苗证明。</span></li>
             </ul>
           </div>
           <div class="hotel-standard">
@@ -366,9 +521,9 @@ li::before { content: ""; position: absolute; left: 0px; top: 0.78em; width: 5px
             <h3 class="hotel-standard-title">权益标准：</h3>
             <p class="hotel-standard-summary">定义“什么样的用户和宠物，可以享受什么样的酒店权益”</p>
             <ul>
-              <li><span>88VIP 免清洁费</span><span class="requirement-label">（强要求）</span></li>
-              <li><span>88VIP 享宠物早餐</span><span class="requirement-label">（强要求）</span></li>
-              <li><span>高分（优质入住记录）宠物免押金</span><span class="requirement-label">（强要求）</span></li>
+              <li><span>88VIP 免清洁费</span></li>
+              <li><span>88VIP 享宠物早餐</span></li>
+              <li><span>高分（优质入住记录）宠物免押金</span></li>
             </ul>
           </div>
         </div>
@@ -378,85 +533,262 @@ li::before { content: ""; position: absolute; left: 0px; top: 0.78em; width: 5px
 
     <section id="ecosystem">
       <p class="meta">Part 2</p>
-      <h2>阿里生态：把身份、信用、支付和保险串成携宠出行壁垒</h2>
-      <p class="lead">宠物档案本身只是基础。真正让飞猪和携程拉开差距的，是阿里生态可以把这份档案接入信用、支付、保险、入住和地图服务。</p>
-
-      <div class="statement">
-        宠物电子档案解决“这是谁、历史表现如何”；阿里生态解决“怎么授信、怎么免押、怎么核验、怎么赔付、怎么延展到整趟旅行”。
-      </div>
+      <h2>阿里生态：把身份、信用、支付和保险变成用户可感知的携宠体验价值</h2>
+      <p class="lead">宠物档案本身只是基础。真正让飞猪和携程拉开差距的，是阿里生态可以把这份档案接入88VIP、信用、支付、保险和入住履约能力。</p>
+      <div class="major-section-rule" aria-hidden="true"></div>
 
       <div class="block">
-        <h3>每个生态业务承担一个明确角色</h3>
         <div class="ecosystem-row">
           <strong>飞猪</strong>
           <p>飞猪是主入口和交易场。它负责创建宠物旅客档案、绑定酒店订单、匹配宠物准入规则、展示携宠可订酒店、给商家提供宠物接待决策台，并沉淀每次入住结果。飞猪的核心作用，是把宠物从“备注信息”变成“订单参与方”。</p>
-          <p class="output">产出：定义携宠订单的新结构。</p>
+          <p class="output"><span class="output-title">让用户更少解释</span><span>从“一家家打电话询问能不能住”，变成“用宠物档案自动匹配适合入住的酒店”。</span></p>
+        </div>
+        <div class="ecosystem-row">
+          <strong>88VIP</strong>
+          <p>88VIP负责圈选高价值用户，为高价值用户提供免清洁费、宠物早餐差异化权益，提升携宠预订转化和会员粘性。</p>
+          <p class="output"><span class="output-title">让用户享受更多权益</span><span>将会员身份转化为免清洁费、宠物早餐等携宠权益。</span></p>
         </div>
         <div class="ecosystem-row">
           <strong>芝麻信用</strong>
-          <p>芝麻信用不是给宠物打分，而是判断主人履约能力。它结合主人信用、飞猪宠物档案体系和酒店风险规则，给酒店一个判断：这个主人是否值得被信任为低押或免押用户。</p>
-          <p class="output">产出：主人信用 + 宠物历史表现 + 酒店风险规则 = 押金/保障方案。</p>
+          <p>芝麻信用不是单纯给宠物打分，而是结合主人信用、飞猪宠物档案体系，为用户提供免押权益。</p>
+          <p class="output"><span class="output-title">让好记录换来免押金</span><span>优质入住记录可直接免押，让少数风险不影响大多数宠物体验。</span></p>
         </div>
         <div class="ecosystem-row">
           <strong>支付宝</strong>
           <p>支付宝把宠物档案变成到店可执行凭证。用户在线上填了档案，酒店到店时需要核验；押金、预授权、离店扣款、退款和争议费用处理，也需要支付宝完成履约动作。</p>
-          <p class="output">产出：线上资料变成前台可核验、可执行、可结算的入住凭证。</p>
+          <p class="output"><span class="output-title">让用户到店更顺畅</span><span>碰一下确认身份即可入住，现场沟通。</span></p>
         </div>
         <div class="ecosystem-row">
           <strong>蚂蚁保</strong>
           <p>蚂蚁保回答酒店最关心的问题：如果真出事，谁赔？宠物医疗险可以作为用户侧权益，但更关键的是共创宠物入住责任保障，覆盖财物损坏、深度清洁、扰民客诉、第三方伤害或纠纷。</p>
-          <p class="output">产出：高风险订单不只靠提高押金，也可以用保险覆盖部分风险。</p>
-        </div>
-        <div class="ecosystem-row">
-          <strong>高德</strong>
-          <p>高德负责把酒店扩展成出行网络，展示酒店周边可遛狗路线、宠物医院、宠物店、宠物托管点、宠物友好餐厅、商场和公园。后续可以做“带宠可通行路线”。</p>
-          <p class="output">产出：让宠物档案从住酒店延展到整趟出行。</p>
-        </div>
-        <div class="ecosystem-row">
-          <strong>淘宝/天猫</strong>
-          <p>淘宝和天猫负责宠物用品与服务补给。用户下单前可购买航空箱、尿垫、拾便袋、牵引绳等旅行用品；酒店侧可采购标准宠物入住包、清洁包和宠物床。</p>
-          <p class="output">产出：把携宠需求变成周边消费和供给标准化。</p>
-        </div>
-      </div>
-
-      <div class="block">
-        <h3>完整闭环：按一趟旅程讲</h3>
-        <div class="journey">
-          <div class="journey-row">
-            <span class="label">出发前</span>
-            <strong>用户建档</strong>
-            <p>用户在飞猪创建宠物旅客档案，上传疫苗、犬证、体重和行为习惯；支付宝完成实名和授权，芝麻信用提供主人履约能力参考。</p>
-          </div>
-          <div class="journey-row">
-            <span class="label">预订时</span>
-            <strong>平台判断</strong>
-            <p>飞猪根据档案匹配酒店规则，告诉用户哪些酒店可直接订、哪些需要确认；系统根据主人信用、宠物历史表现和酒店规则，给出免押、低押或保险替押方案。</p>
-          </div>
-          <div class="journey-row">
-            <span class="label">到店时</span>
-            <strong>商家核验</strong>
-            <p>用户通过支付宝碰一下或扫码出示宠物旅客证。酒店看到宠物身份、可接待结论、押金方案、房间安排建议和注意事项。</p>
-          </div>
-          <div class="journey-row">
-            <span class="label">入住中</span>
-            <strong>商家服务</strong>
-            <p>酒店根据档案安排合适房间。宠物爱叫，安排偏远房；不能独处，提醒不可单独留房；有清洁风险，提前配置宠物垫。</p>
-          </div>
-          <div class="journey-row">
-            <span class="label">退房后</span>
-            <strong>履约沉淀</strong>
-            <p>酒店记录本次入住是否正常。无异常则提升这只宠物的入住可信度；有损坏则通过押金、预授权或保险处理，记录回流飞猪。</p>
-          </div>
-          <div class="journey-row">
-            <span class="label">旅行中</span>
-            <strong>生态延展</strong>
-            <p>高德推荐可遛狗路线、宠物医院、宠物友好餐厅；蚂蚁保承接保障；淘宝天猫承接用品和服务补给。这份档案不只服务一次酒店订单，而是服务整趟旅行。</p>
-          </div>
+          <p class="output"><span class="output-title">让用户住得更安心</span><span>录入宠物档案送宠物医保（30天体验版），将财物损坏风险纳入保障。</span></p>
         </div>
       </div>
 
     </section>
   </main>
 
+  <dialog class="media-lightbox" id="mediaLightbox" aria-label="查看大图">
+    <div class="media-lightbox-frame">
+      <button class="media-lightbox-close" type="button" aria-label="关闭大图">×</button>
+      <button class="media-lightbox-nav media-lightbox-prev" type="button" aria-label="上一张">‹</button>
+      <div class="media-lightbox-viewport" id="mediaLightboxViewport">
+        <div class="media-lightbox-canvas" id="mediaLightboxCanvas">
+          <img class="media-lightbox-image" id="mediaLightboxImage" alt="" draggable="false">
+        </div>
+      </div>
+      <button class="media-lightbox-nav media-lightbox-next" type="button" aria-label="下一张">›</button>
+      <div class="media-lightbox-count" aria-live="polite"></div>
+      <div class="media-lightbox-zoom-controls" aria-label="大图缩放">
+        <button class="media-zoom-out" type="button" aria-label="缩小">−</button>
+        <button class="media-zoom-reset" type="button" aria-label="还原缩放">100%</button>
+        <button class="media-zoom-in" type="button" aria-label="放大">+</button>
+      </div>
+    </div>
+  </dialog>
+
+  <script>
+    (() => {
+      const lightbox = document.getElementById('mediaLightbox');
+      if (!lightbox) return;
+
+      const zoomableImages = Array.from(document.querySelectorAll('.research-banner, .research-image-card img, .layer-banner'));
+      const lightboxImage = document.getElementById('mediaLightboxImage');
+      const lightboxViewport = document.getElementById('mediaLightboxViewport');
+      const lightboxCanvas = document.getElementById('mediaLightboxCanvas');
+      const lightboxCount = lightbox.querySelector('.media-lightbox-count');
+      const closeButton = lightbox.querySelector('.media-lightbox-close');
+      const previousButton = lightbox.querySelector('.media-lightbox-prev');
+      const nextButton = lightbox.querySelector('.media-lightbox-next');
+      const zoomOutButton = lightbox.querySelector('.media-zoom-out');
+      const zoomResetButton = lightbox.querySelector('.media-zoom-reset');
+      const zoomInButton = lightbox.querySelector('.media-zoom-in');
+      let activeItems = [];
+      let activeIndex = 0;
+      let zoomScale = 1;
+      let baseImageWidth = 0;
+      let baseImageHeight = 0;
+      let isDragging = false;
+      let didDrag = false;
+      let dragStartX = 0;
+      let dragStartY = 0;
+      let dragStartScrollLeft = 0;
+      let dragStartScrollTop = 0;
+
+      function calculateBaseImageSize() {
+        if (!lightboxImage.naturalWidth || !lightboxImage.naturalHeight) return false;
+        const viewportHeight = lightboxViewport.clientHeight;
+        if (!lightboxViewport.clientWidth || !viewportHeight) return false;
+        const fitScale = viewportHeight / lightboxImage.naturalHeight;
+        baseImageWidth = lightboxImage.naturalWidth * fitScale;
+        baseImageHeight = lightboxImage.naturalHeight * fitScale;
+        return true;
+      }
+
+      function updateZoomLayout(preserveCenter = false) {
+        if (!baseImageWidth || !baseImageHeight) {
+          if (!calculateBaseImageSize()) return;
+        }
+        const viewportWidth = lightboxViewport.clientWidth;
+        const viewportHeight = lightboxViewport.clientHeight;
+        const oldCanvasWidth = Math.max(lightboxCanvas.scrollWidth, viewportWidth);
+        const oldCanvasHeight = Math.max(lightboxCanvas.scrollHeight, viewportHeight);
+        const centerRatioX = preserveCenter
+          ? (lightboxViewport.scrollLeft + viewportWidth / 2) / oldCanvasWidth
+          : .5;
+        const centerRatioY = preserveCenter
+          ? (lightboxViewport.scrollTop + viewportHeight / 2) / oldCanvasHeight
+          : .5;
+        const imageWidth = baseImageWidth * zoomScale;
+        const imageHeight = baseImageHeight * zoomScale;
+        const canvasWidth = Math.max(viewportWidth, imageWidth);
+        const canvasHeight = Math.max(viewportHeight, imageHeight);
+
+        lightboxCanvas.style.width = `${canvasWidth}px`;
+        lightboxCanvas.style.height = `${canvasHeight}px`;
+        lightboxImage.style.width = `${imageWidth}px`;
+        lightboxImage.style.height = `${imageHeight}px`;
+        const isPannable = imageWidth > viewportWidth + 1 || imageHeight > viewportHeight + 1;
+        lightboxViewport.classList.toggle('is-pannable', isPannable);
+        lightboxViewport.classList.toggle('is-zoomed', zoomScale > 1);
+        zoomResetButton.textContent = `${Math.round(zoomScale * 100)}%`;
+        zoomOutButton.disabled = zoomScale <= 1;
+        zoomInButton.disabled = zoomScale >= 8;
+
+        lightboxViewport.scrollLeft = Math.max(0, centerRatioX * canvasWidth - viewportWidth / 2);
+        lightboxViewport.scrollTop = Math.max(0, centerRatioY * canvasHeight - viewportHeight / 2);
+      }
+
+      function resetZoom() {
+        zoomScale = 1;
+        baseImageWidth = 0;
+        baseImageHeight = 0;
+        isDragging = false;
+        didDrag = false;
+        lightboxViewport.classList.remove('is-dragging');
+        lightboxViewport.classList.remove('is-pannable');
+        if (!calculateBaseImageSize()) return;
+        updateZoomLayout(false);
+      }
+
+      function changeZoom(delta) {
+        const nextScale = Math.min(8, Math.max(1, zoomScale + delta));
+        if (nextScale === zoomScale) return;
+        zoomScale = nextScale;
+        updateZoomLayout(true);
+      }
+
+      function updatePagingControls() {
+        const hasMultipleItems = activeItems.length > 1;
+        previousButton.hidden = !hasMultipleItems;
+        nextButton.hidden = !hasMultipleItems;
+        lightboxCount.textContent = `${activeIndex + 1} / ${activeItems.length}`;
+      }
+
+      function showImage(index) {
+        if (!activeItems.length) return;
+        activeIndex = (index + activeItems.length) % activeItems.length;
+        const item = activeItems[activeIndex];
+        lightboxImage.src = item.src;
+        lightboxImage.alt = item.alt;
+        updatePagingControls();
+        resetZoom();
+      }
+
+      function openItems(items, index = 0) {
+        const validItems = items.filter((item) => item.src);
+        if (!validItems.length) return;
+        activeItems = validItems;
+        showImage(index);
+        if (!lightbox.open) lightbox.showModal();
+        requestAnimationFrame(resetZoom);
+      }
+
+      const lightboxItems = zoomableImages.map((image) => ({
+        src: image.currentSrc || image.src,
+        alt: image.alt || '图片'
+      }));
+
+      zoomableImages.forEach((image, index) => {
+        image.classList.add('zoomable-image');
+        image.setAttribute('role', 'button');
+        image.setAttribute('tabindex', '0');
+        image.setAttribute('aria-label', `${image.alt || '图片'}，点击放大查看`);
+        image.addEventListener('click', () => openItems(lightboxItems, index));
+        image.addEventListener('keydown', (event) => {
+          if (event.key === 'Enter' || event.key === ' ') {
+            event.preventDefault();
+            openItems(lightboxItems, index);
+          }
+        });
+      });
+
+      previousButton.addEventListener('click', () => showImage(activeIndex - 1));
+      nextButton.addEventListener('click', () => showImage(activeIndex + 1));
+      zoomOutButton.addEventListener('click', () => changeZoom(-1));
+      zoomInButton.addEventListener('click', () => changeZoom(1));
+      zoomResetButton.addEventListener('click', resetZoom);
+      lightboxImage.addEventListener('click', () => {
+        if (didDrag) {
+          didDrag = false;
+          return;
+        }
+        if (zoomScale > 1) resetZoom();
+        else changeZoom(1);
+      });
+      lightboxViewport.addEventListener('pointerdown', (event) => {
+        if (!lightboxViewport.classList.contains('is-pannable')) return;
+        isDragging = true;
+        didDrag = false;
+        dragStartX = event.clientX;
+        dragStartY = event.clientY;
+        dragStartScrollLeft = lightboxViewport.scrollLeft;
+        dragStartScrollTop = lightboxViewport.scrollTop;
+        lightboxViewport.classList.add('is-dragging');
+        lightboxViewport.setPointerCapture(event.pointerId);
+        event.preventDefault();
+      });
+      lightboxViewport.addEventListener('pointermove', (event) => {
+        if (!isDragging) return;
+        if (Math.abs(event.clientX - dragStartX) > 4 || Math.abs(event.clientY - dragStartY) > 4) didDrag = true;
+        lightboxViewport.scrollLeft = dragStartScrollLeft - (event.clientX - dragStartX);
+        lightboxViewport.scrollTop = dragStartScrollTop - (event.clientY - dragStartY);
+      });
+      function stopDragging(event) {
+        if (!isDragging) return;
+        isDragging = false;
+        lightboxViewport.classList.remove('is-dragging');
+        if (event.pointerId !== undefined && lightboxViewport.hasPointerCapture(event.pointerId)) {
+          lightboxViewport.releasePointerCapture(event.pointerId);
+        }
+      }
+      lightboxViewport.addEventListener('pointerup', stopDragging);
+      lightboxViewport.addEventListener('pointercancel', stopDragging);
+      lightboxImage.addEventListener('load', () => {
+        if (lightbox.open) requestAnimationFrame(resetZoom);
+      });
+      closeButton.addEventListener('click', () => {
+        resetZoom();
+        lightbox.close();
+      });
+      lightbox.addEventListener('click', (event) => {
+        if (event.target === lightbox) {
+          resetZoom();
+          lightbox.close();
+        }
+      });
+      document.addEventListener('keydown', (event) => {
+        if (!lightbox.open) return;
+        if (event.key === 'ArrowLeft' && activeItems.length > 1) showImage(activeIndex - 1);
+        if (event.key === 'ArrowRight' && activeItems.length > 1) showImage(activeIndex + 1);
+        if (event.key === '+' || event.key === '=') changeZoom(1);
+        if (event.key === '-') changeZoom(-1);
+        if (event.key === '0') resetZoom();
+      });
+      window.addEventListener('resize', () => {
+        if (lightbox.open) resetZoom();
+      });
+    })();
+  </script>
 
 </body></html>
