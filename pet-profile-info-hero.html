@@ -243,7 +243,7 @@
         align-items: baseline;
         gap: 10px;
         flex-wrap: wrap;
-        margin-bottom: 8px;
+        margin-bottom: 18px;
         color: #0F131A;
         font-size: 18px;
         line-height: 1.25;
@@ -370,17 +370,117 @@
       }
 
       .credit-privilege-level {
-        display: block;
-        margin-bottom: 3px;
+        display: inline;
+        margin-right: 8px;
         color: var(--ink);
+        font-size: 18px;
+        line-height: 1.4;
         font-weight: 700;
       }
 
       .credit-privilege-score {
-        display: block;
+        display: inline;
         color: var(--body);
-        font-size: 13px;
+        font-size: 18px;
+        line-height: 1.4;
         font-weight: 400;
+      }
+
+      .credit-privilege-benefit {
+        display: block;
+      }
+
+      .credit-privilege-benefit + .credit-privilege-benefit {
+        margin-top: 6px;
+      }
+
+      .hotel-standards {
+        position: relative;
+        z-index: 2;
+        margin-top: 88px;
+      }
+
+      .hotel-standard-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        margin-top: 34px;
+        border-bottom: 1px solid rgba(17, 17, 17, 0.12);
+      }
+
+      .hotel-standard {
+        min-width: 0;
+        padding: 28px 28px 34px;
+      }
+
+      .hotel-standard + .hotel-standard {
+        border-left: 1px solid rgba(17, 17, 17, 0.12);
+      }
+
+      .hotel-standard:first-child {
+        padding-left: 0;
+      }
+
+      .hotel-standard:last-child {
+        padding-right: 0;
+      }
+
+      .hotel-standard-title {
+        margin: 0 0 14px;
+        color: var(--ink);
+        font-size: 18px;
+        line-height: 1.48;
+        font-weight: 700;
+      }
+
+      .hotel-standard-summary {
+        color: #0F131A;
+        font-size: 14px;
+        line-height: 1.78;
+        font-weight: 400;
+      }
+
+      .hotel-standard-list {
+        margin: 20px 0 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      .hotel-standard-list li {
+        position: relative;
+        display: flex;
+        justify-content: space-between;
+        gap: 16px;
+        padding-left: 17px;
+        color: var(--body);
+        font-size: 14px;
+        line-height: 1.78;
+        font-weight: 400;
+      }
+
+      .hotel-standard-list li + li {
+        margin-top: 12px;
+      }
+
+      .hotel-standard-list li::before {
+        position: absolute;
+        top: 0.78em;
+        left: 0;
+        width: 5px;
+        height: 5px;
+        border-radius: 50%;
+        background: var(--ink);
+        content: "";
+      }
+
+      .hotel-standard-list li > span:first-child {
+        min-width: 0;
+      }
+
+      .hotel-standard-list .requirement-label {
+        flex: 0 0 auto;
+        margin-left: auto;
+        color: var(--body);
+        text-align: right;
       }
 
       .intro {
@@ -666,6 +766,20 @@
           grid-template-columns: repeat(2, minmax(0, 1fr));
         }
 
+        .hotel-standard-grid {
+          grid-template-columns: 1fr;
+          gap: 0;
+        }
+
+        .hotel-standard {
+          padding: 24px 0 28px;
+        }
+
+        .hotel-standard + .hotel-standard {
+          border-top: 1px solid rgba(17, 17, 17, 0.12);
+          border-left: 0;
+        }
+
       }
 
       @media (max-width: 640px) {
@@ -834,6 +948,18 @@
         .credit-privilege-table th,
         .credit-privilege-table td {
           padding: 13px 14px;
+        }
+
+        .hotel-standards {
+          margin-top: 64px;
+        }
+
+        .hotel-standard-title {
+          font-size: 18px;
+        }
+
+        .hotel-standard-list li {
+          gap: 12px;
         }
       }
 
@@ -1212,15 +1338,15 @@
           <div class="credit-privilege-table-wrap">
             <table class="credit-privilege-table">
               <colgroup>
-                <col style="width: 14%" />
-                <col style="width: 21.5%" />
-                <col style="width: 21.5%" />
-                <col style="width: 21.5%" />
-                <col style="width: 21.5%" />
+                <col style="width: 9%" />
+                <col style="width: 22.75%" />
+                <col style="width: 22.75%" />
+                <col style="width: 22.75%" />
+                <col style="width: 22.75%" />
               </colgroup>
               <thead>
                 <tr>
-                  <th scope="col">等级</th>
+                  <th scope="col"></th>
                   <th scope="col">
                     <span class="credit-privilege-level">欠佳</span>
                     <span class="credit-privilege-score">350-599分</span>
@@ -1241,11 +1367,14 @@
               </thead>
               <tbody>
                 <tr>
-                  <th scope="row">准入权益</th>
+                  <th scope="row">出行权益</th>
                   <td>酒店入住和交通运输受限。</td>
                   <td>解锁优选宠物友好酒店。</td>
                   <td>解锁高星酒店、度假酒店。</td>
-                  <td>解锁狗狗GO专属酒店、稀缺宠物房型。</td>
+                  <td>
+                    <span class="credit-privilege-benefit">解锁狗狗GO专属酒店、稀缺宠物房型。</span>
+                    <span class="credit-privilege-benefit">陆运运输免费升箱。</span>
+                  </td>
                 </tr>
                 <tr>
                   <th scope="row">确认权益</th>
@@ -1266,12 +1395,55 @@
                   <td>暂无信用优惠权益。</td>
                   <td>可获得宠物用品券、保险优惠。</td>
                   <td>可获得宠物用品券、保险优惠。</td>
-                  <td>可获得宠物用品券、保险优惠；入住送狗狗GO联名宠物用品。</td>
+                  <td>
+                    <span class="credit-privilege-benefit">可获得宠物用品券、保险优惠。</span>
+                    <span class="credit-privilege-benefit">入住送狗狗GO联名宠物用品。</span>
+                  </td>
                 </tr>
               </tbody>
             </table>
           </div>
         </section>
+      </section>
+
+      <section class="hotel-standards" id="hotel-standards" aria-label="酒店标准">
+        <h2>酒店标准</h2>
+        <div class="hotel-standard-grid">
+          <article class="hotel-standard">
+            <h3 class="hotel-standard-title">准入标准：</h3>
+            <p class="hotel-standard-summary">要求酒店清晰定义并公开携宠准入规则，让用户在预订前明确入住边界。</p>
+            <ul class="hotel-standard-list">
+              <li><span>需定义清晰宠物要求字段（如宠物类型、禁止品种、体重、数量、入住材料）。</span></li>
+              <li><span>酒店活动范围。</span></li>
+              <li><span>房间宠物设施。</span></li>
+            </ul>
+          </article>
+
+          <article class="hotel-standard">
+            <h3 class="hotel-standard-title">履约标准：</h3>
+            <p class="hotel-standard-summary">定义酒店在携宠入住场景中应具备并可实际兑现的宠物接待履约能力。</p>
+            <ul class="hotel-standard-list">
+              <li><span>全部房型/部分房型可携宠入住。</span><span class="requirement-label">（强要求）</span></li>
+              <li><span>提供宠物活动空间。</span><span class="requirement-label">（强要求）</span></li>
+              <li><span>提供宠物设施。</span><span class="requirement-label">（强要求）</span></li>
+              <li><span>88VIP 免清洁费。</span><span class="requirement-label">（强要求）</span></li>
+              <li><span>88VIP 享宠物早餐。</span><span class="requirement-label">（强要求）</span></li>
+              <li><span>高分信用分宠物免押金。</span><span class="requirement-label">（强要求）</span></li>
+              <li><span>可单独留宠物在房间。</span><span class="requirement-label">（弱要求）</span></li>
+              <li><span>有宠物房间清洁 SOP。</span><span class="requirement-label">（弱要求）</span></li>
+            </ul>
+          </article>
+
+          <article class="hotel-standard">
+            <h3 class="hotel-standard-title">保障标准：</h3>
+            <p class="hotel-standard-summary">定义携宠入住过程中，平台、酒店需要提供的风险保障。</p>
+            <ul class="hotel-standard-list">
+              <li><span>入住保障：到店被拒必赔。</span></li>
+              <li><span>宠物责任险：覆盖宠物伤人、损物情况。</span></li>
+              <li><span>医疗保险。</span></li>
+            </ul>
+          </article>
+        </div>
       </section>
 
     </main>
