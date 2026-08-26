@@ -1,0 +1,1272 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#eef6ff" />
+    <title>宠物信息｜飞猪协宠出行</title>
+    <style>
+      :root {
+        --ink: #0f131a;
+        --body: #919499;
+        --accent: #1677FF;
+        --card-bg: rgba(34, 51, 75, 0.04);
+        --side-space: 300px;
+        --feature-grid-width: 909px;
+        --art-gap: 60px;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        min-width: 320px;
+        background: #eef6ff;
+        overflow-y: auto;
+      }
+
+      body {
+        min-width: 320px;
+        min-height: 100vh;
+        margin: 0;
+        overflow-x: hidden;
+        overflow-y: auto;
+        overscroll-behavior-y: auto;
+        -webkit-overflow-scrolling: touch;
+        background-color: #eef6ff;
+        background-image: url("https://gw.alicdn.com/imgextra/i4/O1CN019rnY3FtbkuH7nOHV_!!6000000001611-2-tps-3840-1925.png");
+        background-position: center top;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-attachment: scroll;
+        color: var(--body);
+        font-family: "PingFang SC", -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", Arial, sans-serif;
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 1.4;
+        letter-spacing: 0;
+        -webkit-font-smoothing: antialiased;
+        text-rendering: optimizeLegibility;
+      }
+
+      h1,
+      h2,
+      h3,
+      p {
+        margin: 0;
+      }
+
+      h1 {
+        color: var(--ink);
+        font-size: 42px;
+        line-height: 1.4;
+        font-weight: 700;
+      }
+
+      h2 {
+        color: var(--ink);
+        font-size: 24px;
+        line-height: 1.4;
+        font-weight: 700;
+      }
+
+      h3 {
+        color: var(--ink);
+        font-size: 18px;
+        line-height: 1.4;
+        font-weight: 700;
+      }
+
+      .highlight {
+        color: var(--accent);
+      }
+
+      .official-research {
+        position: relative;
+        z-index: 2;
+        width: 100%;
+        margin-bottom: 120px;
+      }
+
+      .official-kicker {
+        margin-bottom: 12px;
+        color: var(--body);
+        font-size: 14px;
+        line-height: 1.78;
+        font-weight: 400;
+      }
+
+      .official-title {
+        color: #0F131A;
+        font-size: 32px;
+        line-height: 1.28;
+        font-weight: 700;
+      }
+
+      .official-lead {
+        margin-top: 20px;
+        color: var(--body);
+        font-size: 14px;
+        line-height: 1.78;
+      }
+
+      .official-rule {
+        margin-top: 16px;
+        border-top: 2px solid #0F131A;
+      }
+
+      .official-link {
+        margin-top: 24px;
+        color: var(--body);
+        font-size: 14px;
+        line-height: 1.78;
+      }
+
+      .official-link a {
+        color: var(--accent);
+        text-decoration: none;
+      }
+
+      .official-banner {
+        display: block;
+        width: 100%;
+        height: auto;
+        margin-top: 20px;
+        border: 1px solid rgba(17, 17, 17, 0.12);
+      }
+
+      .official-image-grid {
+        display: grid;
+        grid-template-columns: minmax(0, 6.45fr) minmax(0, 1fr);
+        gap: 24px;
+        align-items: start;
+        margin-top: 28px;
+      }
+
+      .official-image-card {
+        min-width: 0;
+      }
+
+      .official-image-label {
+        margin-bottom: 12px;
+        color: var(--body);
+        font-size: 14px;
+        line-height: 1.78;
+      }
+
+      .official-image-card img {
+        display: block;
+        width: 100%;
+        height: auto;
+        border: 1px solid rgba(17, 17, 17, 0.12);
+      }
+
+      .canvas {
+        position: relative;
+        width: calc(100vw - var(--side-space) - var(--side-space));
+        min-height: 810px;
+        margin: 0 auto;
+        padding-top: 134px;
+        padding-bottom: 120px;
+      }
+
+      .content {
+        position: relative;
+        z-index: 2;
+        width: 930px;
+      }
+
+      .pet-info-stage {
+        position: relative;
+        z-index: 2;
+      }
+
+      .title-row {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .title-icon {
+        display: block;
+        width: 36px;
+        height: auto;
+        flex: 0 0 auto;
+      }
+
+      .title-icon--mirror {
+        transform: scaleX(-1);
+        transform-origin: center;
+      }
+
+      .page-title {
+        white-space: nowrap;
+      }
+
+      .credit-title-row {
+        margin-top: 120px;
+      }
+
+      .credit-section {
+        position: relative;
+        z-index: 2;
+        margin-top: 44px;
+      }
+
+      .credit-ring {
+        display: block;
+        width: clamp(260px, 22vw, 320px);
+        height: auto;
+        margin: 0 0 44px 8px;
+        transform: scaleX(-1);
+        transform-origin: center;
+        user-select: none;
+        pointer-events: none;
+      }
+
+      .credit-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 24px;
+      }
+
+      .credit-card {
+        min-width: 0;
+        padding: 30px 24px 28px;
+        border-radius: 8px;
+        background: var(--card-bg);
+      }
+
+      .credit-card-title {
+        display: flex;
+        align-items: baseline;
+        gap: 10px;
+        flex-wrap: wrap;
+        margin-bottom: 8px;
+        color: #0F131A;
+        font-size: 18px;
+        line-height: 1.25;
+        font-weight: 700;
+      }
+
+      .credit-card-note {
+        margin: 0 0 8px;
+        color: var(--body);
+        font-size: 13px;
+        line-height: 1.6;
+      }
+
+      .credit-card-subtitle {
+        color: var(--body);
+        font-size: 14px;
+        line-height: 1.4;
+        font-weight: 400;
+      }
+
+      .credit-list {
+        display: grid;
+        gap: 8px;
+      }
+
+      .credit-field {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) auto;
+        gap: 14px 24px;
+        align-items: start;
+        color: var(--body);
+        font-size: 14px;
+        line-height: 1.6;
+      }
+
+      .credit-field-label {
+        min-width: 0;
+        overflow-wrap: anywhere;
+      }
+
+      .credit-field-value {
+        min-width: 0;
+        justify-self: end;
+        text-align: right;
+        white-space: nowrap;
+      }
+
+      .credit-health-layout {
+        display: grid;
+        gap: 8px;
+      }
+
+      .credit-health-extra {
+        margin-top: 8px;
+      }
+
+      .credit-privilege {
+        margin-top: 44px;
+      }
+
+      .credit-privilege-title {
+        margin-bottom: 22px;
+        color: var(--ink);
+        font-size: 24px;
+        line-height: 1.4;
+        font-weight: 700;
+      }
+
+      .credit-privilege-table-wrap {
+        width: 100%;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+      }
+
+      .credit-privilege-table {
+        width: 100%;
+        min-width: 900px;
+        border-collapse: collapse;
+        table-layout: fixed;
+      }
+
+      .credit-privilege-table th,
+      .credit-privilege-table td {
+        padding: 15px 16px;
+        border-right: 1px solid rgba(17, 17, 17, 0.1);
+        border-bottom: 1px solid rgba(17, 17, 17, 0.1);
+        color: var(--body);
+        font-size: 14px;
+        line-height: 1.6;
+        font-weight: 400;
+        text-align: left;
+        vertical-align: top;
+        overflow-wrap: anywhere;
+      }
+
+      .credit-privilege-table thead th {
+        color: var(--ink);
+        font-weight: 700;
+      }
+
+      .credit-privilege-table tbody th {
+        color: var(--ink);
+        font-weight: 500;
+      }
+
+      .credit-privilege-table th:last-child,
+      .credit-privilege-table td:last-child {
+        border-right: 0;
+      }
+
+      .credit-privilege-table th:first-child,
+      .credit-privilege-table td:first-child {
+        padding-left: 0;
+      }
+
+      .credit-privilege-table th:last-child,
+      .credit-privilege-table td:last-child {
+        padding-right: 0;
+      }
+
+      .credit-privilege-table tr:last-child th,
+      .credit-privilege-table tr:last-child td {
+        border-bottom: 0;
+      }
+
+      .credit-privilege-level {
+        display: block;
+        margin-bottom: 3px;
+        color: var(--ink);
+        font-weight: 700;
+      }
+
+      .credit-privilege-score {
+        display: block;
+        color: var(--body);
+        font-size: 13px;
+        font-weight: 400;
+      }
+
+      .intro {
+        max-width: 930px;
+        margin-top: 18px;
+        color: var(--body);
+        font-size: 14px;
+        line-height: 1.6;
+      }
+
+      .feature-grid {
+        position: relative;
+        display: grid;
+        grid-template-columns: repeat(4, 195px);
+        gap: 43px;
+        margin-top: 60px;
+        padding-bottom: 34px;
+        border-bottom: 1px solid rgba(17, 17, 17, 0.12);
+      }
+
+      .feature {
+        position: relative;
+        min-width: 0;
+      }
+
+      .feature + .feature::before {
+        position: absolute;
+        top: -34px;
+        bottom: -34px;
+        left: -22px;
+        width: 1px;
+        background: rgba(17, 17, 17, 0.12);
+        content: "";
+      }
+
+      .feature-title {
+        margin-bottom: 18px;
+        white-space: nowrap;
+      }
+
+      .feature-copy {
+        color: var(--body);
+        font-size: 14px;
+        line-height: 1.6;
+      }
+
+      .hero-art {
+        position: absolute;
+        z-index: 1;
+        top: 0;
+        left: calc(var(--feature-grid-width) + var(--art-gap));
+        right: auto;
+        display: block;
+        width: 560px;
+        height: auto;
+        pointer-events: none;
+        user-select: none;
+      }
+
+      .research-card {
+        position: relative;
+        z-index: 2;
+        width: 100%;
+        margin-top: 34px;
+        padding: 28px 26px;
+        border-radius: 8px;
+        background: var(--card-bg);
+      }
+
+      .research-title {
+        margin-bottom: 28px;
+        color: var(--ink);
+        font-size: 18px;
+        line-height: 1.4;
+        font-weight: 700;
+      }
+
+      .research-grid {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(430px, 500px);
+        gap: 56px;
+        align-items: stretch;
+      }
+
+      .research-item {
+        min-width: 0;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .research-label {
+        margin-bottom: 18px;
+        color: var(--ink);
+        font-size: 14px;
+        line-height: 1.4;
+        font-weight: 500;
+      }
+
+      .research-copy,
+      .research-source {
+        color: var(--body);
+        font-size: 14px;
+        line-height: 1.7;
+      }
+
+      .research-item--media {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) auto;
+        gap: 20px;
+        align-items: stretch;
+      }
+
+      .research-media-text {
+        min-width: 0;
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+      }
+
+      .research-media-text .research-source {
+        margin-top: auto;
+      }
+
+      .research-video-frame {
+        min-width: 0;
+        align-self: start;
+        justify-self: start;
+        margin-top: 38px;
+      }
+
+      .research-video {
+        display: block;
+        width: auto;
+        height: 204px;
+        max-width: none;
+        border: 0;
+        border-radius: 8px;
+        background: #e9eff8;
+        object-fit: contain;
+      }
+
+      .research-table-stack {
+        min-width: 0;
+      }
+
+      .research-table-stack .research-source {
+        margin-top: 12px;
+      }
+
+      .research-table-wrap {
+        margin-top: 0;
+        overflow: hidden;
+        border: 1px solid rgba(17, 17, 17, 0.12);
+        border-radius: 0;
+        background: transparent;
+      }
+
+      .research-table {
+        width: 100%;
+        border-collapse: collapse;
+        table-layout: fixed;
+      }
+
+      .research-table th,
+      .research-table td {
+        padding: 14px 16px;
+        border-bottom: 1px solid rgba(17, 17, 17, 0.12);
+        color: var(--body);
+        font-size: 14px;
+        line-height: 1.6;
+        font-weight: 400;
+      }
+
+      .research-table thead th {
+        background: transparent;
+        border-bottom: 0;
+        box-shadow: inset 0 -1px 0 rgba(17, 17, 17, 0.12);
+        font-weight: 500;
+        text-align: center;
+      }
+
+      .research-table thead th:first-child,
+      .research-table tbody th {
+        text-align: left;
+      }
+
+      .research-table td {
+        text-align: center;
+      }
+
+      .research-table tr:last-child th,
+      .research-table tr:last-child td {
+        border-bottom: 0;
+      }
+
+      .research-source a {
+        color: var(--accent);
+        text-decoration: none;
+      }
+
+      .research-source a:hover,
+      .research-source a:focus-visible {
+        color: var(--accent);
+      }
+
+      @media (max-width: 1600px) {
+        .canvas {
+          width: calc(100vw - 80px);
+        }
+
+        .hero-art {
+          left: auto;
+          right: -42px;
+          width: 500px;
+        }
+
+        .content {
+          width: min(900px, 70vw);
+        }
+
+        .intro {
+          max-width: 900px;
+        }
+      }
+
+      @media (max-width: 1120px) {
+        .canvas {
+          width: calc(100vw - 40px);
+          min-height: auto;
+          padding: 88px 0 80px;
+        }
+
+        .official-research {
+          margin-bottom: 88px;
+        }
+
+        .official-title {
+          font-size: 28px;
+        }
+
+        .content {
+          width: 100%;
+        }
+
+        .feature-grid {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+          gap: 42px 32px;
+        }
+
+        .feature + .feature::before {
+          display: none;
+        }
+
+        .hero-art {
+          position: relative;
+          top: auto;
+          left: auto;
+          right: auto;
+          width: min(560px, 76vw);
+          margin: 58px 0 0 auto;
+        }
+
+        .research-card {
+          margin-top: 70px;
+        }
+
+        .research-grid {
+          grid-template-columns: minmax(0, 1fr) minmax(240px, 320px);
+          gap: 40px;
+        }
+
+        .research-item--media {
+          grid-template-columns: minmax(0, 1fr) clamp(120px, 12vw, 125px);
+          gap: 20px;
+        }
+
+        .credit-ring {
+          width: min(320px, 52vw);
+          margin-bottom: 36px;
+        }
+
+        .credit-grid {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+
+      }
+
+      @media (max-width: 640px) {
+        body {
+          background-attachment: scroll;
+        }
+
+        .canvas {
+          width: calc(100vw - 40px);
+          padding-top: 56px;
+        }
+
+        .title-row {
+          gap: 8px;
+        }
+
+        .title-icon {
+          width: 32px;
+        }
+
+        .page-title {
+          font-size: 24px;
+        }
+
+        .official-research {
+          margin-bottom: 64px;
+        }
+
+        .official-title {
+          font-size: 24px;
+        }
+
+        .official-lead,
+        .official-link {
+          overflow-wrap: anywhere;
+          word-break: break-all;
+        }
+
+        .official-image-grid {
+          grid-template-columns: 1fr;
+          gap: 20px;
+        }
+
+        .intro {
+          margin-top: 18px;
+          overflow-wrap: anywhere;
+          word-break: break-all;
+        }
+
+        .feature-grid {
+          grid-template-columns: 1fr;
+          gap: 30px;
+          margin-top: 44px;
+        }
+
+        .feature-title {
+          margin-bottom: 18px;
+        }
+
+        .feature-copy {
+          overflow-wrap: anywhere;
+          word-break: break-all;
+        }
+
+        .hero-art {
+          width: min(560px, 100%);
+          margin-top: 44px;
+        }
+
+        .research-card {
+          margin-top: 52px;
+          padding: 24px 20px;
+        }
+
+        .research-title {
+          margin-bottom: 24px;
+        }
+
+        .research-grid {
+          grid-template-columns: 1fr;
+          gap: 32px;
+        }
+
+        .research-item--media {
+          grid-template-columns: 1fr;
+          gap: 18px;
+          align-items: start;
+        }
+
+        .research-media-text {
+          display: block;
+          height: auto;
+        }
+
+        .research-video-frame {
+          margin-top: 0;
+        }
+
+        .research-media-text .research-source {
+          margin-top: 12px;
+        }
+
+        .research-table-stack .research-source {
+          margin-top: 12px;
+        }
+
+        .research-video {
+          width: clamp(150px, 44vw, 180px);
+          height: auto;
+        }
+
+        .research-copy,
+        .research-source {
+          overflow-wrap: anywhere;
+          word-break: break-all;
+        }
+
+        .credit-section {
+          margin-top: 28px;
+        }
+
+        .credit-ring {
+          width: min(280px, 78vw);
+          margin: 24px 0 28px 0;
+        }
+
+        .credit-grid {
+          grid-template-columns: 1fr;
+          gap: 18px;
+        }
+
+        .credit-card {
+          padding: 24px 20px;
+        }
+
+        .credit-card-title {
+          margin-bottom: 18px;
+          font-size: 22px;
+        }
+
+        .credit-field {
+          gap: 8px 18px;
+        }
+
+        .credit-field-value {
+          white-space: normal;
+        }
+
+        .credit-health-extra {
+          margin-top: 8px;
+        }
+
+        .credit-privilege {
+          margin-top: 34px;
+        }
+
+        .credit-privilege-title {
+          margin-bottom: 18px;
+          font-size: 22px;
+        }
+
+        .credit-privilege-table {
+          min-width: 760px;
+        }
+
+        .credit-privilege-table th,
+        .credit-privilege-table td {
+          padding: 13px 14px;
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        *,
+        *::before,
+        *::after {
+          scroll-behavior: auto !important;
+          transition-duration: 0.01ms !important;
+          animation-duration: 0.01ms !important;
+          animation-iteration-count: 1 !important;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="canvas" aria-labelledby="page-title">
+      <section class="official-research" aria-label="政府官方背书调研">
+        <p class="official-kicker">前置调研</p>
+        <h1 class="official-title">政府官方背书：打造宠物行业权威数字化基础设施</h1>
+        <p class="official-lead">
+          给每只宠物建立一个唯一、可查询、可追溯、带官方背书的数字身份，用来解决宠物行业长期存在的身份混乱、溯源困难、权责不清问题。郑州二七区率先落地常态化办理，中国宠信网同步开放官方查询功能，目标是形成“一宠一码、唯一备案、全国通认”的宠物数字身份基础设施。
+        </p>
+        <div class="official-rule" aria-hidden="true"></div>
+        <p class="official-link">
+          官网地址：<a href="https://www.12316.pet/" target="_blank" rel="noopener noreferrer">https://www.12316.pet/</a>
+        </p>
+        <img
+          class="official-banner"
+          src="https://gw.alicdn.com/imgextra/i3/O1CN01BqZplxWrICF5BktU_!!6000000002757-2-tps-2556-996.png"
+          alt="宠物数字身份基础设施示意图"
+          loading="eager"
+          decoding="async"
+        />
+        <div class="official-image-grid">
+          <div class="official-image-card">
+            <p class="official-image-label">申请流程</p>
+            <img
+              src="https://gw.alicdn.com/imgextra/i4/O1CN01g7w3L0Jn1CCCIqOl_!!6000000004938-2-tps-6060-1299.png"
+              alt="宠物数字身份申请流程"
+              loading="eager"
+              decoding="async"
+            />
+          </div>
+          <div class="official-image-card">
+            <p class="official-image-label">数字身份证</p>
+            <img
+              src="https://gw.alicdn.com/imgextra/i4/O1CN016ZLaPLKmbuF2XjeT_!!6000000001915-2-tps-1253-1732.png"
+              alt="宠物数字身份证"
+              loading="eager"
+              decoding="async"
+            />
+          </div>
+        </div>
+      </section>
+
+      <div class="pet-info-stage">
+        <section class="content" aria-label="宠物信息概览">
+          <div class="title-row">
+            <img
+              class="title-icon"
+              src="https://gw.alicdn.com/imgextra/i4/O1CN01Jci6qXrlBHL0YcJf_!!6000000000212-2-tps-275-168.png"
+              alt=""
+              aria-hidden="true"
+            />
+            <h2 class="page-title" id="page-title">宠物信息</h2>
+          </div>
+
+          <p class="intro">
+            用户在飞猪创建宠物档案，录入宠物类型、品种、体重、年龄、照片、疫苗证明、养宠许可证（飞猪的档案体系具备犬证的公信力）。
+          </p>
+
+          <div class="feature-grid">
+            <article class="feature">
+              <h3 class="feature-title">宠物电子ID</h3>
+              <p class="feature-copy">
+                ①为宠物建立专属数字身份，记录基础与疫苗信息，支持查询、核验和追溯。②避免用户在出行场景中反复解释“我带的是什么样的宠物，有没有打疫苗，是否合规”。
+              </p>
+            </article>
+
+            <article class="feature">
+              <h3 class="feature-title">身份唯一性</h3>
+              <p class="feature-copy">
+                通过宠物独有的鼻纹特征进行身份识别，无需植入传统RFID芯片，非侵入式操作，实现身份确认与追溯。
+              </p>
+            </article>
+
+            <article class="feature">
+              <h3 class="feature-title">精准匹配方案</h3>
+              <p class="feature-copy">
+                根据宠物品种、体型、数量...，智能匹配更合适的酒店、交通服务方案，减少筛选成本与到店被拒风险。
+              </p>
+            </article>
+
+            <article class="feature">
+              <h3 class="feature-title">享受更多权益</h3>
+              <p class="feature-copy">
+                丰富的档案信息可以获得更高的宠物芝麻分，分数越高，可解锁更多专属权益。
+              </p>
+            </article>
+          </div>
+        </section>
+
+        <img
+          class="hero-art"
+          src="https://gw.alicdn.com/imgextra/i4/O1CN0171aoWTxHfZD69Qf6_!!6000000002990-2-tps-3030-2430.png"
+          alt="蓝色环形宠物档案标识"
+          decoding="async"
+        />
+      </div>
+
+      <section class="research-card" aria-label="鼻纹生物识别调研">
+        <h2 class="research-title">鼻纹生物识别调研</h2>
+        <div class="research-grid">
+          <article class="research-item research-item--media">
+            <div class="research-media-text">
+              <h3 class="research-label">支付宝_蚂蚁保险</h3>
+              <p class="research-copy">
+                原理：宠物鼻纹类似人类指纹，具有唯一性和不变性。投保时根据鼻纹为宠物建立专属电子档案，理赔时刷鼻纹核实身份即可完成理赔；防走丢场景中，也可通过支付宝扫鼻纹识别宠物并联系主人。
+              </p>
+              <p class="research-source">
+                来源：<a href="https://finance.sina.com.cn/tech/2021-07-15/doc-ikqcfnca7048511.shtml" target="_blank" rel="noreferrer">新浪科技｜蚂蚁保险平台上线宠物防走丢功能</a>
+              </p>
+            </div>
+
+            <div class="research-video-frame" aria-label="支付宝宠物鼻纹识别视频">
+              <video
+                class="research-video"
+                src="https://cloud.video.taobao.com/vod/X8rpPHGQJ_tsVA_y2hX_aPPUiglJsQjZ_hHYPK9cxyw.mp4"
+                controls
+                muted
+                autoplay
+                loop
+                playsinline
+                preload="metadata"
+              ></video>
+            </div>
+          </article>
+
+          <article class="research-item">
+            <h3 class="research-label">旷视</h3>
+            <div class="research-table-stack">
+              <div class="research-table-wrap" aria-label="旷视犬鼻纹识别价格表">
+                <table class="research-table">
+                  <colgroup>
+                    <col style="width: 38%" />
+                    <col style="width: 31%" />
+                    <col style="width: 31%" />
+                  </colgroup>
+                  <thead>
+                    <tr>
+                      <th scope="col">项目</th>
+                      <th scope="col">大鼻纹检测</th>
+                      <th scope="col">犬鼻纹比对</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <th scope="row">按量计费</th>
+                      <td>¥1/次起</td>
+                      <td>¥3/次起</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">包时计费 - 按天</th>
+                      <td>¥1,000/QPS/天</td>
+                      <td>—</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">包时计费 - 按月</th>
+                      <td>¥21,000/QPS/月</td>
+                      <td>—</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <p class="research-source">
+                网址：<a href="https://www.faceplusplus.com.cn/dog-nose-recognition/" target="_blank" rel="noreferrer">faceplusplus.com.cn/dog-nose-recognition</a>
+              </p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <div class="title-row credit-title-row">
+        <img
+          class="title-icon title-icon--mirror"
+          src="https://gw.alicdn.com/imgextra/i4/O1CN01Jci6qXrlBHL0YcJf_!!6000000000212-2-tps-275-168.png"
+          alt=""
+          aria-hidden="true"
+        />
+        <h2 class="page-title">宠物信用体系</h2>
+      </div>
+
+      <section class="credit-section" aria-label="宠物信用体系信息">
+        <img
+          class="credit-ring"
+          src="https://gw.alicdn.com/imgextra/i4/O1CN0171aoWTxHfZD69Qf6_!!6000000002990-2-tps-3030-2430.png"
+          alt=""
+          aria-hidden="true"
+          decoding="async"
+        />
+
+        <div class="credit-grid">
+          <article class="credit-card">
+            <h2 class="credit-card-title">宠物身份</h2>
+            <p class="credit-card-note">酒店入住所需字段重点看宠物类型、品种、体重，保险场景则需要生日、性别、绝育情况、宠物照片和鼻纹，用来支撑基础校验与身份识别。</p>
+            <div class="credit-list">
+              <div class="credit-field">
+                <span class="credit-field-label">宠物名称</span>
+                <span class="credit-field-value">用户填写</span>
+              </div>
+              <div class="credit-field">
+                <span class="credit-field-label">宠物类型</span>
+                <span class="credit-field-value">用户填写</span>
+              </div>
+              <div class="credit-field">
+                <span class="credit-field-label">品种</span>
+                <span class="credit-field-value">用户填写</span>
+              </div>
+              <div class="credit-field">
+                <span class="credit-field-label">体重（成长性：发生变化更新）</span>
+                <span class="credit-field-value">用户填写</span>
+              </div>
+              <div class="credit-field">
+                <span class="credit-field-label">生日</span>
+                <span class="credit-field-value">用户填写</span>
+              </div>
+              <div class="credit-field">
+                <span class="credit-field-label">性别</span>
+                <span class="credit-field-value">用户填写</span>
+              </div>
+              <div class="credit-field">
+                <span class="credit-field-label">绝育情况</span>
+                <span class="credit-field-value">用户填写</span>
+              </div>
+              <div class="credit-field">
+                <span class="credit-field-label">宠物照片</span>
+                <span class="credit-field-value">用户上传</span>
+              </div>
+              <div class="credit-field">
+                <span class="credit-field-label">宠物鼻纹</span>
+                <span class="credit-field-value">用户上传</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="credit-card credit-card--health">
+            <h2 class="credit-card-title">健康防疫</h2>
+            <p class="credit-card-note">疫苗接种记录、检疫证、健康情况和驱虫情况一起组成健康防疫的核心材料，直接影响入住审核、理赔判断和出行合规性。</p>
+            <div class="credit-health-layout">
+              <div class="credit-field">
+                <span class="credit-field-label">疫苗接种记录（成长性：按年维护）</span>
+                <span class="credit-field-value">用户上传</span>
+              </div>
+              <div class="credit-field">
+                <span class="credit-field-label">检疫证（成长性：主动上传）</span>
+                <span class="credit-field-value">用户上传</span>
+              </div>
+              <div class="credit-field">
+                <span class="credit-field-label">健康情况</span>
+                <span class="credit-field-value">蚂蚁保险 (保险申报材料)</span>
+              </div>
+            </div>
+
+            <div class="credit-health-extra credit-field">
+              <span class="credit-field-label">驱虫情况（成长性：按月维护）</span>
+              <span class="credit-field-value">淘宝天猫驱虫药订单</span>
+            </div>
+          </article>
+
+          <article class="credit-card">
+            <h2 class="credit-card-title">
+              行为记录 <span class="credit-card-subtitle">（成长性：按次维护）</span>
+            </h2>
+            <p class="credit-card-note">良好酒店入住和交通托运行为属于加分项，扰客风险、财损风险、清洁风险、安全风险属于减分项，反映宠物在真实出行中的稳定性和风险水平。</p>
+            <div class="credit-list">
+              <div class="credit-field">
+                <span class="credit-field-label">良好酒店入住行为：单次无异常入住</span>
+                <span class="credit-field-value">飞猪订单</span>
+              </div>
+              <div class="credit-field">
+                <span class="credit-field-label">良好交通托运行为：单次无异常托运</span>
+                <span class="credit-field-value">飞猪订单</span>
+              </div>
+              <div class="credit-field">
+                <span class="credit-field-label">扰客风险</span>
+                <span class="credit-field-value">酒店、运输反馈</span>
+              </div>
+              <div class="credit-field">
+                <span class="credit-field-label">财损风险</span>
+                <span class="credit-field-value">酒店、运输反馈</span>
+              </div>
+              <div class="credit-field">
+                <span class="credit-field-label">清洁风险</span>
+                <span class="credit-field-value">酒店、运输反馈</span>
+              </div>
+              <div class="credit-field">
+                <span class="credit-field-label">安全风险：攻击人、宠物</span>
+                <span class="credit-field-value">酒店、运输反馈</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="credit-card">
+            <h2 class="credit-card-title">
+              责任履约 <span class="credit-card-subtitle">（成长性：按次维护）</span>
+            </h2>
+            <p class="credit-card-note">是否携带未登记宠物出行、是否遵守酒店宠物规则、是否遵守交通宠物规则和是否拒赔，都是判断用户是否按约定完成责任履约。</p>
+            <div class="credit-list">
+              <div class="credit-field">
+                <span class="credit-field-label">是否携带未登记宠物出行</span>
+                <span class="credit-field-value">酒店、运输反馈</span>
+              </div>
+              <div class="credit-field">
+                <span class="credit-field-label">是否遵守酒店宠物规则</span>
+                <span class="credit-field-value">酒店反馈</span>
+              </div>
+              <div class="credit-field">
+                <span class="credit-field-label">是否遵守交通宠物规则</span>
+                <span class="credit-field-value">运输反馈</span>
+              </div>
+              <div class="credit-field">
+                <span class="credit-field-label">是否拒赔</span>
+                <span class="credit-field-value">酒店、运输反馈</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="credit-card">
+            <h2 class="credit-card-title">
+              消费能力 <span class="credit-card-subtitle">（成长性：按次维护）</span>
+            </h2>
+            <p class="credit-card-note">携宠出行订单次数、消费金额、酒店客单价区间和宠物用品消费金额能反映携宠消费力，代表用户的真实付费和出行活跃度。</p>
+            <div class="credit-list">
+              <div class="credit-field">
+                <span class="credit-field-label">携宠出行订单次数</span>
+                <span class="credit-field-value">飞猪平台</span>
+              </div>
+              <div class="credit-field">
+                <span class="credit-field-label">携宠出行消费金额</span>
+                <span class="credit-field-value">飞猪平台</span>
+              </div>
+              <div class="credit-field">
+                <span class="credit-field-label">酒店客单价区间</span>
+                <span class="credit-field-value">飞猪平台</span>
+              </div>
+              <div class="credit-field">
+                <span class="credit-field-label">宠物用品消费金额</span>
+                <span class="credit-field-value">淘宝天猫宠物用品订单</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="credit-card">
+            <h2 class="credit-card-title">风险保障</h2>
+            <p class="credit-card-note">宠物医疗险、宠物责任险和宠物入住责任险放在一起，分别对应健康、赔付和入住责任三类最常见的风险兜底能力。</p>
+            <div class="credit-list">
+              <div class="credit-field">
+                <span class="credit-field-label">宠物医疗险（成长性：区分保额、续保）</span>
+                <span class="credit-field-value">蚂蚁保险</span>
+              </div>
+              <div class="credit-field">
+                <span class="credit-field-label">宠物责任险（成长性：区分保额、续保）</span>
+                <span class="credit-field-value">蚂蚁保险</span>
+              </div>
+              <div class="credit-field">
+                <span class="credit-field-label">宠物入住责任险（成长性：按次）</span>
+                <span class="credit-field-value">蚂蚁保险</span>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <section class="credit-privilege" aria-label="信用特权">
+          <h2 class="credit-privilege-title">信用特权</h2>
+          <div class="credit-privilege-table-wrap">
+            <table class="credit-privilege-table">
+              <colgroup>
+                <col style="width: 14%" />
+                <col style="width: 21.5%" />
+                <col style="width: 21.5%" />
+                <col style="width: 21.5%" />
+                <col style="width: 21.5%" />
+              </colgroup>
+              <thead>
+                <tr>
+                  <th scope="col">等级</th>
+                  <th scope="col">
+                    <span class="credit-privilege-level">欠佳</span>
+                    <span class="credit-privilege-score">350-599分</span>
+                  </th>
+                  <th scope="col">
+                    <span class="credit-privilege-level">优秀</span>
+                    <span class="credit-privilege-score">600-699分</span>
+                  </th>
+                  <th scope="col">
+                    <span class="credit-privilege-level">极好</span>
+                    <span class="credit-privilege-score">700-799分</span>
+                  </th>
+                  <th scope="col">
+                    <span class="credit-privilege-level">狗狗GO</span>
+                    <span class="credit-privilege-score">800分</span>
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row">酒店与交通</th>
+                  <td>酒店入住和交通运输受限；订单需人工确认，存在被拒风险。</td>
+                  <td>解锁优选宠物友好酒店。</td>
+                  <td>解锁高星酒店、度假酒店。</td>
+                  <td>解锁狗狗GO专属酒店、稀缺宠物房型。</td>
+                </tr>
+                <tr>
+                  <th scope="row">优惠权益</th>
+                  <td>暂无信用优惠权益。</td>
+                  <td>可获得宠物用品券、保险优惠。</td>
+                  <td>可获得宠物用品券、保险优惠。</td>
+                  <td>可获得宠物用品券、保险优惠；入住送狗狗GO联名宠物用品。</td>
+                </tr>
+                <tr>
+                  <th scope="row">确认与免押</th>
+                  <td>暂不享受免押权益。</td>
+                  <td>按酒店规则确认。</td>
+                  <td>酒店优先库存确认；酒店免押金额度1000元。</td>
+                  <td>酒店优先库存确认；享受高免押额度。</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+      </section>
+
+    </main>
+  </body>
+</html>
