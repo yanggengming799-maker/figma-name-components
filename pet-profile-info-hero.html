@@ -82,6 +82,208 @@
         color: var(--accent);
       }
 
+      .economy-map {
+        position: relative;
+        z-index: 2;
+        width: 100%;
+        margin-bottom: 120px;
+      }
+
+      .economy-overview {
+        margin-bottom: 88px;
+      }
+
+      .economy-overview-intro {
+        margin-bottom: 36px;
+      }
+
+      .economy-overview-title {
+        margin-top: 40px;
+        margin-bottom: 22px;
+        color: var(--ink);
+        font-size: 24px;
+        line-height: 1.4;
+        font-weight: 700;
+      }
+
+      .economy-overview-table {
+        min-width: 900px;
+      }
+
+      .economy-overview-rule {
+        margin-top: 24px;
+        border-top: 2px solid #0f131a;
+      }
+
+      .economy-kicker {
+        margin-bottom: 12px;
+        color: var(--body);
+        font-size: 14px;
+        line-height: 1.78;
+        font-weight: 400;
+      }
+
+      .economy-title {
+        color: #0F131A;
+        font-size: 32px;
+        line-height: 1.28;
+        font-weight: 700;
+      }
+
+      .economy-lead {
+        margin-top: 18px;
+        color: var(--body);
+        font-size: 14px;
+        line-height: 1.78;
+      }
+
+      .economy-overview-lead {
+        color: var(--body);
+      }
+
+      .economy-overview-lead strong {
+        color: #0F131A;
+        font-weight: 700;
+      }
+
+      .economy-sector {
+        margin-top: 88px;
+      }
+
+      .economy-sector:first-child {
+        margin-top: 0;
+      }
+
+      .economy-sector-head {
+        display: flex;
+        justify-content: space-between;
+        gap: 24px;
+        align-items: flex-start;
+        margin-bottom: 18px;
+      }
+
+      .economy-sector-title {
+        color: var(--ink);
+        font-size: 24px;
+        line-height: 1.28;
+        font-weight: 700;
+      }
+
+      .economy-sector-size {
+        flex: 0 0 auto;
+        color: var(--ink);
+        font-size: 24px;
+        line-height: 1.28;
+        font-weight: 700;
+      }
+
+      .economy-card-row {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 24px;
+        align-items: stretch;
+        margin-top: 34px;
+      }
+
+      .economy-card {
+        min-width: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        min-height: 170px;
+        padding: 24px;
+        border-radius: 8px;
+        background: rgba(34, 51, 75, 0.04);
+      }
+
+      .economy-card-topline {
+        display: flex;
+        justify-content: space-between;
+        gap: 18px;
+        align-items: flex-start;
+      }
+
+      .economy-card-title {
+        min-width: 0;
+        color: var(--ink);
+        font-size: 18px;
+        line-height: 1.45;
+        font-weight: 700;
+      }
+
+      .economy-card-code,
+      .economy-card-copy,
+      .economy-card-label,
+      .economy-source {
+        color: var(--body);
+        font-size: 14px;
+        line-height: 1.6;
+        font-weight: 400;
+      }
+
+      .economy-card-code {
+        flex: 0 0 auto;
+        text-align: right;
+        white-space: nowrap;
+      }
+
+      .economy-card-copy {
+        margin-top: 8px;
+      }
+
+      .economy-card-metrics {
+        display: flex;
+        gap: 48px;
+        align-items: flex-start;
+        margin-top: 28px;
+        flex-wrap: wrap;
+      }
+
+      .economy-card-metric {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 6px;
+        min-width: 0;
+      }
+
+      .economy-map .economy-sector:first-of-type .economy-card > .economy-card-metric {
+        margin-top: 28px;
+      }
+
+      .economy-map .economy-sector:nth-of-type(3) .economy-card > .economy-card-metric {
+        margin-top: 28px;
+      }
+
+      .economy-card-value {
+        color: var(--ink);
+        font-size: 24px;
+        line-height: 1.2;
+        font-weight: 700;
+      }
+
+      .economy-card-value-unit {
+        margin-left: 2px;
+        color: var(--ink);
+        font-size: 14px;
+        font-weight: 400;
+      }
+
+      .economy-card-value-note {
+        color: var(--body);
+        font-size: 14px;
+        font-weight: 400;
+      }
+
+      .economy-source {
+        margin-top: 20px;
+      }
+
+      .economy-source a {
+        color: var(--accent);
+        text-decoration: none;
+      }
+
       .official-research {
         position: relative;
         z-index: 2;
@@ -180,6 +382,32 @@
       .pet-info-stage {
         position: relative;
         z-index: 2;
+      }
+
+      .pet-info-hero {
+        width: min(930px, 100%);
+        margin-bottom: 0;
+      }
+
+      .pet-info-hero-title {
+        color: var(--ink);
+        font-size: 32px;
+        line-height: 1.28;
+        font-weight: 700;
+        letter-spacing: 0;
+      }
+
+      .pet-info-hero-copy {
+        max-width: 900px;
+        margin-top: 18px;
+        color: var(--body);
+        font-size: 14px;
+        line-height: 1.78;
+      }
+
+      .pet-info-hero-rule {
+        margin: 22px 0 34px;
+        border-top: 2px solid #0f131a;
       }
 
       .title-row {
@@ -448,8 +676,8 @@
       .hotel-standard-list li {
         position: relative;
         display: flex;
-        justify-content: space-between;
-        gap: 16px;
+        flex-direction: column;
+        gap: 4px;
         padding-left: 17px;
         color: var(--body);
         font-size: 14px;
@@ -477,9 +705,20 @@
       }
 
       .hotel-standard-list .requirement-label {
-        flex: 0 0 auto;
-        margin-left: auto;
+        display: block;
+        margin-left: 0;
         color: var(--body);
+        text-align: left;
+      }
+
+      .hotel-standard--fulfillment .hotel-standard-list li {
+        flex-direction: row;
+        justify-content: space-between;
+        gap: 16px;
+      }
+
+      .hotel-standard--fulfillment .hotel-standard-list .requirement-label {
+        margin-left: auto;
         text-align: right;
       }
 
@@ -530,7 +769,7 @@
       .hero-art {
         position: absolute;
         z-index: 1;
-        top: 0;
+        top: 40px;
         left: calc(var(--feature-grid-width) + var(--art-gap));
         right: auto;
         display: block;
@@ -717,12 +956,48 @@
           margin-bottom: 88px;
         }
 
+        .economy-map {
+          margin-bottom: 88px;
+        }
+
+        .economy-overview {
+          margin-bottom: 72px;
+        }
+
+        .economy-overview-intro {
+          margin-bottom: 28px;
+        }
+
+        .economy-title {
+          font-size: 28px;
+        }
+
+        .economy-sector {
+          margin-top: 72px;
+        }
+
+        .economy-card-row {
+          gap: 18px;
+        }
+
+        .economy-card {
+          padding: 22px;
+        }
+
         .official-title {
           font-size: 28px;
         }
 
         .content {
           width: 100%;
+        }
+
+        .pet-info-hero {
+          width: 100%;
+        }
+
+        .pet-info-hero-title {
+          font-size: 32px;
         }
 
         .feature-grid {
@@ -804,8 +1079,91 @@
           font-size: 24px;
         }
 
+        .pet-info-hero {
+          margin-bottom: 0;
+        }
+
+        .pet-info-hero-title {
+          font-size: 28px;
+        }
+
+        .pet-info-hero-copy {
+          overflow-wrap: anywhere;
+          word-break: break-all;
+        }
+
+        .pet-info-hero-rule {
+          margin: 18px 0 28px;
+        }
+
         .official-research {
           margin-bottom: 64px;
+        }
+
+        .economy-map {
+          margin-bottom: 64px;
+        }
+
+        .economy-overview {
+          margin-bottom: 56px;
+        }
+
+        .economy-overview-intro {
+          margin-bottom: 22px;
+        }
+
+        .economy-overview-title {
+          font-size: 22px;
+          margin-top: 32px;
+        }
+
+        .economy-title {
+          font-size: 24px;
+        }
+
+        .economy-sector {
+          margin-top: 56px;
+        }
+
+        .economy-sector-head {
+          display: block;
+        }
+
+        .economy-sector-size {
+          display: block;
+          margin-top: 6px;
+          font-size: 18px;
+        }
+
+        .economy-sector-title {
+          overflow-wrap: anywhere;
+        }
+
+        .economy-lead,
+        .economy-source {
+          overflow-wrap: anywhere;
+          word-break: break-all;
+        }
+
+        .economy-card-row {
+          grid-template-columns: 1fr;
+          gap: 14px;
+          margin-top: 24px;
+        }
+
+        .economy-card {
+          min-height: 0;
+          padding: 20px;
+        }
+
+        .economy-card-topline {
+          gap: 12px;
+        }
+
+        .economy-card-metrics {
+          gap: 24px;
+          flex-wrap: wrap;
+          margin-top: 24px;
         }
 
         .official-title {
@@ -959,7 +1317,7 @@
         }
 
         .hotel-standard-list li {
-          gap: 12px;
+          gap: 4px;
         }
       }
 
@@ -977,6 +1335,334 @@
   </head>
   <body>
     <main class="canvas" aria-labelledby="page-title">
+      <section class="economy-map" aria-label="宠物市场经济图谱">
+        <section class="economy-overview-intro" aria-label="中国宠物经济图谱引言">
+          <p class="economy-kicker">前置调研</p>
+          <h2 class="economy-title">中国宠物经济图谱（2024-2025）</h2>
+          <p class="economy-lead economy-overview-lead">
+            <strong>中国宠物经济整体规模达8114亿元，产业链覆盖：食品用品、医疗、保险、出行、殡葬和寄养六大板块。</strong>
+            宠物食品（2670亿）是绝对主力，乖宝（52亿）、中宠（45亿）等国产品牌正加速替代进口；宠物医疗（610亿）规模第二，但龙头新瑞鹏1400家医院累计亏损超40亿，老二瑞派（548家、17.6亿营收）反而率先盈利，“大不等于强”；宠物用品（484亿）三家上市公司营收13-28亿，利润偏薄，智能硬件是升级方向；宠物保险增速最猛，保费5年增长33倍至30亿元，众安、蚂蚁保、京东保三方角力；宠物出行（350亿）由OTA平台主导；宠物殡葬预计2030年破百亿，宠物寄养需求火爆但无规模化玩家。确定性机会集中在食品和保险，医疗和服务仍在等盈利模型跑通。
+          </p>
+          <div class="economy-overview-rule" aria-hidden="true"></div>
+        </section>
+
+        <article class="economy-sector">
+          <div class="economy-sector-head">
+            <h1 class="economy-sector-title">宠物食品 — 行业规模约2670亿元（2025年）</h1>
+          </div>
+          <p class="economy-lead">宠物食品是宠物消费最大的细分板块，2024年占整体犬猫消费的52.8%，其中主粮占35.7%、零食占13.5%、营养品占3.6%。</p>
+
+          <div class="economy-card-row" aria-label="宠物食品上市公司2024年营收占比">
+            <article class="economy-card">
+              <div>
+                <div class="economy-card-topline">
+                  <h2 class="economy-card-title">乖宝宠物（麦富迪）</h2>
+                  <span class="economy-card-code">301498.SZ</span>
+                </div>
+                <p class="economy-card-copy">国产宠物食品营收第一，2025H1营收32.21亿（+32.7%）。</p>
+              </div>
+              <span class="economy-card-metric">
+                <span class="economy-card-value">52.45<span class="economy-card-value-unit">亿元</span></span>
+                <span class="economy-card-label">2024年营收</span>
+              </span>
+            </article>
+
+            <article class="economy-card">
+              <div>
+                <div class="economy-card-topline">
+                  <h2 class="economy-card-title">中宠股份（顽皮）</h2>
+                  <span class="economy-card-code">002891.SZ</span>
+                </div>
+                <p class="economy-card-copy">2025H1营收24.32亿（+24.3%），净利2.03亿（+42.6%）。</p>
+              </div>
+              <span class="economy-card-metric">
+                <span class="economy-card-value">44.65<span class="economy-card-value-unit">亿元</span></span>
+                <span class="economy-card-label">2024年营收</span>
+              </span>
+            </article>
+
+            <article class="economy-card">
+              <div>
+                <div class="economy-card-topline">
+                  <h2 class="economy-card-title">佩蒂股份（好适嘉）</h2>
+                  <span class="economy-card-code">300673.SZ</span>
+                </div>
+                <p class="economy-card-copy">净利润同比暴增1742.81%，经营现金流创历史新高。</p>
+              </div>
+              <span class="economy-card-metric">
+                <span class="economy-card-value">16.59<span class="economy-card-value-unit">亿元</span></span>
+                <span class="economy-card-label">2024年营收</span>
+              </span>
+            </article>
+          </div>
+
+          <p class="economy-source">来源：各公司2024年年报；<a href="http://www.news.cn/finance/20250902/9c55aa92aef44eb28d24b1eee4d22bcc/c.html" target="_blank" rel="noreferrer">新华网-宠物经济热潮</a>、<a href="https://stcn.com/article/detail/1687792.html" target="_blank" rel="noreferrer">证券时报-乖宝宠物</a>、<a href="https://www.nbd.com.cn/articles/2026-04-23/4355213.html" target="_blank" rel="noreferrer">每日经济新闻-中宠股份</a></p>
+        </article>
+
+        <article class="economy-sector">
+          <div class="economy-sector-head">
+            <h1 class="economy-sector-title">宠物医疗 — 行业规模约610亿元（2025年）</h1>
+          </div>
+          <p class="economy-lead">宠物医院赛道竞争激烈，龙头以连锁化扩张为主，但盈利能力普遍承压。</p>
+
+          <div class="economy-card-row" aria-label="宠物医疗头部机构">
+            <article class="economy-card">
+              <div>
+                <div class="economy-card-topline">
+                  <h2 class="economy-card-title">新瑞鹏集团</h2>
+                </div>
+                <p class="economy-card-copy">中国最大宠物医疗集团；2019-2022年累计亏损超40亿元；综合毛利率最高仅5.6%；已撤回美股IPO。</p>
+              </div>
+              <div class="economy-card-metrics">
+                <span class="economy-card-metric">
+                  <span class="economy-card-value">未公开</span>
+                  <span class="economy-card-label">2024年营收</span>
+                </span>
+                <span class="economy-card-metric">
+                  <span class="economy-card-value">
+                    1400<span class="economy-card-value-unit">家</span><span class="economy-card-value-note">（巅峰1900家）</span>
+                  </span>
+                  <span class="economy-card-label">门店数</span>
+                </span>
+              </div>
+            </article>
+
+            <article class="economy-card">
+              <div>
+                <div class="economy-card-topline">
+                  <h2 class="economy-card-title">瑞派宠物</h2>
+                </div>
+                <p class="economy-card-copy">中国第二大宠物医疗服务商；2025H1营收9.43亿元，首次盈利（净利1528万）；已递表港交所。</p>
+              </div>
+              <div class="economy-card-metrics">
+                <span class="economy-card-metric">
+                  <span class="economy-card-value">17.58<span class="economy-card-value-unit">亿元</span></span>
+                  <span class="economy-card-label">2024年营收</span>
+                </span>
+                <span class="economy-card-metric">
+                  <span class="economy-card-value">548<span class="economy-card-value-unit">家</span></span>
+                  <span class="economy-card-label">门店数</span>
+                </span>
+              </div>
+            </article>
+
+            <article class="economy-card">
+              <div>
+                <div class="economy-card-topline">
+                  <h2 class="economy-card-title">宠爱国际/瑞辰</h2>
+                </div>
+                <p class="economy-card-copy">第三梯队，专注高端（宠爱国际）或区域深耕（瑞辰）。</p>
+              </div>
+              <div class="economy-card-metrics">
+                <span class="economy-card-metric">
+                  <span class="economy-card-value">未公开</span>
+                  <span class="economy-card-label">2024年营收</span>
+                </span>
+                <span class="economy-card-metric">
+                  <span class="economy-card-value">百家级别</span>
+                  <span class="economy-card-label">门店数</span>
+                </span>
+              </div>
+            </article>
+          </div>
+
+          <p class="economy-source">来源：<a href="https://www.21jingji.com/article/20251229/herald/9b5353256ab7675400979a93dec19fc3.html" target="_blank" rel="noreferrer">瑞派宠物递表港交所-21财经</a>、<a href="https://www.lanjinger.com/d/1767084302456161876" target="_blank" rel="noreferrer">蓝鲸财经-宠物看病贵</a>、<a href="https://m.cbndata.com/information/294868" target="_blank" rel="noreferrer">CBNData-铲屎官养不活宠物医院</a></p>
+        </article>
+
+        <article class="economy-sector">
+          <div class="economy-sector-head">
+            <h1 class="economy-sector-title">宠物用品及智能硬件 — 行业规模约484亿元（2025年）</h1>
+          </div>
+          <p class="economy-lead">涵盖基础用品、清洁护理、智能家电、出行装备等；2025年传统电商渠道宠物家电销售额达10.7亿元。</p>
+
+          <div class="economy-card-row" aria-label="宠物用品上市公司2024年营收占比">
+            <article class="economy-card">
+              <div>
+                <div class="economy-card-topline">
+                  <h2 class="economy-card-title">天元宠物</h2>
+                  <span class="economy-card-code">301335.SZ</span>
+                </div>
+                <p class="economy-card-copy">宠物窝垫、猫爬架、食盆等全品类用品。</p>
+              </div>
+              <span class="economy-card-metric">
+                <span class="economy-card-value">27.64<span class="economy-card-value-unit">亿元</span></span>
+                <span class="economy-card-label">2024年营收</span>
+              </span>
+            </article>
+
+            <article class="economy-card">
+              <div>
+                <div class="economy-card-topline">
+                  <h2 class="economy-card-title">依依股份</h2>
+                  <span class="economy-card-code">001206.SZ</span>
+                </div>
+                <p class="economy-card-copy">宠物卫生用品，营收净利双增创新高。</p>
+              </div>
+              <span class="economy-card-metric">
+                <span class="economy-card-value">17.98<span class="economy-card-value-unit">亿元</span></span>
+                <span class="economy-card-label">2024年营收</span>
+              </span>
+            </article>
+
+            <article class="economy-card">
+              <div>
+                <div class="economy-card-topline">
+                  <h2 class="economy-card-title">源飞宠物</h2>
+                  <span class="economy-card-code">001222.SZ</span>
+                </div>
+                <p class="economy-card-copy">宠物玩具、咬胶及牵引用具。</p>
+              </div>
+              <span class="economy-card-metric">
+                <span class="economy-card-value">13.10<span class="economy-card-value-unit">亿元</span></span>
+                <span class="economy-card-label">2024年营收</span>
+              </span>
+            </article>
+          </div>
+
+          <p class="economy-source">来源：<a href="https://m.bjnews.com.cn/detail/1744630663129306.html" target="_blank" rel="noreferrer">新京报-天元宠物年报</a>、<a href="https://www.stcn.com/article/detail/1686178.html" target="_blank" rel="noreferrer">证券时报-依依股份</a>、<a href="https://www.bjnews.com.cn/detail/1777475882169422.html" target="_blank" rel="noreferrer">新京报-源飞宠物年报</a></p>
+        </article>
+
+        <article class="economy-sector">
+          <div class="economy-sector-head">
+            <h1 class="economy-sector-title">宠物保险 — 行业规模约30-35亿元（2025年）</h1>
+          </div>
+          <p class="economy-lead">2020年至2024年保费规模增长33倍，宠物医疗险占宠物险市场份额超50%。</p>
+
+          <div class="economy-card-row" aria-label="宠物保险平台与险企">
+            <article class="economy-card">
+              <div>
+                <div class="economy-card-topline">
+                  <h2 class="economy-card-title">众安保险</h2>
+                </div>
+                <p class="economy-card-copy">2025H1宠物险保费收入5.63亿元（同比+51.3%），覆盖超560万只宠物。</p>
+              </div>
+              <div class="economy-card-metrics">
+                <span class="economy-card-metric">
+                  <span class="economy-card-value">5.63<span class="economy-card-value-unit">亿元</span></span>
+                  <span class="economy-card-label">2025H1保费</span>
+                </span>
+                <span class="economy-card-metric">
+                  <span class="economy-card-value">560<span class="economy-card-value-unit">万+</span></span>
+                  <span class="economy-card-label">覆盖宠物</span>
+                </span>
+              </div>
+            </article>
+
+            <article class="economy-card">
+              <div>
+                <div class="economy-card-topline">
+                  <h2 class="economy-card-title">蚂蚁保</h2>
+                </div>
+                <p class="economy-card-copy">互联网平台入口，联合多家保险公司承保。</p>
+              </div>
+              <span class="economy-card-metric">
+                <span class="economy-card-value">200<span class="economy-card-value-unit">万+</span></span>
+                <span class="economy-card-label">全年理赔案件</span>
+              </span>
+            </article>
+
+            <article class="economy-card">
+              <div>
+                <div class="economy-card-topline">
+                  <h2 class="economy-card-title">京东保</h2>
+                </div>
+                <p class="economy-card-copy">与蚂蚁保并列为宠物险主流线上获客渠道。</p>
+              </div>
+              <span class="economy-card-metric">
+                <span class="economy-card-value">主流入口</span>
+                <span class="economy-card-label">平台角色</span>
+              </span>
+            </article>
+          </div>
+
+          <p class="economy-source">来源：<a href="https://finance.sina.cn/insurance/hydt/2026-02-26/detail-inhpcyyh4324202.d.html?vt=4" target="_blank" rel="noreferrer">新浪财经-2025宠物保险</a>、<a href="https://www.jiemian.com/article/13918288.html" target="_blank" rel="noreferrer">界面新闻-激战30亿宠物险市场</a>、<a href="https://www.bbtnews.com.cn/2026/0319/587692.shtml" target="_blank" rel="noreferrer">北京商报-众安保险</a></p>
+        </article>
+
+        <article class="economy-sector">
+          <div class="economy-sector-head">
+            <h1 class="economy-sector-title">宠物殡葬 — 行业规模约50亿元（2025年预计）</h1>
+          </div>
+          <p class="economy-lead">2023年市场规模18.25亿元，预计2025年达50亿元，2030年突破100亿元。截至2025年6月，全国经营范围含"宠物殡葬"的企业超8000家，多为近三年新注册，行业尚处于早期分散阶段，暂无全国性龙头。</p>
+
+          <p class="economy-source">来源：<a href="https://www.news.cn/politics/20250612/9c509c65a8424e318ba83af4c05074a9/c.html" target="_blank" rel="noreferrer">新华网-宠物殡葬</a></p>
+        </article>
+
+        <article class="economy-sector">
+          <div class="economy-sector-head">
+            <h1 class="economy-sector-title">宠物寄养/生活服务 — 分散市场</h1>
+          </div>
+          <p class="economy-lead">包含宠物寄养、上门喂养、洗护美容、训练等。春节期间"一房难求"，上门喂养服务热度持续走高。但这一赛道极度分散，以个体宠物店和个人服务者为主，无大型连锁上市公司，头部平台如小狗在家（上门喂养）、宠物家等体量有限，暂无可靠营收数据。</p>
+
+          <p class="economy-source">来源：<a href="https://www.news.cn/food/20260226/061d45ca16ef4a7db3a5108f505f5df2/c.html" target="_blank" rel="noreferrer">新华网-宠物寄养</a>、<a href="https://www.stcn.com/article/detail/1535818.html" target="_blank" rel="noreferrer">证券时报-富养宠时代</a></p>
+        </article>
+
+        <section class="economy-overview" aria-label="图谱总览">
+          <h2 class="economy-overview-title">图谱总览</h2>
+          <div class="credit-privilege-table-wrap">
+            <table class="credit-privilege-table economy-overview-table">
+              <colgroup>
+                <col style="width: 19%" />
+                <col style="width: 22.5%" />
+                <col style="width: 27.5%" />
+                <col style="width: 31%" />
+              </colgroup>
+              <thead>
+                <tr>
+                  <th scope="col">细分赛道</th>
+                  <th scope="col">2025年市场规模</th>
+                  <th scope="col">集中度</th>
+                  <th scope="col">数据可查的头部公司数</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row">宠物食品</th>
+                  <td>~2670亿元</td>
+                  <td>中等（国产品牌崛起）</td>
+                  <td>3家上市公司</td>
+                </tr>
+                <tr>
+                  <th scope="row">宠物医疗</th>
+                  <td>~610亿元</td>
+                  <td>低（连锁化进行中）</td>
+                  <td>瑞派递表中，新瑞鹏未上市</td>
+                </tr>
+                <tr>
+                  <th scope="row">宠物用品</th>
+                  <td>~484亿元</td>
+                  <td>低</td>
+                  <td>3家上市公司</td>
+                </tr>
+                <tr>
+                  <th scope="row">宠物出行</th>
+                  <td>~350亿元</td>
+                  <td>分散（平台主导）</td>
+                  <td>无独立上市公司</td>
+                </tr>
+                <tr>
+                  <th scope="row">宠物保险</th>
+                  <td>~30-35亿元</td>
+                  <td>中（众安领先）</td>
+                  <td>众安为上市险企</td>
+                </tr>
+                <tr>
+                  <th scope="row">宠物殡葬</th>
+                  <td>~50亿元</td>
+                  <td>极低（早期阶段）</td>
+                  <td>无</td>
+                </tr>
+                <tr>
+                  <th scope="row">宠物寄养/服务</th>
+                  <td>分散</td>
+                  <td>极低</td>
+                  <td>无</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+      </section>
+
       <section class="official-research" aria-label="政府官方背书调研">
         <p class="official-kicker">前置调研</p>
         <h1 class="official-title">政府官方背书：打造宠物行业权威数字化基础设施</h1>
@@ -1017,6 +1703,14 @@
       </section>
 
       <div class="pet-info-stage">
+        <section class="pet-info-hero" aria-label="宠物信用导语">
+          <h2 class="pet-info-hero-title">让好宠物被识别，让好主人被奖励。</h2>
+          <p class="pet-info-hero-copy">
+            宠物芝麻信用由六个维度共同构成，将完整资料、健康管理和良好履约沉淀为可识别的信用，并转化为保障、优惠与特权。
+          </p>
+          <div class="pet-info-hero-rule" aria-hidden="true"></div>
+        </section>
+
         <section class="content" aria-label="宠物信息概览">
           <div class="title-row">
             <img
@@ -1069,6 +1763,7 @@
           alt="蓝色环形宠物档案标识"
           decoding="async"
         />
+
       </div>
 
       <section class="research-card" aria-label="鼻纹生物识别调研">
@@ -1154,14 +1849,6 @@
       </div>
 
       <section class="credit-section" aria-label="宠物信用体系信息">
-        <img
-          class="credit-ring"
-          src="https://gw.alicdn.com/imgextra/i4/O1CN0171aoWTxHfZD69Qf6_!!6000000002990-2-tps-3030-2430.png"
-          alt=""
-          aria-hidden="true"
-          decoding="async"
-        />
-
         <div class="credit-grid">
           <article class="credit-card">
             <h2 class="credit-card-title">宠物身份</h2>
@@ -1419,7 +2106,7 @@
             </ul>
           </article>
 
-          <article class="hotel-standard">
+          <article class="hotel-standard hotel-standard--fulfillment">
             <h3 class="hotel-standard-title">履约标准：</h3>
             <p class="hotel-standard-summary">定义酒店在携宠入住场景中应具备并可实际兑现的宠物接待履约能力。</p>
             <ul class="hotel-standard-list">
