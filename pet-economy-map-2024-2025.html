@@ -1,0 +1,1646 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#eef6ff" />
+    <title>中国宠物经济图谱｜飞猪协宠出行</title>
+    <style>
+      :root {
+        --ink: #0f131a;
+        --body: #919499;
+        --accent: #1677ff;
+        --side-space: 300px;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        min-width: 320px;
+        background: #eef6ff;
+      }
+
+      body {
+        min-width: 320px;
+        min-height: 100vh;
+        margin: 0;
+        overflow-x: hidden;
+        background-color: #eef6ff;
+        background-image: url("https://gw.alicdn.com/imgextra/i4/O1CN019rnY3FtbkuH7nOHV_!!6000000001611-2-tps-3840-1925.png");
+        background-position: center top;
+        background-repeat: no-repeat;
+        background-size: cover;
+        color: var(--body);
+        font-family: "PingFang SC", -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", Arial, sans-serif;
+        font-size: 14px;
+        line-height: 1.4;
+        letter-spacing: 0;
+        -webkit-font-smoothing: antialiased;
+        text-rendering: optimizeLegibility;
+      }
+
+      h1,
+      h2,
+      h3,
+      p {
+        margin: 0;
+      }
+
+      .canvas {
+        width: calc(100vw - var(--side-space) - var(--side-space));
+        margin: 0 auto;
+        padding: 134px 0 120px;
+      }
+
+      .economy-overview-intro {
+        margin-bottom: 36px;
+      }
+
+      .economy-kicker {
+        margin-bottom: 12px;
+        color: var(--body);
+        font-size: 14px;
+        line-height: 1.78;
+      }
+
+      .economy-title {
+        color: var(--ink);
+        font-size: 32px;
+        line-height: 1.28;
+        font-weight: 700;
+      }
+
+      .economy-lead {
+        margin-top: 18px;
+        color: var(--body);
+        font-size: 14px;
+        line-height: 1.78;
+      }
+
+      .economy-overview-lead strong {
+        color: var(--ink);
+        font-weight: 700;
+      }
+
+      .economy-summary {
+        margin-top: 34px;
+      }
+
+      .economy-summary table {
+        width: 100%;
+        min-width: 1120px;
+        border-collapse: collapse;
+        table-layout: fixed;
+      }
+
+      .economy-summary td {
+        padding: 36px 28px 28px;
+        border-right: 1px solid rgba(17, 17, 17, 0.1);
+        border-bottom: 1px solid rgba(17, 17, 17, 0.1);
+        vertical-align: top;
+      }
+
+      .economy-summary td:last-child {
+        border-right: 0;
+      }
+
+      .economy-summary tr:last-child td {
+        border-bottom: 1px solid rgba(17, 17, 17, 0.1);
+      }
+
+      .economy-summary-value {
+        display: flex;
+        align-items: baseline;
+        gap: 2px;
+        color: var(--ink);
+        font-size: 32px;
+        line-height: 1.1;
+        font-weight: 700;
+      }
+
+      .economy-summary-value-unit {
+        font-size: 18px;
+        line-height: 1;
+        font-weight: 400;
+      }
+
+      .economy-summary-label {
+        margin-top: 16px;
+        color: var(--ink);
+        font-size: 18px;
+        line-height: 1.4;
+        font-weight: 700;
+      }
+
+      .economy-summary-copy {
+        margin-top: 12px;
+        color: var(--body);
+        font-size: 14px;
+        line-height: 1.75;
+      }
+
+      .economy-summary-split {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        column-gap: 42px;
+      }
+
+      .economy-consumption {
+        margin-top: 28px;
+      }
+
+      .economy-consumption-head {
+        display: grid;
+        grid-template-columns: minmax(180px, 0.34fr) minmax(0, 1fr);
+        gap: 48px;
+        align-items: start;
+      }
+
+      .economy-consumption-title {
+        color: #0F131A;
+        font-size: 18px;
+        line-height: 1.4;
+        font-weight: 700;
+      }
+
+      .economy-consumption-copy {
+        color: var(--body);
+        font-size: 14px;
+        line-height: 1.78;
+        text-align: right;
+      }
+
+      .economy-consumption-chart {
+        padding-top: 12px;
+      }
+
+      .economy-consumption-bar {
+        display: flex;
+        width: 100%;
+        height: 56px;
+        overflow: hidden;
+        border: 1px solid rgba(15, 19, 26, 0.08);
+        background: rgba(102, 102, 255, 0.04);
+      }
+
+      .economy-consumption-segment {
+        flex: var(--share) 1 0;
+        min-width: 0;
+        background: rgb(102 102 255 / var(--alpha));
+        border-right: 1px solid rgba(255, 255, 255, 0.9);
+      }
+
+      .economy-consumption-segment:last-child {
+        border-right: 0;
+      }
+
+      .economy-consumption-labels {
+        display: grid;
+        grid-template-columns: 53.7fr 27.6fr 12.2fr 6.5fr;
+        margin: 0 0 12px;
+      }
+
+      .economy-consumption-label {
+        display: flex;
+        align-items: baseline;
+        gap: 0;
+        min-width: 0;
+        padding: 0;
+        color: var(--body);
+        font-size: 14px;
+        line-height: 1.55;
+        text-align: left;
+        white-space: nowrap;
+      }
+
+      .economy-consumption-label strong {
+        display: inline;
+        color: #6666ff;
+        font-size: inherit;
+        line-height: inherit;
+        font-weight: 700;
+      }
+
+      .economy-consumption-label:last-child {
+        justify-content: flex-end;
+      }
+
+      .economy-sector {
+        margin-top: 88px;
+      }
+
+      .economy-sector-head {
+        margin-bottom: 18px;
+      }
+
+      .economy-sector-title {
+        color: var(--ink);
+        font-size: 24px;
+        line-height: 1.28;
+        font-weight: 700;
+      }
+
+      .economy-subsection-title {
+        margin-top: 68px;
+        color: var(--ink);
+        font-size: 18px;
+        line-height: 1.4;
+        font-weight: 700;
+      }
+
+      .economy-card-row {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 24px;
+        margin-top: 34px;
+      }
+
+      .economy-card {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        min-width: 0;
+        min-height: 170px;
+        padding: 24px;
+        border-radius: 8px;
+        background: rgba(34, 51, 75, 0.04);
+      }
+
+      .economy-card-topline {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        gap: 18px;
+      }
+
+      .economy-card-title {
+        min-width: 0;
+        color: var(--ink);
+        font-size: 18px;
+        line-height: 1.45;
+        font-weight: 700;
+      }
+
+      .economy-card-code,
+      .economy-card-copy,
+      .economy-card-label,
+      .economy-source {
+        color: var(--body);
+        font-size: 14px;
+        line-height: 1.6;
+      }
+
+      .economy-card-code {
+        flex: 0 0 auto;
+        text-align: right;
+        white-space: nowrap;
+      }
+
+      .economy-card-copy {
+        margin-top: 8px;
+      }
+
+      .economy-card-metrics {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: flex-start;
+        gap: 48px;
+        margin-top: 28px;
+      }
+
+      .economy-card-metric {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 6px;
+        min-width: 0;
+      }
+
+      .economy-card > .economy-card-metric {
+        margin-top: 28px;
+      }
+
+      .economy-card-value {
+        color: var(--ink);
+        font-size: 24px;
+        line-height: 1.2;
+        font-weight: 700;
+      }
+
+      .economy-card-value-unit {
+        margin-left: 2px;
+        color: var(--ink);
+        font-size: 14px;
+        font-weight: 400;
+      }
+
+      .economy-card-value-note {
+        color: var(--body);
+        font-size: 14px;
+        font-weight: 400;
+      }
+
+      .economy-source {
+        margin-top: 20px;
+      }
+
+      .economy-source a {
+        color: var(--accent);
+        text-decoration: none;
+      }
+
+      .economy-overview {
+        margin-top: 88px;
+      }
+
+      .economy-overview-title {
+        margin: 40px 0 22px;
+        color: var(--ink);
+        font-size: 24px;
+        line-height: 1.4;
+        font-weight: 700;
+      }
+
+      .travel-path-section {
+        margin-top: 112px;
+      }
+
+      .travel-path-title {
+        color: #0f131a;
+        font-size: 42px;
+        line-height: 1.25;
+        font-weight: 700;
+      }
+
+      .travel-path-item {
+        margin-top: 64px;
+      }
+
+      .travel-path-item-title {
+        color: #0f131a;
+        font-size: 24px;
+        line-height: 1.35;
+        font-weight: 700;
+      }
+
+      .travel-path-figure {
+        position: relative;
+        margin: 24px 0 0;
+        overflow: hidden;
+        cursor: zoom-in;
+      }
+
+      .travel-path-image {
+        display: block;
+        width: 100%;
+        height: auto;
+        cursor: zoom-in;
+      }
+
+      .media-lightbox {
+        width: calc(100vw - 176px);
+        max-width: none;
+        max-height: calc(100vh - 32px);
+        padding: 0;
+        border: 0;
+        background: transparent;
+        color: #fff;
+      }
+
+      .media-lightbox::backdrop {
+        background: rgba(8, 11, 15, 0.92);
+      }
+
+      .media-lightbox-frame {
+        position: relative;
+        height: calc(100vh - 32px);
+        overflow: hidden;
+      }
+
+      .media-lightbox-viewport {
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        scrollbar-width: none;
+        overscroll-behavior: contain;
+      }
+
+      .media-lightbox-viewport::-webkit-scrollbar {
+        display: none;
+      }
+
+      .media-lightbox-canvas {
+        display: grid;
+        place-items: center;
+        width: 100%;
+        height: 100%;
+        min-width: 100%;
+        min-height: 100%;
+      }
+
+      .media-lightbox-image {
+        display: block;
+        max-width: none;
+        max-height: none;
+        object-fit: contain;
+        cursor: zoom-in;
+      }
+
+      .media-lightbox-viewport.is-pannable {
+        cursor: grab;
+        touch-action: none;
+        user-select: none;
+      }
+
+      .media-lightbox-viewport.is-pannable .media-lightbox-image {
+        cursor: grab;
+      }
+
+      .media-lightbox-viewport.is-dragging,
+      .media-lightbox-viewport.is-dragging .media-lightbox-image {
+        cursor: grabbing;
+      }
+
+      .media-lightbox-close,
+      .media-lightbox-nav {
+        position: fixed;
+        z-index: 3;
+        border: 1px solid rgba(255, 255, 255, 0.42);
+        color: #fff;
+        background: rgba(0, 0, 0, 0.34);
+        font: inherit;
+        cursor: pointer;
+      }
+
+      .media-lightbox-close {
+        top: 22px;
+        right: 24px;
+        width: 44px;
+        height: 44px;
+        border-radius: 50%;
+        font-size: 23px;
+      }
+
+      .media-lightbox-nav {
+        top: 50%;
+        width: 48px;
+        height: 64px;
+        transform: translateY(-50%);
+        border-radius: 4px;
+        font-size: 32px;
+      }
+
+      .media-lightbox-prev {
+        left: 22px;
+      }
+
+      .media-lightbox-next {
+        right: 22px;
+      }
+
+      .media-lightbox-count {
+        position: fixed;
+        z-index: 3;
+        left: 50%;
+        bottom: 18px;
+        transform: translateX(-50%);
+        padding: 6px 10px;
+        border-radius: 3px;
+        color: rgba(255, 255, 255, 0.84);
+        background: rgba(0, 0, 0, 0.38);
+        font-size: 13px;
+        font-variant-numeric: tabular-nums;
+      }
+
+      .media-lightbox-zoom-controls {
+        position: fixed;
+        z-index: 3;
+        right: 24px;
+        bottom: 18px;
+        display: flex;
+        align-items: center;
+        overflow: hidden;
+        border: 1px solid rgba(255, 255, 255, 0.4);
+        border-radius: 4px;
+        background: rgba(0, 0, 0, 0.42);
+      }
+
+      .media-lightbox-zoom-controls button {
+        min-width: 42px;
+        height: 38px;
+        padding: 0 10px;
+        border: 0;
+        border-right: 1px solid rgba(255, 255, 255, 0.22);
+        color: #fff;
+        background: transparent;
+        font: inherit;
+        font-size: 17px;
+        cursor: pointer;
+      }
+
+      .media-lightbox-zoom-controls button:last-child {
+        border-right: 0;
+      }
+
+      .media-lightbox-zoom-controls .media-zoom-reset {
+        min-width: 62px;
+        font-size: 12px;
+        font-variant-numeric: tabular-nums;
+      }
+
+      .media-lightbox-zoom-controls button:disabled {
+        color: rgba(255, 255, 255, 0.34);
+        cursor: default;
+      }
+
+      .table-wrap {
+        width: 100%;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+      }
+
+      table {
+        width: 100%;
+        min-width: 900px;
+        border-collapse: collapse;
+        table-layout: fixed;
+      }
+
+      th,
+      td {
+        padding: 15px 16px;
+        border-right: 1px solid rgba(17, 17, 17, 0.1);
+        border-bottom: 1px solid rgba(17, 17, 17, 0.1);
+        color: var(--body);
+        font-size: 14px;
+        line-height: 1.6;
+        font-weight: 400;
+        text-align: left;
+        vertical-align: top;
+        overflow-wrap: anywhere;
+      }
+
+      thead th {
+        color: var(--ink);
+        font-size: 18px;
+        line-height: 1.4;
+        font-weight: 700;
+      }
+
+      tbody th {
+        color: var(--ink);
+        font-weight: 500;
+      }
+
+      .economy-overview tbody th,
+      .economy-overview tbody td.economy-overview-share,
+      .economy-overview tbody td.economy-overview-scale-strong,
+      .economy-overview tbody td.economy-overview-scale-service {
+        color: #0f131a;
+        font-size: 18px;
+        line-height: 1.45;
+        font-weight: 700;
+      }
+
+      .economy-overview tbody td.economy-overview-share {
+        white-space: nowrap;
+      }
+
+      .economy-overview tbody td.economy-overview-scale-service {
+        white-space: nowrap;
+        overflow-wrap: normal;
+        word-break: keep-all;
+      }
+
+      .economy-overview-service-category {
+        border-bottom: 0;
+      }
+
+      .economy-overview-service-share {
+        border-bottom: 0;
+      }
+
+      .economy-overview tbody td.economy-overview-subsector {
+        padding-left: 16px;
+      }
+
+      .economy-overview tbody td.economy-overview-scale-muted {
+        color: var(--body);
+        font-size: 14px;
+        line-height: 1.6;
+        font-weight: 400;
+      }
+
+      .economy-overview tbody td.economy-overview-body-copy {
+        color: var(--body);
+        font-size: 14px;
+        line-height: 1.6;
+        font-weight: 400;
+      }
+
+      th:first-child,
+      td:first-child {
+        padding-left: 0;
+      }
+
+      th:last-child,
+      td:last-child {
+        padding-right: 0;
+        border-right: 0;
+      }
+
+      tr:last-child th,
+      tr:last-child td {
+        border-bottom: 0;
+      }
+
+      @media (max-width: 1600px) {
+        .canvas {
+          width: calc(100vw - 80px);
+        }
+      }
+
+      @media (max-width: 1120px) {
+        .canvas {
+          width: calc(100vw - 40px);
+          padding: 88px 0 80px;
+        }
+
+        .economy-title {
+          font-size: 28px;
+        }
+
+        .travel-path-title {
+          font-size: 36px;
+        }
+
+        .economy-sector {
+          margin-top: 72px;
+        }
+
+        .economy-card-row {
+          gap: 18px;
+        }
+
+        .economy-card {
+          padding: 22px;
+        }
+      }
+
+      @media (max-width: 640px) {
+        .canvas {
+          width: calc(100vw - 40px);
+          padding-top: 56px;
+        }
+
+        .economy-title {
+          font-size: 24px;
+        }
+
+        .travel-path-section {
+          margin-top: 80px;
+        }
+
+        .travel-path-title {
+          font-size: 30px;
+        }
+
+        .travel-path-item {
+          margin-top: 48px;
+        }
+
+        .travel-path-item-title {
+          font-size: 22px;
+        }
+
+        .economy-sector {
+          margin-top: 56px;
+        }
+
+        .economy-sector-title,
+        .economy-lead,
+        .economy-source {
+          overflow-wrap: anywhere;
+          word-break: break-all;
+        }
+
+        .economy-card-row {
+          grid-template-columns: 1fr;
+          gap: 14px;
+          margin-top: 24px;
+        }
+
+        .economy-card {
+          min-height: 0;
+          padding: 20px;
+        }
+
+        .economy-consumption {
+          margin-top: 28px;
+        }
+
+        .economy-consumption-head {
+          grid-template-columns: 1fr;
+          gap: 12px;
+        }
+
+        .economy-consumption-copy {
+          text-align: left;
+        }
+
+        .economy-consumption-chart {
+          padding-top: 12px;
+        }
+
+        .economy-consumption-bar {
+          height: 32px;
+        }
+
+        .economy-consumption-labels {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+          gap: 18px 10px;
+          margin: 0 0 12px;
+        }
+
+        .economy-consumption-label {
+          padding: 0;
+          text-align: left;
+        }
+
+        .economy-card-metrics {
+          gap: 24px;
+          margin-top: 24px;
+        }
+
+        table {
+          min-width: 760px;
+        }
+
+        .media-lightbox {
+          width: calc(100vw - 40px);
+        }
+
+        .media-lightbox-nav {
+          width: 40px;
+          height: 56px;
+        }
+
+        .media-lightbox-prev {
+          left: 8px;
+        }
+
+        .media-lightbox-next {
+          right: 8px;
+        }
+
+        .media-lightbox-close {
+          top: 10px;
+          right: 10px;
+        }
+
+        .media-lightbox-zoom-controls {
+          right: 10px;
+          bottom: 10px;
+        }
+
+        .media-lightbox-count {
+          bottom: 10px;
+        }
+
+        th,
+        td {
+          padding: 13px 14px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="canvas">
+      <section class="economy-map" aria-label="中国宠物经济图谱">
+        <section class="economy-overview-intro" aria-label="中国宠物经济图谱引言">
+          <p class="economy-kicker">前置调研</p>
+          <h1 class="economy-title">中国宠物经济图谱</h1>
+          <p class="economy-lead economy-overview-lead">
+            <strong>2025年中国城镇犬猫消费市场规模为3126亿元，同比增长4.1%，养宠规模1.26亿只。</strong>
+            白皮书将消费拆为食品、医疗、用品、服务四大块，分别占53.7%、27.6%、12.2%和6.5%。食品仍是绝对主力，国产品牌加速替代进口；医疗由医院终端和药品疫苗等上游供给共同构成；用品利润偏薄，智能硬件是升级方向；服务极度分散，本地生活无规模化玩家，殡葬预计2030年破百亿，保险连续五年规模翻倍（全行业30-35亿，众安一家接近13亿）。确定性机会集中在食品和保险，医疗和服务仍在等盈利模型跑通。
+          </p>
+        </section>
+
+        <section class="economy-summary" aria-label="核心数据">
+          <div class="table-wrap">
+            <table>
+              <colgroup>
+                <col style="width: 33.333%" />
+                <col style="width: 33.333%" />
+                <col style="width: 33.334%" />
+              </colgroup>
+              <tbody>
+                <tr>
+                  <td>
+                    <div class="economy-summary-value"><span>3,126</span><span class="economy-summary-value-unit">亿元</span></div>
+                    <div class="economy-summary-label">消费市场</div>
+                    <div class="economy-summary-copy">2025年中国城镇犬猫消费实际规模，同比增长4.1%。（犬消费市场规模达1606亿元，较2024年上升3.2%，猫消费市场规模达1520亿元，较2024年上升5.2%。）</div>
+                  </td>
+                  <td>
+                    <div class="economy-summary-value"><span>1.26</span><span class="economy-summary-value-unit">亿只</span></div>
+                    <div class="economy-summary-label">城镇犬猫</div>
+                    <div class="economy-summary-copy">犬5,343万只，猫7,289万只。猫的数量已经高于犬，但犬只年均消费更高。</div>
+                  </td>
+                  <td>
+                    <div class="economy-summary-split">
+                      <div>
+                        <div class="economy-summary-value"><span>42.7</span><span class="economy-summary-value-unit">%</span></div>
+                        <div class="economy-summary-label">90后宠主</div>
+                      </div>
+                      <div>
+                        <div class="economy-summary-value"><span>26.3</span><span class="economy-summary-value-unit">%</span></div>
+                        <div class="economy-summary-label">00后宠主</div>
+                      </div>
+                    </div>
+                    <div class="economy-summary-copy">宠主年轻化：90后“霸榜”，00后“追涨”。90后宠主仍是养宠的主力军，占比为42.7%。其次是00后、80后宠主，占比为26.3%、24.5%。80前宠主的占比不足10%。</div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <section class="economy-consumption" aria-labelledby="economy-consumption-title">
+          <div class="economy-consumption-head">
+            <h3 class="economy-consumption-title" id="economy-consumption-title">2025 消费结构</h3>
+            <p class="economy-consumption-copy">2025年中国城镇犬猫消费市场按食品、医疗、用品、服务四大类划分，食品占比最高53.7%、医疗27.6%、用品12.2%、服务6.5%。</p>
+          </div>
+          <div class="economy-consumption-chart" role="img" aria-label="2025年消费结构：食品53.7%，医疗27.6%，用品12.2%，服务6.5%">
+            <div class="economy-consumption-labels">
+              <div class="economy-consumption-label">
+                <span>食品：</span>
+                <strong>53.7%</strong>
+              </div>
+              <div class="economy-consumption-label">
+                <span>医疗：</span>
+                <strong>27.6%</strong>
+              </div>
+              <div class="economy-consumption-label">
+                <span>用品：</span>
+                <strong>12.2%</strong>
+              </div>
+              <div class="economy-consumption-label">
+                <span>服务：</span>
+                <strong>6.5%</strong>
+              </div>
+            </div>
+            <div class="economy-consumption-bar" aria-hidden="true">
+              <span class="economy-consumption-segment" style="--share: 53.7; --alpha: 1"></span>
+              <span class="economy-consumption-segment" style="--share: 27.6; --alpha: 0.72"></span>
+              <span class="economy-consumption-segment" style="--share: 12.2; --alpha: 0.48"></span>
+              <span class="economy-consumption-segment" style="--share: 6.5; --alpha: 0.28"></span>
+            </div>
+          </div>
+          <p class="economy-source">来源：<a href="https://business.cctv.cn/2026/01/05/ARTIdmv2AWmVeRVodaZYLOvQ260105.shtml" target="_blank" rel="noreferrer">《2026年中国宠物行业白皮书》</a></p>
+        </section>
+
+        <article class="economy-sector">
+          <div class="economy-sector-head">
+            <h2 class="economy-sector-title">一、食品 — 53.7%，约1679亿元</h2>
+          </div>
+          <p class="economy-lead">宠物食品是绝对主力，其中主粮35.7%、零食13.5%、营养品3.6%。国产品牌凭性价比和科学配方加速替代进口，行业量价齐升。</p>
+          <div class="economy-card-row" aria-label="宠物食品上市公司2025年报数据">
+            <article class="economy-card">
+              <div>
+                <div class="economy-card-topline">
+                  <h3 class="economy-card-title">乖宝宠物（麦富迪）</h3>
+                  <span class="economy-card-code">301498.SZ</span>
+                </div>
+                <p class="economy-card-copy">国产宠物食品营收第一，同比+29%。</p>
+              </div>
+              <div class="economy-card-metrics">
+                <span class="economy-card-metric">
+                  <span class="economy-card-value">67.69<span class="economy-card-value-unit">亿</span></span>
+                  <span class="economy-card-label">2025年营收</span>
+                </span>
+                <span class="economy-card-metric">
+                  <span class="economy-card-value">6.73<span class="economy-card-value-unit">亿</span></span>
+                  <span class="economy-card-label">2025年净利润</span>
+                </span>
+              </div>
+            </article>
+            <article class="economy-card">
+              <div>
+                <div class="economy-card-topline">
+                  <h3 class="economy-card-title">中宠股份（顽皮）</h3>
+                  <span class="economy-card-code">002891.SZ</span>
+                </div>
+                <p class="economy-card-copy">营收同比+17%，但净利同比-7.28%，增收不增利。</p>
+              </div>
+              <div class="economy-card-metrics">
+                <span class="economy-card-metric">
+                  <span class="economy-card-value">52.21<span class="economy-card-value-unit">亿</span></span>
+                  <span class="economy-card-label">2025年营收</span>
+                </span>
+                <span class="economy-card-metric">
+                  <span class="economy-card-value">3.65<span class="economy-card-value-unit">亿</span></span>
+                  <span class="economy-card-label">2025年净利润</span>
+                </span>
+              </div>
+            </article>
+            <article class="economy-card">
+              <div>
+                <div class="economy-card-topline">
+                  <h3 class="economy-card-title">佩蒂股份（好适嘉）</h3>
+                  <span class="economy-card-code">300673.SZ</span>
+                </div>
+                <p class="economy-card-copy">营收同比-12.67%，净利同比-36.52%，海外市场拖累。</p>
+              </div>
+              <div class="economy-card-metrics">
+                <span class="economy-card-metric">
+                  <span class="economy-card-value">14.49<span class="economy-card-value-unit">亿</span></span>
+                  <span class="economy-card-label">2025年营收</span>
+                </span>
+                <span class="economy-card-metric">
+                  <span class="economy-card-value">1.16<span class="economy-card-value-unit">亿</span></span>
+                  <span class="economy-card-label">2025年净利润</span>
+                </span>
+              </div>
+            </article>
+          </div>
+          <p class="economy-source">来源：《各公司2025年年报》；<a href="https://stcn.com/article/detail/3782853.html" target="_blank" rel="noreferrer">《证券时报-乖宝》</a>、<a href="https://finance.sina.com.cn/wm/2026-04-30/doc-inhwhviy6157403.shtml" target="_blank" rel="noreferrer">《新浪财经-中宠》</a>、<a href="https://finance.sina.com.cn/stock/aigc/stockfs/2026-04-23/doc-inhvkqhe4369717.shtml" target="_blank" rel="noreferrer">《新浪财经-佩蒂》</a></p>
+        </article>
+
+        <article class="economy-sector">
+          <div class="economy-sector-head">
+            <h2 class="economy-sector-title">二、医疗 — 27.6%，约863亿元</h2>
+          </div>
+          <p class="economy-lead">需要执业兽医资质的专业诊疗服务，包括门诊、手术、疫苗、体检，是食品之外最大的消费板块。白皮书显示医疗占比同比在缩减。</p>
+
+          <h3 class="economy-subsection-title">医院连锁</h3>
+          <div class="economy-card-row" aria-label="宠物医院连锁机构">
+            <article class="economy-card">
+              <div>
+                <div class="economy-card-topline">
+                  <h3 class="economy-card-title">新瑞鹏</h3>
+                </div>
+                <p class="economy-card-copy">中国最大宠物医疗集团，覆盖100+城市，1000+全资直营医院；2019-2022累计亏损超40亿，毛利率最高仅5.6%，撤回美股IPO。</p>
+              </div>
+              <div class="economy-card-metrics">
+                <span class="economy-card-metric">
+                  <span class="economy-card-value">~1400<span class="economy-card-value-unit">家</span></span>
+                  <span class="economy-card-label">门店数</span>
+                </span>
+                <span class="economy-card-metric">
+                  <span class="economy-card-value">未公开</span>
+                  <span class="economy-card-label">营收</span>
+                </span>
+              </div>
+            </article>
+            <article class="economy-card">
+              <div>
+                <div class="economy-card-topline">
+                  <h3 class="economy-card-title">瑞派宠物</h3>
+                </div>
+                <p class="economy-card-copy">中国第二大宠物医疗服务商；2025H1首次盈利，递表港交所冲刺“宠物医院第一股”。</p>
+              </div>
+              <div class="economy-card-metrics">
+                <span class="economy-card-metric">
+                  <span class="economy-card-value">548<span class="economy-card-value-unit">家</span></span>
+                  <span class="economy-card-label">门店数</span>
+                </span>
+                <span class="economy-card-metric">
+                  <span class="economy-card-value">17.58<span class="economy-card-value-unit">亿</span></span>
+                  <span class="economy-card-label">2024年营收</span>
+                </span>
+              </div>
+            </article>
+            <article class="economy-card">
+              <div>
+                <div class="economy-card-topline">
+                  <h3 class="economy-card-title">宠爱国际/瑞辰</h3>
+                </div>
+                <p class="economy-card-copy">第三梯队，高端定位（宠爱国际）或区域深耕（瑞辰）。</p>
+              </div>
+              <div class="economy-card-metrics">
+                <span class="economy-card-metric">
+                  <span class="economy-card-value">各百家级</span>
+                  <span class="economy-card-label">门店数</span>
+                </span>
+                <span class="economy-card-metric">
+                  <span class="economy-card-value">未公开</span>
+                  <span class="economy-card-label">营收</span>
+                </span>
+              </div>
+            </article>
+          </div>
+          <p class="economy-source">来源：<a href="https://www.21jingji.com/article/20251229/herald/9b5353256ab7675400979a93dec19fc3.html" target="_blank" rel="noreferrer">《21财经》</a>、<a href="https://www.lanjinger.com/d/1767084302456161876" target="_blank" rel="noreferrer">《蓝鲸财经》</a>、<a href="https://m.cbndata.com/information/294868" target="_blank" rel="noreferrer">《CBNData》</a>、<a href="https://www.cs.com.cn/gppd/ggzx/202601/t20260113_6532939.html" target="_blank" rel="noreferrer">《中国证券报-瑞派》</a></p>
+
+          <h3 class="economy-subsection-title">上游：药品疫苗与诊断</h3>
+          <p class="economy-lead">独立于医院终端的药品、疫苗和诊断产品供应链，面向B端宠物医院销售，技术壁垒高，属于医疗产业链的上游供给，不直接面向C端宠主。</p>
+          <div class="economy-card-row" aria-label="宠物医疗上游企业">
+            <article class="economy-card">
+              <div>
+                <div class="economy-card-topline">
+                  <h3 class="economy-card-title">瑞普生物</h3>
+                  <span class="economy-card-code">300119.SZ</span>
+                </div>
+                <p class="economy-card-copy">猫三联疫苗、干扰素、驱虫及抗感染药，覆盖1.3万客户。</p>
+              </div>
+              <div class="economy-card-metrics">
+                <span class="economy-card-metric">
+                  <span class="economy-card-value">7.82<span class="economy-card-value-unit">亿</span></span>
+                  <span class="economy-card-label">供应链营收</span>
+                </span>
+                <span class="economy-card-metric">
+                  <span class="economy-card-value">0.76<span class="economy-card-value-unit">亿</span></span>
+                  <span class="economy-card-label">药苗营收</span>
+                </span>
+              </div>
+            </article>
+          </div>
+          <p class="economy-source">来源：<a href="https://static.cninfo.com.cn/finalpage/2026-03-31/1225054293.PDF" target="_blank" rel="noreferrer">《瑞普生物2025年报》</a>、<a href="https://www.stcn.com/article/detail/3267800.html" target="_blank" rel="noreferrer">《证券时报-瑞普半年报》</a></p>
+        </article>
+
+        <article class="economy-sector">
+          <div class="economy-sector-head">
+            <h2 class="economy-sector-title">三、用品 — 12.2%，约380亿元</h2>
+          </div>
+          <p class="economy-lead">涵盖基础用品、清洁护理、智能家电、出行装备等耐用品及耗材。2025年传统电商渠道宠物家电销售额10.7亿元。</p>
+          <h3 class="economy-subsection-title">传统用品上市公司（2025年报）</h3>
+          <div class="economy-card-row" aria-label="宠物用品上市公司2025年报数据">
+            <article class="economy-card">
+              <div>
+                <div class="economy-card-topline">
+                  <h3 class="economy-card-title">天元宠物</h3>
+                  <span class="economy-card-code">301335.SZ</span>
+                </div>
+                <p class="economy-card-copy">窝垫、猫爬架、食盆等全品类；增收不增利。</p>
+              </div>
+              <div class="economy-card-metrics">
+                <span class="economy-card-metric">
+                  <span class="economy-card-value">30.02<span class="economy-card-value-unit">亿</span></span>
+                  <span class="economy-card-label">2025年营收</span>
+                </span>
+                <span class="economy-card-metric">
+                  <span class="economy-card-value">4226<span class="economy-card-value-unit">万</span></span>
+                  <span class="economy-card-label">2025年净利润</span>
+                </span>
+              </div>
+            </article>
+            <article class="economy-card">
+              <div>
+                <div class="economy-card-topline">
+                  <h3 class="economy-card-title">依依股份</h3>
+                  <span class="economy-card-code">001206.SZ</span>
+                </div>
+                <p class="economy-card-copy">宠物卫生用品，主营尿垫等耗材。</p>
+              </div>
+              <div class="economy-card-metrics">
+                <span class="economy-card-metric">
+                  <span class="economy-card-value">16.77<span class="economy-card-value-unit">亿</span></span>
+                  <span class="economy-card-label">2025年营收</span>
+                </span>
+                <span class="economy-card-metric">
+                  <span class="economy-card-value">1.83<span class="economy-card-value-unit">亿</span></span>
+                  <span class="economy-card-label">2025年净利润</span>
+                </span>
+              </div>
+            </article>
+            <article class="economy-card">
+              <div>
+                <div class="economy-card-topline">
+                  <h3 class="economy-card-title">源飞宠物</h3>
+                  <span class="economy-card-code">001222.SZ</span>
+                </div>
+                <p class="economy-card-copy">宠物玩具、咬胶及牵引用具；自有品牌营销拖累利润。</p>
+              </div>
+              <div class="economy-card-metrics">
+                <span class="economy-card-metric">
+                  <span class="economy-card-value">17.34<span class="economy-card-value-unit">亿</span></span>
+                  <span class="economy-card-label">2025年营收</span>
+                </span>
+                <span class="economy-card-metric">
+                  <span class="economy-card-value">1.16<span class="economy-card-value-unit">亿</span></span>
+                  <span class="economy-card-label">2025年净利润</span>
+                </span>
+              </div>
+            </article>
+          </div>
+          <h3 class="economy-subsection-title">智能硬件代表</h3>
+          <p class="economy-lead">智能硬件代表：小佩PETKIT，其他品牌：霍曼（智能宠物家电）、Pidan（设计感用品）。</p>
+          <div class="economy-card-row" aria-label="宠物智能硬件代表品牌">
+            <article class="economy-card">
+              <div>
+                <div class="economy-card-topline">
+                  <h3 class="economy-card-title">小佩 PETKIT</h3>
+                </div>
+                <p class="economy-card-copy">智能猫砂盆、喂食器、饮水机、摄像头；覆盖60+国家、拥有400+产品专利，采用硬件+App+耗材订阅模式，海外收入占比过半，已盈利。</p>
+              </div>
+              <span class="economy-card-metric">
+                <span class="economy-card-value">11<span class="economy-card-value-unit">亿</span></span>
+                <span class="economy-card-label">2024年营收，2025年未公开</span>
+              </span>
+            </article>
+          </div>
+          <p class="economy-source">来源：<a href="https://www.sohu.com/a/1069130436_115377" target="_blank" rel="noreferrer">《搜狐-天元2026中报》</a>、<a href="https://www.cs.com.cn/ssgs/01/2026/04/16/detail_2026041610004493.html" target="_blank" rel="noreferrer">《中国证券报-依依》</a>、<a href="https://www.bjnews.com.cn/detail/1777475882169422.html" target="_blank" rel="noreferrer">《新京报-源飞》</a>、<a href="https://finance.sina.com.cn/tech/roll/2025-09-10/doc-infpzepa7633295.shtml" target="_blank" rel="noreferrer">《新浪财经-小佩》</a>、<a href="https://www.petkit.com/pages/about-us" target="_blank" rel="noreferrer">《PETKIT官网》</a></p>
+        </article>
+
+        <article class="economy-sector">
+          <div class="economy-sector-head">
+            <h2 class="economy-sector-title">四、服务 — 6.5%，约203亿元</h2>
+          </div>
+          <p class="economy-lead">所有不需要执业兽医资质的到店或上门宠物服务，以及保险和殡葬。与医疗的核心区别是无动物诊疗许可证和执业兽医师资质门槛。</p>
+
+          <h3 class="economy-subsection-title">本地生活服务（洗护+寄养+训练+综合门店）</h3>
+          <p class="economy-lead">这些服务现实中高度重叠，一家综合宠物店可能同时提供洗护、寄养、零售甚至训练，因此按本地生活服务整体呈现，避免同一家公司在多个分类重复出现。</p>
+          <div class="economy-card-row" aria-label="宠物本地生活服务机构">
+            <article class="economy-card">
+              <div>
+                <div class="economy-card-topline">
+                  <h3 class="economy-card-title">圣宠宠物</h3>
+                </div>
+                <p class="economy-card-copy">CCFA 2026宠物服务连锁Top30第二名，加盟为主。</p>
+              </div>
+              <div class="economy-card-metrics">
+                <span class="economy-card-metric">
+                  <span class="economy-card-value">5.83<span class="economy-card-value-unit">亿</span></span>
+                  <span class="economy-card-label">2025年营收</span>
+                </span>
+                <span class="economy-card-metric">
+                  <span class="economy-card-value">2618<span class="economy-card-value-unit">家</span></span>
+                  <span class="economy-card-label">门店数</span>
+                </span>
+              </div>
+            </article>
+            <article class="economy-card">
+              <div>
+                <div class="economy-card-topline">
+                  <h3 class="economy-card-title">宠物家 Pet'em</h3>
+                </div>
+                <p class="economy-card-copy">直营为主，线上预约+宠物档案支撑复购，门店口径存在冲突。</p>
+              </div>
+              <div class="economy-card-metrics">
+                <span class="economy-card-metric">
+                  <span class="economy-card-value">未公开</span>
+                  <span class="economy-card-label">营收</span>
+                </span>
+                <span class="economy-card-metric">
+                  <span class="economy-card-value">150+<span class="economy-card-value-unit">店</span></span>
+                  <span class="economy-card-label">门店数，待核</span>
+                </span>
+              </div>
+            </article>
+            <article class="economy-card">
+              <div>
+                <div class="economy-card-topline">
+                  <h3 class="economy-card-title">功夫汪</h3>
+                </div>
+                <p class="economy-card-copy">园区化寄养+行为管理+训练、游泳、洗护、接送，跨城规模未核验。</p>
+              </div>
+              <div class="economy-card-metrics">
+                <span class="economy-card-metric">
+                  <span class="economy-card-value">未公开</span>
+                  <span class="economy-card-label">营收</span>
+                </span>
+                <span class="economy-card-metric">
+                  <span class="economy-card-value">上海</span>
+                  <span class="economy-card-label">主要区域</span>
+                </span>
+              </div>
+            </article>
+            <article class="economy-card">
+              <div>
+                <div class="economy-card-topline">
+                  <h3 class="economy-card-title">家宝训犬</h3>
+                </div>
+                <p class="economy-card-copy">家庭犬行为纠正，覆盖爆冲、吠叫、护食等问题，成都总校200+在训犬只。</p>
+              </div>
+              <div class="economy-card-metrics">
+                <span class="economy-card-metric">
+                  <span class="economy-card-value">未公开</span>
+                  <span class="economy-card-label">营收</span>
+                </span>
+                <span class="economy-card-metric">
+                  <span class="economy-card-value">9<span class="economy-card-value-unit">所</span></span>
+                  <span class="economy-card-label">分校</span>
+                </span>
+              </div>
+            </article>
+          </div>
+          <p class="economy-source">整体极度分散，以个体宠物店和个人服务者为主。来源：<a href="https://npo13385d.npoall.com/news/itemid-274184.html" target="_blank" rel="noreferrer">《CCFA 2026宠物服务连锁Top30》</a>、<a href="https://www.petem.com.cn/" target="_blank" rel="noreferrer">《宠物家官网》</a>、<a href="https://www.nbd.com.cn/rss/hexun/articles/3670837.html" target="_blank" rel="noreferrer">《每日经济新闻-闭店调查》</a>、<a href="https://www.kungfudogs.com/gywm" target="_blank" rel="noreferrer">《功夫汪官网》</a>、<a href="https://sichuan.scol.com.cn/ggxw/202508/83105765.html" target="_blank" rel="noreferrer">《四川在线实访》</a>、<a href="https://news.cctv.com/2025/01/24/ARTIzT3hdqzg8rQaFLa2iSp2250124.shtml" target="_blank" rel="noreferrer">《央视网-训犬资质》</a>、<a href="https://www.news.cn/food/20260226/061d45ca16ef4a7db3a5108f505f5df2/c.html" target="_blank" rel="noreferrer">《新华网-春节寄养》</a></p>
+
+          <h3 class="economy-subsection-title">殡葬（约1.6%，约50亿元）</h3>
+          <p class="economy-lead">宠物生命终点的全流程服务，包括接运、单独火化、告别仪式、骨灰处理及纪念品。涉及动物无害化处理和环保合规，需专门资质。2023年市场规模18.25亿元，预计2025年达50亿元、2030年破百亿。截至2025年6月全国相关企业超8000家，多为近三年新注册，暂无全国性龙头；连锁品牌恩宠堂历史材料称87城240个服务点。</p>
+          <p class="economy-source">来源：<a href="https://www.news.cn/politics/20250612/9c509c65a8424e318ba83af4c05074a9/c.html" target="_blank" rel="noreferrer">《新华网-宠物殡葬》</a></p>
+
+          <h3 class="economy-subsection-title">保险（约1%/30-35亿）</h3>
+          <p class="economy-lead">2020年保费仅约5000万元，2025年达30-35亿元，连续五年规模翻倍。宠物医疗险占比超50%。保险不是服务交付方，而是医疗支出的风险池，把突发医疗支出转为可预期成本。</p>
+          <div class="economy-card-row" aria-label="宠物保险机构与平台">
+            <article class="economy-card">
+              <div>
+                <div class="economy-card-topline">
+                  <h3 class="economy-card-title">众安保险</h3>
+                </div>
+                <p class="economy-card-copy">头部险企，宠物险全年保费接近12.96亿，同比+88.2%；覆盖560万+只，理赔100万+件。</p>
+              </div>
+              <div class="economy-card-metrics">
+                <span class="economy-card-metric">
+                  <span class="economy-card-value">12.96<span class="economy-card-value-unit">亿</span></span>
+                  <span class="economy-card-label">2025全年保费</span>
+                </span>
+                <span class="economy-card-metric">
+                  <span class="economy-card-value">560<span class="economy-card-value-unit">万+</span></span>
+                  <span class="economy-card-label">覆盖宠物</span>
+                </span>
+                <span class="economy-card-metric">
+                  <span class="economy-card-value">100<span class="economy-card-value-unit">万+</span></span>
+                  <span class="economy-card-label">理赔件数</span>
+                </span>
+              </div>
+            </article>
+            <article class="economy-card">
+              <div>
+                <div class="economy-card-topline">
+                  <h3 class="economy-card-title">蚂蚁保</h3>
+                </div>
+                <p class="economy-card-copy">互联网平台，联合多家险企承保。</p>
+              </div>
+              <span class="economy-card-metric">
+                <span class="economy-card-value">200<span class="economy-card-value-unit">万+</span></span>
+                <span class="economy-card-label">全年理赔案件</span>
+              </span>
+            </article>
+            <article class="economy-card">
+              <div>
+                <div class="economy-card-topline">
+                  <h3 class="economy-card-title">京东保</h3>
+                </div>
+                <p class="economy-card-copy">与蚂蚁保并列为宠物险主流线上获客渠道。</p>
+              </div>
+              <span class="economy-card-metric" aria-hidden="true"></span>
+            </article>
+          </div>
+          <p class="economy-source">来源：<a href="https://finance.cctv.com/2026/06/04/ARTIBsVhycUq58jDzlltwDSs260604.shtml" target="_blank" rel="noreferrer">《央视网-连续五年翻倍》</a>、<a href="https://www.bbtnews.com.cn/2026/0319/587692.shtml" target="_blank" rel="noreferrer">《北京商报-众安》</a>、<a href="https://www.jiemian.com/article/13918288.html" target="_blank" rel="noreferrer">《界面新闻》</a></p>
+        </article>
+
+        <section class="economy-overview" aria-label="图谱总览">
+          <h2 class="economy-overview-title">图谱总览</h2>
+          <div class="table-wrap">
+            <table>
+              <colgroup>
+                <col style="width: 14%" />
+                <col style="width: 10%" />
+                <col style="width: 22%" />
+                <col style="width: 20%" />
+                <col style="width: 34%" />
+              </colgroup>
+              <thead>
+                <tr>
+                  <th scope="col">分类</th>
+                  <th scope="col">占比</th>
+                  <th scope="col">细分赛道</th>
+                  <th scope="col">规模</th>
+                  <th scope="col">头部代表（2025营收）</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row">食品</th>
+                  <td class="economy-overview-share">53.7%</td>
+                  <td>主粮、零食、营养品等</td>
+                  <td class="economy-overview-scale-strong">~1679亿</td>
+                  <td>乖宝(67.7亿)、中宠(52.2亿)、佩蒂(14.5亿)</td>
+                </tr>
+                <tr>
+                  <th scope="row">医疗</th>
+                  <td class="economy-overview-share">27.6%</td>
+                  <td>医院、药品疫苗与诊断产品</td>
+                  <td class="economy-overview-scale-strong">~863亿</td>
+                  <td>新瑞鹏(~1400家)、瑞派(17.6亿/2024)；上游：瑞普生物(供应链7.82亿+药苗0.76亿)</td>
+                </tr>
+                <tr>
+                  <th scope="row">用品</th>
+                  <td class="economy-overview-share">12.2%</td>
+                  <td>传统用品、智能硬件</td>
+                  <td class="economy-overview-scale-strong">~380亿</td>
+                  <td>天元(30亿)、源飞(17.3亿)、依依(16.8亿)、小佩(11亿/2024)</td>
+                </tr>
+                <tr>
+                  <th class="economy-overview-service-category" scope="row" rowspan="3">服务</th>
+                  <td class="economy-overview-share economy-overview-service-share" rowspan="3">6.5%</td>
+                  <td>本地生活（洗护+寄养+训练+综合门店）</td>
+                  <td class="economy-overview-scale-service">~203亿（含殡葬+保险）</td>
+                  <td>圣宠(5.83亿/2618店)、宠物家、功夫汪、家宝训犬</td>
+                </tr>
+                <tr>
+                  <td class="economy-overview-subsector">殡葬</td>
+                  <td class="economy-overview-scale-muted">~50亿</td>
+                  <td class="economy-overview-body-copy">恩宠堂（规模待核）</td>
+                </tr>
+                <tr>
+                  <td class="economy-overview-subsector">保险</td>
+                  <td class="economy-overview-scale-muted">30-35亿</td>
+                  <td class="economy-overview-body-copy">众安(宠物险~13亿)、蚂蚁保、京东保</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="economy-source">数据来源说明：上市公司营收统一采用《2025年年报》口径；瑞派宠物（未上市港股递表中）采用最新完整披露的2024年数据；小佩（非上市）采用CEO公开采访披露的2024年数据；消费结构与总量数据来自《2026年宠物行业白皮书》（央视网转述）；核验于2026年8月。</p>
+        </section>
+      </section>
+
+      <section class="travel-path-section" aria-labelledby="travel-path-title">
+        <h1 class="travel-path-title" id="travel-path-title">用户携宠出行场景路径</h1>
+
+        <article class="travel-path-item">
+          <h2 class="travel-path-item-title">酒店出行场景路径</h2>
+          <figure
+            class="travel-path-figure"
+            data-lightbox-src="https://gw.alicdn.com/imgextra/i1/O1CN01CnDWoLlO76HIpwJ2_!!6000000001544-2-tps-9278-3630.png"
+            data-lightbox-alt="酒店出行场景路径"
+            data-lightbox-group="travel-scenarios"
+          >
+            <img
+              class="travel-path-image"
+              src="https://gw.alicdn.com/imgextra/i1/O1CN01CnDWoLlO76HIpwJ2_!!6000000001544-2-tps-9278-3630.png"
+              alt="酒店出行场景路径"
+              loading="lazy"
+            />
+          </figure>
+        </article>
+
+        <article class="travel-path-item">
+          <h2 class="travel-path-item-title">飞机出行场景路径</h2>
+          <figure
+            class="travel-path-figure"
+            data-lightbox-src="https://img.alicdn.com/imgextra/i4/O1CN014NHTeSQUmtCIeTju_!!6000000000673-0-tps-9187-2303.jpg"
+            data-lightbox-alt="飞机出行场景路径"
+            data-lightbox-group="travel-scenarios"
+          >
+            <img
+              class="travel-path-image"
+              src="https://img.alicdn.com/imgextra/i4/O1CN014NHTeSQUmtCIeTju_!!6000000000673-0-tps-9187-2303.jpg"
+              alt="飞机出行场景路径"
+              loading="lazy"
+            />
+          </figure>
+        </article>
+
+        <article class="travel-path-item">
+          <h2 class="travel-path-item-title">高铁出行场景路径</h2>
+          <figure
+            class="travel-path-figure"
+            data-lightbox-src="https://gw.alicdn.com/imgextra/i4/O1CN01IQIhIgFBnKLInPjf_!!6000000007817-2-tps-9258-1793.png"
+            data-lightbox-alt="高铁出行场景路径"
+            data-lightbox-group="travel-scenarios"
+          >
+            <img
+              class="travel-path-image"
+              src="https://gw.alicdn.com/imgextra/i4/O1CN01IQIhIgFBnKLInPjf_!!6000000007817-2-tps-9258-1793.png"
+              alt="高铁出行场景路径"
+              loading="lazy"
+            />
+          </figure>
+        </article>
+
+        <article class="travel-path-item">
+          <h2 class="travel-path-item-title">专车出行场景路径</h2>
+          <figure
+            class="travel-path-figure"
+            data-lightbox-src="https://gw.alicdn.com/imgextra/i1/O1CN01w36EnoFLGsDGF4Ee_!!6000000000605-2-tps-8000-4580.png"
+            data-lightbox-alt="专车出行场景路径"
+            data-lightbox-group="travel-scenarios"
+          >
+            <img
+              class="travel-path-image"
+              src="https://gw.alicdn.com/imgextra/i1/O1CN01w36EnoFLGsDGF4Ee_!!6000000000605-2-tps-8000-4580.png"
+              alt="专车出行场景路径"
+              loading="lazy"
+            />
+          </figure>
+        </article>
+      </section>
+
+      <dialog class="media-lightbox" id="mediaLightbox" aria-label="查看大图">
+        <div class="media-lightbox-frame">
+          <button class="media-lightbox-close" type="button" aria-label="关闭大图">×</button>
+          <button class="media-lightbox-nav media-lightbox-prev" type="button" aria-label="上一张">‹</button>
+          <div class="media-lightbox-viewport" id="mediaLightboxViewport">
+            <div class="media-lightbox-canvas" id="mediaLightboxCanvas">
+              <img class="media-lightbox-image" id="mediaLightboxImage" alt="" draggable="false" />
+            </div>
+          </div>
+          <button class="media-lightbox-nav media-lightbox-next" type="button" aria-label="下一张">›</button>
+          <div class="media-lightbox-count" aria-live="polite"></div>
+          <div class="media-lightbox-zoom-controls" aria-label="大图缩放">
+            <button class="media-zoom-out" type="button" aria-label="缩小">−</button>
+            <button class="media-zoom-reset" type="button" aria-label="重置缩放">100%</button>
+            <button class="media-zoom-in" type="button" aria-label="放大">+</button>
+          </div>
+        </div>
+      </dialog>
+    </main>
+
+    <script>
+      (() => {
+        const lightbox = document.getElementById("mediaLightbox");
+        const lightboxImage = document.getElementById("mediaLightboxImage");
+        const lightboxViewport = document.getElementById("mediaLightboxViewport");
+        const lightboxCanvas = document.getElementById("mediaLightboxCanvas");
+        const lightboxCount = lightbox.querySelector(".media-lightbox-count");
+        const closeButton = lightbox.querySelector(".media-lightbox-close");
+        const previousButton = lightbox.querySelector(".media-lightbox-prev");
+        const nextButton = lightbox.querySelector(".media-lightbox-next");
+        const zoomOutButton = lightbox.querySelector(".media-zoom-out");
+        const zoomResetButton = lightbox.querySelector(".media-zoom-reset");
+        const zoomInButton = lightbox.querySelector(".media-zoom-in");
+
+        let activeItems = [];
+        let activeIndex = 0;
+        let zoomScale = 1;
+        let baseImageWidth = 0;
+        let baseImageHeight = 0;
+        let isDragging = false;
+        let didDrag = false;
+        let dragStartX = 0;
+        let dragStartY = 0;
+        let dragStartScrollLeft = 0;
+        let dragStartScrollTop = 0;
+
+        function calculateBaseImageSize() {
+          if (!lightboxImage.naturalWidth || !lightboxImage.naturalHeight) return false;
+          const viewportHeight = lightboxViewport.clientHeight;
+          if (!lightboxViewport.clientWidth || !viewportHeight) return false;
+          const fitScale = viewportHeight / lightboxImage.naturalHeight;
+          baseImageWidth = lightboxImage.naturalWidth * fitScale;
+          baseImageHeight = lightboxImage.naturalHeight * fitScale;
+          return true;
+        }
+
+        function updateZoomLayout(preserveCenter = false) {
+          if (!baseImageWidth || !baseImageHeight) {
+            if (!calculateBaseImageSize()) return;
+          }
+
+          const viewportWidth = lightboxViewport.clientWidth;
+          const viewportHeight = lightboxViewport.clientHeight;
+          const oldCanvasWidth = Math.max(lightboxCanvas.scrollWidth, viewportWidth);
+          const oldCanvasHeight = Math.max(lightboxCanvas.scrollHeight, viewportHeight);
+          const centerRatioX = preserveCenter
+            ? (lightboxViewport.scrollLeft + viewportWidth / 2) / oldCanvasWidth
+            : 0.5;
+          const centerRatioY = preserveCenter
+            ? (lightboxViewport.scrollTop + viewportHeight / 2) / oldCanvasHeight
+            : 0.5;
+          const imageWidth = baseImageWidth * zoomScale;
+          const imageHeight = baseImageHeight * zoomScale;
+          const canvasWidth = Math.max(viewportWidth, imageWidth);
+          const canvasHeight = Math.max(viewportHeight, imageHeight);
+
+          lightboxCanvas.style.width = `${canvasWidth}px`;
+          lightboxCanvas.style.height = `${canvasHeight}px`;
+          lightboxImage.style.width = `${imageWidth}px`;
+          lightboxImage.style.height = `${imageHeight}px`;
+
+          const isPannable = imageWidth > viewportWidth + 1 || imageHeight > viewportHeight + 1;
+          lightboxViewport.classList.toggle("is-pannable", isPannable);
+          lightboxViewport.classList.toggle("is-zoomed", zoomScale > 1);
+          zoomResetButton.textContent = `${Math.round(zoomScale * 100)}%`;
+          zoomOutButton.disabled = zoomScale <= 1;
+          zoomInButton.disabled = zoomScale >= 8;
+          lightboxViewport.scrollLeft = Math.max(0, centerRatioX * canvasWidth - viewportWidth / 2);
+          lightboxViewport.scrollTop = Math.max(0, centerRatioY * canvasHeight - viewportHeight / 2);
+        }
+
+        function resetZoom() {
+          zoomScale = 1;
+          baseImageWidth = 0;
+          baseImageHeight = 0;
+          isDragging = false;
+          didDrag = false;
+          lightboxViewport.classList.remove("is-dragging", "is-pannable");
+          if (calculateBaseImageSize()) updateZoomLayout(false);
+        }
+
+        function changeZoom(delta) {
+          const nextScale = Math.min(8, Math.max(1, zoomScale + delta));
+          if (nextScale === zoomScale) return;
+          zoomScale = nextScale;
+          updateZoomLayout(true);
+        }
+
+        function updatePagingControls() {
+          const hasMultipleItems = activeItems.length > 1;
+          previousButton.hidden = !hasMultipleItems;
+          nextButton.hidden = !hasMultipleItems;
+          lightboxCount.textContent = `${activeIndex + 1} / ${activeItems.length}`;
+        }
+
+        function showImage(index) {
+          activeIndex = (index + activeItems.length) % activeItems.length;
+          const item = activeItems[activeIndex];
+          lightboxImage.src = item.src;
+          lightboxImage.alt = item.alt;
+          updatePagingControls();
+          resetZoom();
+        }
+
+        function openStandalone(figure) {
+          const group = figure.dataset.lightboxGroup;
+          const figures = group
+            ? [...document.querySelectorAll("[data-lightbox-src]")].filter(
+                (item) => item.dataset.lightboxGroup === group
+              )
+            : [figure];
+          activeItems = figures.map((item) => ({
+            src: item.dataset.lightboxSrc,
+            alt: item.dataset.lightboxAlt || ""
+          }));
+          activeIndex = Math.max(0, figures.indexOf(figure));
+          showImage(activeIndex);
+          if (!lightbox.open) lightbox.showModal();
+          requestAnimationFrame(resetZoom);
+        }
+
+        document.querySelectorAll("[data-lightbox-src]").forEach((figure) => {
+          figure.addEventListener("click", () => openStandalone(figure));
+        });
+
+        previousButton.addEventListener("click", () => showImage(activeIndex - 1));
+        nextButton.addEventListener("click", () => showImage(activeIndex + 1));
+        zoomOutButton.addEventListener("click", () => changeZoom(-1));
+        zoomInButton.addEventListener("click", () => changeZoom(1));
+        zoomResetButton.addEventListener("click", resetZoom);
+
+        lightboxImage.addEventListener("click", () => {
+          if (didDrag) {
+            didDrag = false;
+            return;
+          }
+          if (zoomScale > 1) resetZoom();
+          else changeZoom(1);
+        });
+
+        lightboxViewport.addEventListener("pointerdown", (event) => {
+          if (!lightboxViewport.classList.contains("is-pannable")) return;
+          isDragging = true;
+          didDrag = false;
+          dragStartX = event.clientX;
+          dragStartY = event.clientY;
+          dragStartScrollLeft = lightboxViewport.scrollLeft;
+          dragStartScrollTop = lightboxViewport.scrollTop;
+          lightboxViewport.classList.add("is-dragging");
+          lightboxViewport.setPointerCapture(event.pointerId);
+          event.preventDefault();
+        });
+
+        lightboxViewport.addEventListener("pointermove", (event) => {
+          if (!isDragging) return;
+          if (Math.abs(event.clientX - dragStartX) > 4 || Math.abs(event.clientY - dragStartY) > 4) {
+            didDrag = true;
+          }
+          lightboxViewport.scrollLeft = dragStartScrollLeft - (event.clientX - dragStartX);
+          lightboxViewport.scrollTop = dragStartScrollTop - (event.clientY - dragStartY);
+        });
+
+        function stopDragging(event) {
+          if (!isDragging) return;
+          isDragging = false;
+          lightboxViewport.classList.remove("is-dragging");
+          if (event.pointerId !== undefined && lightboxViewport.hasPointerCapture(event.pointerId)) {
+            lightboxViewport.releasePointerCapture(event.pointerId);
+          }
+        }
+
+        lightboxViewport.addEventListener("pointerup", stopDragging);
+        lightboxViewport.addEventListener("pointercancel", stopDragging);
+        lightboxImage.addEventListener("load", () => {
+          if (lightbox.open) requestAnimationFrame(resetZoom);
+        });
+
+        closeButton.addEventListener("click", () => {
+          resetZoom();
+          lightbox.close();
+        });
+
+        lightbox.addEventListener("click", (event) => {
+          if (event.target === lightbox) {
+            resetZoom();
+            lightbox.close();
+          }
+        });
+
+        document.addEventListener("keydown", (event) => {
+          if (!lightbox.open) return;
+          if (event.key === "ArrowLeft" && activeItems.length > 1) showImage(activeIndex - 1);
+          if (event.key === "ArrowRight" && activeItems.length > 1) showImage(activeIndex + 1);
+          if (event.key === "+" || event.key === "=") changeZoom(1);
+          if (event.key === "-") changeZoom(-1);
+          if (event.key === "0") resetZoom();
+        });
+
+        window.addEventListener("resize", () => {
+          if (lightbox.open) resetZoom();
+        });
+      })();
+    </script>
+  </body>
+</html>
